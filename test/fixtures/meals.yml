@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  food: MyString
+  day: 2019-05-13 19:30:37
+  meal: one
+  meal_schedule: one
+
+two:
+  food: MyString
+  day: 2019-05-13 19:30:37
+  meal: two
+  meal_schedule: two
