@@ -2,18 +2,19 @@ class MealPlansController < ApplicationController
   before_action :set_meal_plan, only: [:edit, :update, :show, :destroy]
 
   def index
-    @meal_plans = Meal_plan.all
+    @meal_plans = MealPlan.all
   end
 
   def show
   end
 
   def new
-    @meal_plan = Meal_plan.new
+    @meal_plan = MealPlan.new
   end
 
   def create
-    @meal_plan = current_user.meal_plans.build(meal_plan_params)
+    # @meal_plan = current_user.meal_plans.build(meal_plan_params)
+    @meal_plan = MealPlan.new(meal_plan_params)
     if @meal_plan.save
       redirect_to meal_plan_path(@meal_plan)
     else
@@ -41,11 +42,11 @@ class MealPlansController < ApplicationController
 private
 
   def meal_plan_params
-    params.require(:meal_plan).permit(:goal, :type)
+    params.require(:meal_plan).permit(:goal, :description)
   end
 
   def set_meal_plan
-    @meal_plan = Meal_plan.find(params[:id])
+    @meal_plan = Mealplan.find(params[:id])
   end
 
 end
