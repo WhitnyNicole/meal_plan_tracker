@@ -1,0 +1,12 @@
+<h1> Create a Meal Plan </h1>
+
+<%= form_for (@meal_plan)  do |f| %>
+  <%= f.label :goal %>
+  <%= f.select(:goal), ["Weight Loss", "Tone", "Fat Loss", "Gain Muscle", "Maintain"]) %>
+
+  <%= f.label :type %>
+  <%= f.select(:type), ["Normal", "Vegetarian", "Vegan", "Pescatarian", "Gluten Free"]) %>
+  <br><br>
+
+  <%= f.submit %>
+<% end %>
