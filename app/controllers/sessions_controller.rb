@@ -9,5 +9,8 @@ end
 def home
 end
 
+def destroy
+end
+
 
 end

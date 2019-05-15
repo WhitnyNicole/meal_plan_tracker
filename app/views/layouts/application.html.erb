@@ -9,9 +9,15 @@
   </head>
 
   <body>
+    <div class="nav">
+      <%= link_to "Home" , root_path %>
+      <%= link_to "Log Out", logout_path, method: :delete %>
 
-    <%= render 'layouts/messages' %>
-      <div class=
+
+    <div class="wrapper">
+      <%= render 'layouts/messages' %>
+    </div>
+
     <%= yield %>
   </body>
 </html>
