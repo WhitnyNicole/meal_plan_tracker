@@ -13,8 +13,8 @@ class MealPlansController < ApplicationController
   end
 
   def create
-    # @meal_plan = current_user.meal_plans.build(meal_plan_params)
-    @meal_plan = MealPlan.new(meal_plan_params)
+    @meal_plan = current_user.meal_plans.build(meal_plan_params)
+    # @meal_plan = MealPlan.new(meal_plan_params)
     if @meal_plan.save
       redirect_to meal_plan_path(@meal_plan)
     else
