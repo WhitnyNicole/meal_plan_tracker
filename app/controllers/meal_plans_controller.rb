@@ -46,7 +46,7 @@ private
   end
 
   def set_meal_plan
-    @meal_plan = Mealplan.find(params[:id])
+    @meal_plan = MealPlan.find(params[:id])
   end
 
 end
