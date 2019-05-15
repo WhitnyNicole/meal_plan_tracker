@@ -1,0 +1,12 @@
+<h1> Create Meal Schedule </h1>
+
+<%= form_for (@meal_schedule)  do |f| %>
+  <%= f.label :eating_time %>
+  <%= f.select(:eating_time, ["Morning", "Afternoon", "Evening", "Night"]) %>
+
+  <%= f.label :meal_type %>
+  <%= f.select(:meal_type, ["Breakfast", "Lunch", "Dinner", "Snack", "Dessert"]) %>
+  <br><br>
+
+  <%= f.submit %>
+<% end %>

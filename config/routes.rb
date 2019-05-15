@@ -9,4 +9,6 @@ delete '/logout' => 'sessions#destroy'
 
 resources :users
 resources :meal_plans
+resources :meals
+resources :meal_schedules
 end
