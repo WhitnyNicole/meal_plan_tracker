@@ -6,5 +6,9 @@
   <%= f.date_field(:day) %>
   <br><br>
 
+  <%= f.label :meal_plan_id, "Select a Meal Plan"%>
+  <%= f.collection_select :meal_plan_id, MealPlan.all, :id, :goal, prompt: true %>
+
+  <br><br>
   <%= f.submit %>
 <% end %>
