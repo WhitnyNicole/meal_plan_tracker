@@ -6,6 +6,7 @@ class MealSchedulesController < ApplicationController
   end
 
   def show
+    @meal_schedule = MealSchedule.find(params[:id])
   end
 
   def new
@@ -13,7 +14,7 @@ class MealSchedulesController < ApplicationController
   end
 
   def create
-    @meal_schedule = current_user.meal_schedules.build(meal_schedule_params)
+    @meal_schedule = MealSchedule.new(meal_schedule_params)
     if @meal_schedule.save
       redirect_to meal_schedule_path(@meal_schedule)
     else
@@ -21,10 +22,27 @@ class MealSchedulesController < ApplicationController
     end
   end
 
+  def edit
+    @meal_schedule = MealSchedule.find(params[:id])
+  end
+
+  def update
+    if @meal_schedule.update(meal_schedule_params)
+      redirect_to meal_schedule_path(@meal_schedule)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @meal_schedule.destroy
+    redirect_to meal_schedules_path
+  end
+
   private
 
     def meal_schedule_params
-      params.require(:meal_schedule).permit(:eating_time, :meal_type)
+      params.require(:meal_schedule).permit(:eating_time, :meal_type, :meal_id, :meal_plan_id)
     end
 
 
