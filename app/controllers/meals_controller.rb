@@ -9,7 +9,7 @@ def new
 end
 
 def create
-  @meal = current_user.meals.build(meal_params)
+  @meal = current_meal_plan.meals.build(meal_params)
   if @meal.save
     redirect_to meal_path(@meal)
   else

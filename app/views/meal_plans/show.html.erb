@@ -3,4 +3,8 @@
 <p>Meal Plan Description: <%= @meal_plan.description%></p>
 
 
-<%= link_to "Add Meals", new_meal_path %>
+<%= link_to "Add Meals", new_meal_path, class:"btn btn-danger btn-lg btn-xlarge" %>
+
+<br><br>
+  <%= link_to "Edit Meal Plan", edit_meal_plan_path(@meal_plan),  class:"btn btn-danger btn-lg btn-xlarge" %>
+  <%= link_to "Delete Meal Plan", meal_plan_path(@meal_plan), method: :delete, class:"btn btn-danger btn-lg btn-xlarge"  %>
