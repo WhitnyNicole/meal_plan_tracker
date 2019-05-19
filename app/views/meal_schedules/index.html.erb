@@ -9,6 +9,7 @@
       </section>
     </div>
     <div class="col-md-8 well">
+       <p> Meal schedule for <%= mealschedule.meal.try(:food) %></p>
        <p>Eating Time: <%= link_to mealschedule.eating_time, meal_schedule_path(mealschedule) %></p>
        <p> Meal Type: <%= mealschedule.meal_type %></p>
        <p>
