@@ -9,7 +9,7 @@
       </section>
     </div>
     <div class="col-md-8 well">
-       <p>Food: <%= meal.food %></p>
+       <p>Food: <%= link_to meal.food, meal_path(meal) %></p>
        <p> Day: <%= meal.day %></p>
        <p>
          <span class="quiet"></span><small>Created <%= time_ago_in_words(meal.created_at) %> ago</small></span>

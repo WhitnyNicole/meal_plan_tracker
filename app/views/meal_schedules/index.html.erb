@@ -9,10 +9,10 @@
       </section>
     </div>
     <div class="col-md-8 well">
-       <p>Eating Time: <%= mealschedule.eating_time %></p>
+       <p>Eating Time: <%= link_to mealschedule.eating_time, meal_schedule_path(mealschedule) %></p>
        <p> Meal Type: <%= mealschedule.meal_type %></p>
        <p>
-         <span class="quiet"></span><small>Created <%= time_ago_in_words(mealplan.created_at) %> ago</small></span>
+         <span class="quiet"></span><small>Created <%= time_ago_in_words(mealschedule.created_at) %> ago</small></span>
        </p>
     </div>
   </div>
