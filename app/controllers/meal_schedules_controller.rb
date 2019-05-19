@@ -13,7 +13,7 @@ class MealSchedulesController < ApplicationController
   end
 
   def create
-    @meal_schedule = current_meal.meal_schedules.build(meal_schedule_params)
+    @meal_schedule = current_user.meal_schedules.build(meal_schedule_params)
     if @meal_schedule.save
       redirect_to meal_schedule_path(@meal_schedule)
     else
