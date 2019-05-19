@@ -1,7 +1,7 @@
-<h1 align="center">All the meal plans</h1>
+<h1 align="center">All the meals</h1>
 <hr />
 
-<% @meal_plans.each do |mealplan| %>
+<% @meals.each do |meal| %>
   <div class="row">
     <div class="col-md-2">
       <section class ="center">
@@ -9,8 +9,8 @@
       </section>
     </div>
     <div class="col-md-8 well">
-       <p>Goal: <%= mealplan.goal %></p>
-       <p> Description: <%= mealplan.description %></p>
+       <p>Food: <%= meal.food %></p>
+       <p> Day: <%= meal.day %></p>
        <p>
          <span class="quiet"></span><small>Created <%= time_ago_in_words(mealplan.created_at) %> ago</small></span>
        </p>
