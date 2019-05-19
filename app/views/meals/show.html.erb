@@ -1,4 +1,9 @@
 <h1> Your meals </h1>
 
+  <p>Meal Plan: <%= @meal.meal_plan.try(:goal)%></p>
   <p>Food items: <%= @meal.food %></p>
   <p>Day: <%= @meal.day%></p>
+
+  <br><br>
+    <%= link_to "Edit Meal", edit_meal_path(@meal),  class:"btn btn-danger btn-lg btn-xlarge" %>
+    <%= link_to "Delete Meal", meal_path(@meal), method: :delete, class:"btn btn-danger btn-lg btn-xlarge"  %>

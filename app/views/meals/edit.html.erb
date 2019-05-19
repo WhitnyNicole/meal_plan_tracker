@@ -1,0 +1,12 @@
+<h1> Edit Your Meals</h1>
+
+<%= form_for (@meal)  do |f| %>
+  <%= f.label :food %>
+  <%= f.text_field(:food) %>
+
+  <%= f.label :day %>
+  <%= f.date_field(:day) %>
+  <br><br>
+
+  <%= f.submit %>
+<% end %>

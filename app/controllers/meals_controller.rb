@@ -21,6 +21,23 @@ def show
   @meal = Meal.find(params[:id])
 end
 
+def edit
+end
+
+def update
+  if @meal.update(meal_params)
+    redirect_to meal_path(@meal)
+  else
+    render :edit
+  end
+end
+
+def destroy
+  @meal.destroy
+  redirect_to meals_path
+end
+
+
 private
   def meal_params
     params.require(:meal).permit(:food, :day, :meal_plan_id)

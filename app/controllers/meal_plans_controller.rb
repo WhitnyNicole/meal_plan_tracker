@@ -16,6 +16,7 @@ class MealPlansController < ApplicationController
     @meal_plan = current_user.meal_plans.build(meal_plan_params)
     # @meal_plan = MealPlan.new(meal_plan_params)
     if @meal_plan.save
+      params[:id] = @meal_plan.id
       redirect_to meal_plan_path(@meal_plan)
     else
       render :new
