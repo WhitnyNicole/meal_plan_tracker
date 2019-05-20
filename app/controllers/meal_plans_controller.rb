@@ -25,7 +25,6 @@ class MealPlansController < ApplicationController
 
 
   def edit
-    @meal_plan = MealPlan.find(params[:id])
   end
 
   def update
