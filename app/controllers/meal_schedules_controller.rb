@@ -2,7 +2,11 @@ class MealSchedulesController < ApplicationController
 before_action :set_meal_schedules, only: [:show, :edit]
 
   def index
-    @meal_schedules = MealSchedule.all
+    if params[:meal_id] && meal = Meal.find_by_id(params[:meal_id])
+      @meal_schedules = meal.meal_schedules 
+    else
+      @meal_schedules = MealSchedule.all
+    end
   end
 
   def show
