@@ -7,13 +7,14 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
 
+
   resources :users
   resources :meal_plans
   resources :meals
   resources :meal_schedules
 
   resources :meal_plans do
-    resources :meals, only: [:new, :index]
+    resources :meals, only: [:new, :index, :create]
   end
 
   resources :meals do

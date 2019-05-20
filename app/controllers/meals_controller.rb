@@ -1,7 +1,11 @@
 class MealsController < ApplicationController
 before_action :set_meal, only: [:show, :edit]
 def index
-  @meals = Meal.all
+  if params[:meal_plan_id] && mealplan = MealPlan.find_by_id(params[:meal_plan_id])
+    @meals = mealplan.meals 
+  else
+    @meals = Meal.all
+  end
 end
 
 def new
