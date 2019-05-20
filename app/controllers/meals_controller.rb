@@ -5,7 +5,11 @@ def index
 end
 
 def new
-  @meal = Meal.new
+  if params[:meal_plan_id] && mealplan = MealPlan.find_by_id(params[:meal_plan_id])
+    @meal = mealplan.meals.build
+  else
+    @meal = Meal.new
+  end
 end
 
 def create
