@@ -20,7 +20,7 @@ end
 def home
 end
 
-def destroy
+def destroy 
   session.clear
   redirect_to '/'
 end

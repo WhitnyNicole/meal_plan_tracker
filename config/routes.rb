@@ -13,10 +13,10 @@ Rails.application.routes.draw do
   resources :meal_schedules
 
   resources :meal_plans do
-    resources :meals
+    resources :meals, only: [:new, :index]
   end
 
   resources :meals do
-    resources :meal_schedules
-  end 
+    resources :meal_schedules, only: [:new, :index]
+  end
 end
