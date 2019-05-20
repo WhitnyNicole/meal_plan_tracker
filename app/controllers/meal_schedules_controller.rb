@@ -10,7 +10,11 @@ class MealSchedulesController < ApplicationController
   end
 
   def new
-    @meal_schedule = MealSchedule.new
+    if params[:meal_id] && meal = Meal.find_by_id(params[:meal_id])
+      @meal_schedule = meal.meal_schedules.build
+    else
+      @meal_schedule = MealSchedule.new
+    end 
   end
 
   def create

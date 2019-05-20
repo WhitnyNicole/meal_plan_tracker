@@ -15,4 +15,8 @@ Rails.application.routes.draw do
   resources :meal_plans do
     resources :meals
   end
+
+  resources :meals do
+    resources :meal_schedules
+  end 
 end
