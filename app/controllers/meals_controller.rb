@@ -1,5 +1,5 @@
 class MealsController < ApplicationController
-
+before_action :set_meal, only: [:show, :edit]
 def index
   @meals = Meal.all
 end
@@ -22,11 +22,9 @@ def create
 end
 
 def show
-  @meal = Meal.find(params[:id])
 end
 
 def edit
-  @meal = Meal.find(params[:id])
 end
 
 def update
@@ -48,5 +46,7 @@ private
     params.require(:meal).permit(:food, :day, :meal_plan_id)
   end
 
-
+  def set_meal
+    @meal = Meal.find(params[:id])
+  end
 end
