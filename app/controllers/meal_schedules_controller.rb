@@ -26,7 +26,6 @@ before_action :set_meal_schedules, only: [:show, :edit]
       flash[:success] = "Your meal schedule was created!"
       redirect_to meal_schedule_path(@meal_schedule)
     else
-      flash[:error] = "Sorry, there was an error creating your meal schedule!"
       render :new
     end
   end
@@ -39,7 +38,6 @@ before_action :set_meal_schedules, only: [:show, :edit]
       flash[:success] = "Your meal schedule was updated!"
       redirect_to meal_schedule_path(@meal_schedule)
     else
-      flash[:error] = "Sorry, there was an error updating your meal schedule!"
       render :edit
     end
   end

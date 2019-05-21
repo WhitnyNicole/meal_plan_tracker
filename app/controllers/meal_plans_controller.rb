@@ -20,7 +20,6 @@ class MealPlansController < ApplicationController
       params[:id] = @meal_plan.id
       redirect_to meal_plan_path(@meal_plan)
     else
-      flash[:error] = "Sorry, there was an error creating your meal plan!"
       render :new
     end
   end
@@ -34,7 +33,6 @@ class MealPlansController < ApplicationController
       flash[:success] = "Your changes were saved!"
       redirect_to meal_plan_path(@meal_plan)
     else
-      flash[:error] = "Sorry, there was an error updating your meal plan!"
       render :edit
     end
   end

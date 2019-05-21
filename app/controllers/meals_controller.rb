@@ -22,7 +22,6 @@ def create
     flash[:success] = "Your meal was created!"
     redirect_to meal_path(@meal)
   else
-    flash[:error] = "Sorry, there was an error creating your meal!"
     render :new
   end
 end
@@ -38,7 +37,6 @@ def update
     flash[:success] = "Your meal was updated!"
     redirect_to meal_path(@meal)
   else
-    flash[:error] = "Sorry, there was an error updating your meal!"
     render :edit
   end
 end

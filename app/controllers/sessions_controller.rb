@@ -11,8 +11,8 @@ def create
     session[:user_id] = @user.id
     redirect_to user_path(@user)
   else
-    #add flash message
-    redirect_to 'login'
+    flash[:error] = "Sorry, there was an error creating your account!"
+    redirect_to '/login'
     # render :login
   end
 end
@@ -20,7 +20,7 @@ end
 def home
 end
 
-def destroy 
+def destroy
   session.clear
   redirect_to '/'
 end

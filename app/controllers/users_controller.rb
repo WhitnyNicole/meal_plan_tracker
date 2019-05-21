@@ -13,7 +13,6 @@ class UsersController < ApplicationController
       redirect_to user_path(@user)
       # redirect_to meal_plans_path(@meal_plan)
     else
-      flash[:error] = "Sorry, there was an error creating your account!"
       render :new
     end
   end
