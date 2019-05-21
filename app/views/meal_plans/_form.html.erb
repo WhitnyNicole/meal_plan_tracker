@@ -1,4 +1,5 @@
 <%= form_for (@meal_plan)  do |f| %>
+<%= render partial: 'layouts/errors', locals: {object: @meal_plan} %>
   <%= f.label :goal %>
   <%= f.select(:goal, ["Weight Loss", "Tone", "Fat Loss", "Gain Muscle", "Maintain"]) %>
 
