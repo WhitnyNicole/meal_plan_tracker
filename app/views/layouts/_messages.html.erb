@@ -1,5 +1,7 @@
-<% flash.each do |name, msg| %>
-  <ul>
-    <li><%= msg %></li>
-  </ul>
+<% if flash[:success] %>
+  <h3 style="color: green;"><%= flash[:success] %></h3>
+<% end %>
+
+<% if flash[:error] %>
+  <h3 style="color: red;"><%= flash[:error] %></h3>
 <% end %>
