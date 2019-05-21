@@ -3,7 +3,7 @@ before_action :set_meal_schedules, only: [:show, :edit]
 
   def index
     if params[:meal_id] && meal = Meal.find_by_id(params[:meal_id])
-      @meal_schedules = meal.meal_schedules 
+      @meal_schedules = meal.meal_schedules
     else
       @meal_schedules = MealSchedule.all
     end
@@ -23,8 +23,10 @@ before_action :set_meal_schedules, only: [:show, :edit]
   def create
     @meal_schedule = MealSchedule.new(meal_schedule_params)
     if @meal_schedule.save
+      flash[:success] = "Your meal schedule was created!"
       redirect_to meal_schedule_path(@meal_schedule)
     else
+      flash[:error] = "Sorry, there was an error creating your meal schedule!"
       render :new
     end
   end
@@ -34,14 +36,17 @@ before_action :set_meal_schedules, only: [:show, :edit]
 
   def update
     if @meal_schedule.update(meal_schedule_params)
+      flash[:success] = "Your meal schedule was updated!"
       redirect_to meal_schedule_path(@meal_schedule)
     else
+      flash[:error] = "Sorry, there was an error updating your meal schedule!"
       render :edit
     end
   end
 
   def destroy
     @meal_schedule.destroy
+    flash[:success] = "Your meal schedule was deleted!"
     redirect_to meal_schedules_path
   end
 

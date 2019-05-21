@@ -16,9 +16,11 @@ class MealPlansController < ApplicationController
     @meal_plan = current_user.meal_plans.build(meal_plan_params)
     # @meal_plan = MealPlan.new(meal_plan_params)
     if @meal_plan.save
+      flash[:success] = "Your meal plan was created!"
       params[:id] = @meal_plan.id
       redirect_to meal_plan_path(@meal_plan)
     else
+      flash[:error] = "Sorry, there was an error creating your meal plan!"
       render :new
     end
   end
@@ -29,14 +31,17 @@ class MealPlansController < ApplicationController
 
   def update
     if @meal_plan.update(meal_plan_params)
+      flash[:success] = "Your changes were saved!"
       redirect_to meal_plan_path(@meal_plan)
     else
+      flash[:error] = "Sorry, there was an error updating your meal plan!"
       render :edit
     end
   end
 
   def destroy
     @meal_plan.destroy
+    flash[:success] = "Your meal plan was deleted!"
     redirect_to meal_plans_path
   end
 
