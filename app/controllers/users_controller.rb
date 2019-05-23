@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+before_action :require_login
 
   def new
     @user = User.new
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by_id(params[:id])
   end
 
 
@@ -29,5 +29,9 @@ private
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def require_login
+    return head(:forbidden) unless session.include? :user_id
   end
 end

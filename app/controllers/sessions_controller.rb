@@ -5,9 +5,21 @@ def new
   render :login
 end
 
+# def create
+#   @user = User.find_by(email: params[:user][:email])
+#   if @user && @user.authenticate(params[:user][:password])
+#     session[:user_id] = @user.id
+#     redirect_to user_path(@user)
+#   else
+#     flash[:error] = "Sorry, there was an error creating your account!"
+#     redirect_to '/login'
+#     # render :login
+#   end
+# end
+
 def create
   @user = User.find_by(email: params[:user][:email])
-  if @user && @user.authenticate(params[:user][:password])
+    return head(:forbidden) unless @user.authenticate(params[:password])
     session[:user_id] = @user.id
     redirect_to user_path(@user)
   else
@@ -39,5 +51,3 @@ private
   def auth
     request.env['omniauth.auth']
   end
-
-end
