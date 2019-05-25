@@ -33,6 +33,7 @@ def edit
 end
 
 def update
+  set_meal_plan
   if @meal.update(meal_params)
     flash[:success] = "Your meal was updated!"
     redirect_to meal_path(@meal)
@@ -42,6 +43,7 @@ def update
 end
 
 def destroy
+  set_meal_plan
   @meal.destroy
   flash[:success] = "Your meal was deleted!"
   redirect_to meals_path
@@ -54,6 +56,9 @@ private
   end
 
   def set_meal
-    @meal = Meal.find(params[:id])
+    @meal = Meal.find_by(id: params[:id])
+    # if !@meal
+    #   redirect_to meals_path
+    # end
   end
 end

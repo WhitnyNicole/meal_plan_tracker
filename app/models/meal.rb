@@ -3,4 +3,6 @@ class Meal < ApplicationRecord
   has_many :meal_schedules
 
   validates :food, :day, presence: true
+
+
 end
