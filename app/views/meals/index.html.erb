@@ -9,7 +9,11 @@
       </section>
     </div>
     <div class="col-md-8 well">
-       <p><strong><%= meal.meal_plan.try(:goal) %></strong> (meal plan)</p>
+       <p> For meal plan: </p>
+        <ul>
+         <li><%= meal.meal_plan.try(:goal) %></li>
+         <li>Entered by: <strong><%= meal.meal_plan.try(:user).name %></strong></li>
+        </ul>
        <p><%= link_to "Current meal", meal_path(meal) %></p>
         <ul>
           <li><%= meal.food %></li>

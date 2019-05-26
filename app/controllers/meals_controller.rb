@@ -5,7 +5,7 @@ def index
   if params[:meal_plan_id] && mealplan = MealPlan.find_by_id(params[:meal_plan_id])
     @meals = mealplan.meals
   else
-    @meals = Meal.all
+    @meals = current_user.meals
   end
 end
 
