@@ -9,7 +9,7 @@
       </section>
     </div>
     <div class="col-md-8 well">
-       <p><strong><%= meal.meal_plan.try(:goal) %></strong>(meal plan)</p>
+       <p><strong><%= meal.meal_plan.try(:goal) %></strong> (meal plan)</p>
        <p>Food: <%= link_to meal.food, meal_path(meal) %></p>
        <p> Day: <%= meal.day %></p>
        <p>

@@ -1,8 +1,9 @@
 <h1> Your Current Meal Schedule </h1>
 
-<p>Meal Eating Time: <%= @meal_schedule.eating_time %></p>
-<p>Meal Type: <%= @meal_schedule.meal_type %></p>
-
+<div class="col-md-8 well">
+<p><strong><%= @meal_schedule.eating_time %></strong> (eating time)</p>
+<p><strong><%= @meal_schedule.meal_type %></strong> (type)</p>
+</div>
 <br><br>
   <%= link_to "Edit Meal Schedule", edit_meal_schedule_path(@meal_schedule),  class:"btn btn-danger btn-lg btn-xlarge" %>
   <%= link_to "Delete Meal Schedule", meal_schedule_path(@meal_schedule), method: :delete, class:"btn btn-danger btn-lg btn-xlarge"  %>
