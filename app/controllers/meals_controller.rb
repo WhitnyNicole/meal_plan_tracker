@@ -15,6 +15,7 @@ def new
     @meal = mealplan.meals.build
   else
     @meal = Meal.new
+    @meal.build_meal_plan
   end
 end
 
@@ -58,7 +59,7 @@ end
 
 private
   def meal_params
-    params.require(:meal).permit(:food, :day, :meal_plan_id)
+    params.require(:meal).permit(:food, :day, :meal_plan_id, meal_plan_attributes: [:goal, :description])
   end
 
   def set_meal

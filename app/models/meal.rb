@@ -4,5 +4,6 @@ class Meal < ApplicationRecord
 
   validates :food, :day, presence: true
 
+  accepts_nested_attributes_for :meal_plan, reject_if: :all_blank
 
 end
