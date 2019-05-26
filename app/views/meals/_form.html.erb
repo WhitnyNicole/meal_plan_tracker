@@ -1,16 +1,20 @@
 <%= form_for [meal.meal_plan, meal]  do |f| %>
 
 <%= render partial: 'layouts/errors', locals: {object: @meal} %>
+  <div>
+    <%= f.label :food %>
+    <%= f.text_field(:food) %>
+  </div>
 
-  <%= f.label :food %>
-  <%= f.text_field(:food) %>
+  <div>
+    <%= f.label :day %>
+    <%= f.date_field(:day) %>
+</div>
 
-  <%= f.label :day %>
-  <%= f.date_field(:day) %>
-  <br><br>
-
+<div>
   <%= f.label :meal_plan_id, "Select a Meal Plan"%>
   <%= f.collection_select :meal_plan_id, MealPlan.all, :id, :goal, prompt: true %>
+</div>
 
   <br><br>
 
