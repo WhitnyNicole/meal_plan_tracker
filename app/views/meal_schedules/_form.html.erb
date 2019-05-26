@@ -1,5 +1,6 @@
 <%= form_for [meal_schedule.meal, meal_schedule]  do |f| %>
   <%= render partial: 'layouts/errors', locals: {object: @meal_schedule} %>
+  <%= f.hidden_field :meal_id %>
 
 <div>
   <%= f.label :eating_time %>

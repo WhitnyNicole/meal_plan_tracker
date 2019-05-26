@@ -24,7 +24,7 @@ before_action :set_meal_schedules, only: [:show, :edit]
     @meal_schedule = MealSchedule.new(meal_schedule_params)
     if @meal_schedule.save
       flash[:success] = "Your meal schedule was created!"
-      redirect_to meal_schedule_path(@meal_schedule)
+      redirect_to meal_path(@meal_schedule.meal)
     else
       render :new
     end
