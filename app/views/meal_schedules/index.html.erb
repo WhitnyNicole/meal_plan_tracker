@@ -14,9 +14,9 @@
          <li><%= mealschedule.meal.try(:food) %></li>
          <li><%= mealschedule.meal.try(:day) %></li>
        </ul>
-       <p> Meal Details: </p>
+       <p><%= link_to "Meal Details:", meal_schedule_path(mealschedule) %></p>
        <ul>
-         <li>Eating Time: <%= link_to mealschedule.eating_time, meal_schedule_path(mealschedule) %></li>
+         <li> Eating Time: <%= mealschedule.eating_time %></li>
          <li> Meal Type: <%= mealschedule.meal_type %></li>
        </ul>
        <p>

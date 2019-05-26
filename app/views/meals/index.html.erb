@@ -10,10 +10,10 @@
     </div>
     <div class="col-md-8 well">
        <p><strong><%= meal.meal_plan.try(:goal) %></strong> (meal plan)</p>
-       <p> For this meal you ate: </p>
+       <p><%= link_to "Current meal", meal_path(meal) %></p>
         <ul>
-          <li><%= link_to meal.food, meal_path(meal) %></li>
-          <li> On: <%= meal.day %></li>
+          <li><%= meal.food %></li>
+          <li> Eaten on: <%= meal.day %></li>
         </ul>
        <p>
          <span class="quiet"></span><small>Created <%= time_ago_in_words(meal.created_at) %> ago</small></span>
