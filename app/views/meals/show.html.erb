@@ -4,7 +4,7 @@
   <p>Meal Plan: <%= @meal.meal_plan.try(:goal)%></p>
 <ul>
   <li>Food items: <%= @meal.food %></li>
-  <li>Day: <%= @meal.day%></li>
+  <li>Eaten on: <%= @meal.day.strftime("%b %d, %Y")%></li>
 </ul>
 </div>
   <%= link_to "Add Meal Schedule", new_meal_meal_schedule_path(@meal), class:"btn btn-danger btn-lg btn-xlarge" %>
