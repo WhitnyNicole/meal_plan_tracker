@@ -1,8 +1,10 @@
 
-<h2>Your Homepage</h2>
+<h2><center>Your Homepage</center></h2>
+<div>
   <h4>Name: <%= @user.name %></h4>
   <h4> Email: <%= @user.email %></h4>
-
+</div>
+<br><br>
 <%= link_to "Select a Meal Plan", new_meal_plan_path %>
-
+<br><br>
 <%= link_to "Log Out", logout_path, method: :delete %>

@@ -5,10 +5,10 @@ class Meal < ApplicationRecord
   validates :food, :day, presence: true
 
   # accepts_nested_attributes_for :meal_plan, reject_if: :all_blank
-
-  def meal_plan_attributes=(attributes)
-    mealplan = MealPlan.find_or_create_by(attributes)
-    self.mealplan = mealplan if mealplan.valid?
-  end
+  # 
+  # def meal_plan_attributes=(attributes)
+  #   mealplan = MealPlan.find_or_create_by(attributes)
+  #   self.mealplan = mealplan if mealplan.valid?
+  # end
 
 end

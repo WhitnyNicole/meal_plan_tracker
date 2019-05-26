@@ -15,7 +15,7 @@ def new
     @meal = mealplan.meals.build
   else
     @meal = Meal.new
-    @meal.build_meal_plan
+    # @meal.build_meal_plan
   end
 end
 
@@ -25,7 +25,7 @@ def create
     flash[:success] = "Your meal was created!"
     redirect_to meal_path(@meal)
   else
-    @meal.build_meal_plan unless @meal.meal_plan
+    # @meal.build_meal_plan unless @meal.meal_plan
     render :new
   end
 end
@@ -60,7 +60,7 @@ end
 
 private
   def meal_params
-    params.require(:meal).permit(:food, :day, :meal_plan_id, meal_plan_attributes: [:goal, :description])
+    params.require(:meal).permit(:food, :day, :meal_plan_id)
   end
 
   def set_meal

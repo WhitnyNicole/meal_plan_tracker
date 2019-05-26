@@ -18,7 +18,7 @@ def create
     session[:user_id] = @user.id
     redirect_to user_path(@user)
   else
-    flash[:error] = "Sorry, there was an error creating your account!"
+    flash[:error] = "Sorry, there was an error with your account!"
     redirect_to '/login'
     # render :login
   end
