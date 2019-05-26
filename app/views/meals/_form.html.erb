@@ -16,6 +16,8 @@
   <%= f.collection_select :meal_plan_id, MealPlan.all, :id, :goal, prompt: true %>
 </div>
 <br><br>
+
+<% if !params[:meal_plan_id] %>
 <h4> Or Create a Meal Plan: </h4>
 <div>
   <%= f.fields_for :meal_plan  do |m| %>
@@ -27,6 +29,7 @@
     <%= m.label :description %>
     <%= m.select(:description, ["Regular", "Vegetarian", "Vegan", "Pescatarian", "Gluten Free", "Keto"]) %>
 </div>
+  <% end %>
   <% end %>
 </div>
 

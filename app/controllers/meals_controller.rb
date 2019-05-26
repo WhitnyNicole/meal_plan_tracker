@@ -25,6 +25,7 @@ def create
     flash[:success] = "Your meal was created!"
     redirect_to meal_path(@meal)
   else
+    @meal.build_meal_plan unless @meal.meal_plan
     render :new
   end
 end
