@@ -1,6 +1,7 @@
 <%= form_for [meal.meal_plan, meal] do |f| %>
 
 <%= render partial: 'layouts/errors', locals: {object: @meal} %>
+  <%= f.hidden_field :meal_plan_id %>
   <div>
     <%= f.label :food %>
     <%= f.text_field(:food) %>
