@@ -18,6 +18,7 @@
         <ul>
           <li><%= meal.food %></li>
           <li> Eaten on: <%= meal.day.strftime("%b %d, %Y") %></li>
+          <li>Favorite? <%= meal.favorite %></li>
         </ul>
        <p>
          <span class="quiet"></span><small>Created <%= time_ago_in_words(meal.created_at) %> ago</small></span>

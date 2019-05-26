@@ -13,6 +13,11 @@
 </div>
 
 <div>
+  <%= f.label :favorite %>
+  <%= f.select :favorite, ['False', 'True'] %>
+</div>
+
+<div>
   <%= f.label :meal_plan_id, "Select a Meal Plan"%>
   <%= f.collection_select :meal_plan_id, MealPlan.all, :id, :goal, prompt: true %>
 </div>

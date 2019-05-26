@@ -6,6 +6,10 @@
 
   <%= f.label :day %>
   <%= f.date_field(:day) %>
+
+  <%= f.label :favorite %>
+  <%= f.select :favorite, ['False', 'True'] %>
+
   <br><br>
 
   <%= f.label :meal_plan_id, "Select a Meal Plan"%>

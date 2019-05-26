@@ -13,6 +13,7 @@
        <ul>
          <li><%= mealschedule.meal.try(:food) %></li>
          <li><%= mealschedule.meal.try(:day).strftime("%b %d, %Y") %></li>
+         <li>Favorite? <%= mealschedule.meal.try(:favorite) %></li>
        </ul>
        <p><%= link_to "Meal Details:", meal_schedule_path(mealschedule) %></p>
        <ul>
