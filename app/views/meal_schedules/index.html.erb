@@ -9,9 +9,16 @@
       </section>
     </div>
     <div class="col-md-8 well">
-       <p><strong><%= mealschedule.meal.try(:food) %></strong> (meal schedule)</p>
-       <p>Eating Time: <%= link_to mealschedule.eating_time, meal_schedule_path(mealschedule) %></p>
-       <p> Meal Type: <%= mealschedule.meal_type %></p>
+       <p>For this meal: </p>
+       <ul>
+         <li><%= mealschedule.meal.try(:food) %></li>
+         <li><%= mealschedule.meal.try(:day) %></li>
+       </ul>
+       <p> Meal Details: </p>
+       <ul>
+         <li>Eating Time: <%= link_to mealschedule.eating_time, meal_schedule_path(mealschedule) %></li>
+         <li> Meal Type: <%= mealschedule.meal_type %></li>
+       </ul>
        <p>
          <span class="quiet"></span><small>Created <%= time_ago_in_words(mealschedule.created_at) %> ago</small></span>
        </p>

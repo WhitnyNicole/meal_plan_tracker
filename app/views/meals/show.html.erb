@@ -2,8 +2,10 @@
 
 <div class="col-md-8 well">
   <p>Meal Plan: <%= @meal.meal_plan.try(:goal)%></p>
-  <p>Food items: <%= @meal.food %></p>
-  <p>Day: <%= @meal.day%></p>
+<ul>
+  <li>Food items: <%= @meal.food %></li>
+  <li>Day: <%= @meal.day%></li>
+</ul>
 </div>
   <%= link_to "Add Meal Schedule", new_meal_meal_schedule_path(@meal), class:"btn btn-danger btn-lg btn-xlarge" %>
 

@@ -1,10 +1,12 @@
 <h1> Your Current Meal Plan </h1>
 
 <div class="col-md-8 well">
-<p><strong><%= @meal_plan.goal %></strong> (Goal)</p>
-<p><strong><%= @meal_plan.description%></strong> (Description)</p>
+  <p> Your meal plan is: </p>
+  <ul>
+    <li><strong><%= @meal_plan.goal %></strong> (Goal)</li>
+    <li><strong><%= @meal_plan.description%></strong> (Description)</li>
 </div>
-
+</ul>
 <%= link_to "Add Meals", new_meal_plan_meal_path(@meal_plan), class:"btn btn-danger btn-lg btn-xlarge" %>
 
 <br><br>
