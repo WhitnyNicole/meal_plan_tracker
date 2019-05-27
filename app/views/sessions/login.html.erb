@@ -1,4 +1,4 @@
-<h1> Log in </h1>
+<%= render "shared/page_title", title: "Log In" %>
 
 <%= form_for (@user), url: '/login'  do |f| %>
   <%= f.label :email %>
