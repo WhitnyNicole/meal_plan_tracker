@@ -33,3 +33,27 @@ $navbar-default-bg: #073b15;
   color: #fff;
   text-decoration: none;
 }
+
+.description {
+  margin-top: 0;
+}
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px;
+  color: #777;
+}
+
+footer a {
+  color: #555;
+}
+
+footer a:hover {
+  color: #222;
+}
+
+
+footer small {
+  float: left;
+}
