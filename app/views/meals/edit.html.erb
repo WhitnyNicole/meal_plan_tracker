@@ -1,5 +1,5 @@
-<h1 align="center"> Edit Your Meals</h1>
-<hr />
+<%= render "shared/page_title", title: "Edit Your Meals" %>
+
 <%= form_for [@meal]  do |f| %>
   <%= f.label :food %>
   <%= f.text_field(:food) %>

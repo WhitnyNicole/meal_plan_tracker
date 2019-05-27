@@ -1,5 +1,5 @@
-<h1 align="center"> Your meals </h1>
-<hr />
+<%= render "shared/page_title", title: "Your Meals" %>
+
 <div class="col-md-8 well">
   <p>Meal Plan: <%= @meal.meal_plan.try(:goal)%></p>
 <ul>

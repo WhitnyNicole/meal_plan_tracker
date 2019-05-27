@@ -1,5 +1,5 @@
-<h1 align="center">All the meals</h1>
-<hr />
+<%= render "shared/page_title", title: "All Your Meals" %>
+
 <p>Your Favorite Food: <%= Meal.all.favorite[0][:food] %></p>
 <% @meals.each do |meal| %>
   <div class="row">
