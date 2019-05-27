@@ -1,4 +1,4 @@
-<h1> Add Meal Schedule </h1>
+<h1 align="center"> Add Meal Schedule </h1>
 <h4> Adding to Meal: <%= @meal_schedule.meal.try(:food) %> eaten on <%= @meal_schedule.meal.try(:day) %> </h4>
 <%= render 'form', {meal_schedule: @meal_schedule} %>
 
