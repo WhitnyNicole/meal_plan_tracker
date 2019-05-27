@@ -1,6 +1,6 @@
 <h1 align="center">All the meals</h1>
 <hr />
-
+<p>Your Favorite Food: <%= @meals(params[:food]) %></p>
 <% @meals.each do |meal| %>
   <div class="row">
     <div class="col-md-2">
