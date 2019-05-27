@@ -4,6 +4,7 @@ before_action :set_meal, only: [:show, :edit]
 def index
   if params[:meal_plan_id] && mealplan = MealPlan.find_by_id(params[:meal_plan_id])
     @meals = mealplan.meals
+    # @meals = Meal.favorite
   else
     @meals = current_user.meals
   end
@@ -40,7 +41,7 @@ redirect_if_not_logged_in
 end
 
 def update
-  set_meal_plan
+  set_meal
   redirect_if_not_logged_in
   if @meal.update(meal_params)
     flash[:success] = "Your meal was updated!"
@@ -51,7 +52,7 @@ def update
 end
 
 def destroy
-  set_meal_plan
+  set_meal
   redirect_if_not_logged_in
   @meal.destroy
   flash[:success] = "Your meal was deleted!"

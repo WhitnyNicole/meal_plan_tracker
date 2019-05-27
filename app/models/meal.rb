@@ -2,14 +2,14 @@ class Meal < ApplicationRecord
   belongs_to :meal_plan
   has_many :meal_schedules
 
-  validates :food, :day, presence: true
+  validates :food, :day, :favorite, presence: true
   validates :meal_plan_id, presence: true
 
-  scope :favorite, -> { where(favorite: 'true') }
+  scope :favorite, -> { where(favorite: true) }
 
-  def self.favorite
-    where(favorite: 'true')
-  end
+  # def self.favorite
+  #   where(favorite: true)
+  # end
 
 
   # accepts_nested_attributes_for :meal_plan, reject_if: :all_blank
