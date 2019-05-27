@@ -1,3 +1,4 @@
 <h1 align="center"> Add Your Meals</h1>
+<hr />
 <h4> Adding to Meal Plan: <%= @meal.meal_plan.try(:goal) %> - <%= @meal.meal_plan.try(:description) %> </h4>
 <%= render 'form', {meal: @meal} %>

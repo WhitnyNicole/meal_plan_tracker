@@ -1,5 +1,5 @@
 <h1 align="center"> Edit Meal Schedule </h1>
-
+<hr />
 <%= form_for [@meal_schedule]  do |f| %>
   <%= f.label :eating_time %>
   <%= f.select(:eating_time, ["Morning", "Afternoon", "Evening", "Night"]) %>
