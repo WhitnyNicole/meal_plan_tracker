@@ -24,8 +24,8 @@ def create
   @meal = current_user.meals.build(meal_params)
   if @meal.save
     flash[:success] = "Your meal was created!"
-    redirect_to meal_plan_path(@meal.meal_plan)
-    # redirect_to meal_path(@meal)
+    # redirect_to meal_plan_path(@meal.meal_plan)
+    redirect_to meal_path(@meal)
   else
     # @meal.build_meal_plan unless @meal.meal_plan
     render :new
