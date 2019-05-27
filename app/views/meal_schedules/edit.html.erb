@@ -1,5 +1,5 @@
-<h1 align="center"> Edit Meal Schedule </h1>
-<hr />
+<%= render "shared/page_title", title: "Edit Meal Schedule" %>
+
 <%= form_for [@meal_schedule]  do |f| %>
   <%= f.label :eating_time %>
   <%= f.select(:eating_time, ["Morning", "Afternoon", "Evening", "Night"]) %>
