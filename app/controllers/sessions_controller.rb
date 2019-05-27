@@ -48,6 +48,7 @@ end
 
 
 def home
+  redirect_to meal_plans_path if logged_in?
 end
 
 
