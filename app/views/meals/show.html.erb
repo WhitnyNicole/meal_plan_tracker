@@ -8,10 +8,10 @@
   <li>Favorite? <%= @meal.favorite %></li>
 </ul>
 </div>
-  <%= link_to "Add Meal Schedule", new_meal_meal_schedule_path(@meal), class:"btn btn-danger btn-lg btn-xlarge" %>
-  <%= link_to "See Meal Schedules", meal_meal_schedules_path(@meal), class:"btn btn-danger btn-lg btn-xlarge" %>
 
-
-  <br><br>
-    <%= link_to "Edit Meal", edit_meal_path(@meal),  class:"btn btn-danger btn-lg btn-xlarge" %>
-    <%= link_to "Delete Meal", meal_path(@meal), method: :delete, class:"btn btn-danger btn-lg btn-xlarge"  %>
+<div class="recipe-actions">
+  <%= link_to "Add Meal Schedule", new_meal_meal_schedule_path(@meal), class:"btn btn-xs btn-warning" %>
+  <%= link_to "See Meal Schedules", meal_meal_schedules_path(@meal), class:"btn btn-xs btn-warning" %>
+  <%= link_to "Edit Meal", edit_meal_path(@meal), class:"btn btn-xs btn-warning" %>
+  <%= link_to "Delete Meal", meal_path(@meal), method: :delete, class:"btn btn-xs btn-warning" %>
+</div>
