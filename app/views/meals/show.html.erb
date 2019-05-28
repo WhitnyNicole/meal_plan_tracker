@@ -7,7 +7,6 @@
   <li>Eaten on: <%= @meal.day.strftime("%b %d, %Y")%></li>
   <li>Favorite? <%= @meal.favorite %></li>
 </ul>
-</div>
 
 <div class="recipe-actions">
   <%= link_to "Add Meal Schedule", new_meal_meal_schedule_path(@meal), class:"btn btn-xs btn-xlarge" %>
