@@ -3,8 +3,16 @@
 <div class="col-md-8 well">
   <h4>Name: <%= @user.name %></h4>
   <h4> Email: <%= @user.email %></h4>
+</div>
+
+  <br><br>
+<div class="col-md-8 well">
+  <h4 align="center"><%= @user.name %>'s meal plans</h4>
+  <%= render 'meal_plans/mealplan', obj: @user.meal_plans %>
+</div>
 
 <br><br>
+
 <%= link_to "Select a Meal Plan", new_meal_plan_path, class:"btn btn-xs btn-xlarge"%>
 <%= link_to "See Meal Plans", meal_plans_path, class:"btn btn-xs btn-xlarge"%>
 <%= link_to "Log Out", logout_path, method: :delete, class:"btn btn-xs btn-xlarge"%>
