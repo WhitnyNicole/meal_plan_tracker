@@ -1,0 +1,20 @@
+<% obj.each do |mealplan| %>
+  <div class="row">
+    <div class="col-md-2">
+      <section class ="center">
+
+      </section>
+    </div>
+    <div class="col-md-8 well">
+      <h4><%= link_to "My Meal Plan", meal_plan_path(mealplan) %></h4>
+      <ul>
+         <li><%= mealplan.goal %> (goal)</li>
+         <li><%= mealplan.description %> (description)</li>
+       </ul>
+       </p>
+         <span class="quiet"></span><small>Created by <%= mealplan.user.try(:name) %></small></span><br>
+         <span class="quiet"></span><small>Created <%= time_ago_in_words(mealplan.created_at) %> ago</small></span>
+       </p>
+    </div>
+  </div>
+<% end %>
