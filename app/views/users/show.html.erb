@@ -1,4 +1,4 @@
-<%= render "shared/page_title", title: "#{@user.name}'s Homepage" %>
+<%= render "shared/page_title", title: "#{@user.name}'s Profile" %>
 
 <div class="col-md-8 well">
   <h4>Name: <%= @user.name %></h4>
@@ -6,9 +6,16 @@
 </div>
 
   <br><br>
-<div class="col-md-8 well">
-  <h4 align="center"><%= @user.name %>'s meal plans</h4>
-  <%= render 'meal_plans/mealplan', obj: @user.meal_plans %>
+
+  <h4 align="center">Your Meal Plans</h4>
+  <hr />
+
+<div align="center">
+  <%= will_paginate @user_mealplans %>
+</div>
+  <%= render 'meal_plans/mealplan', obj: @user_mealplans %>
+<div align="center">
+  <%= will_paginate @user_mealplans %>
 </div>
 
 <br><br>

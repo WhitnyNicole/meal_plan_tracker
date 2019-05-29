@@ -19,6 +19,7 @@ before_action :require_login
 
   def show
     @user = User.find_by_id(params[:id])
+    @user_mealplans = @user.meal_plans.paginate(page: params[:page], per_page: 5)
   end
 
 
