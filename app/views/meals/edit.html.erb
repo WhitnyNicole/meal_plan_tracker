@@ -1,4 +1,5 @@
 <%= render "shared/page_title", title: "Edit Your Meals" %>
+<%= render partial: 'layouts/errors', locals: {object: @meal} %>
 
 <%= form_for [@meal]  do |f| %>
   <%= f.label :food %>
@@ -8,7 +9,7 @@
   <%= f.date_field(:day) %>
 
   <%= f.label :favorite %>
-  <%= f.select :favorite, ['False', 'True'] %>
+  <%= f.select :favorite, [['No', 'false'],['Yes', 'true']] %>
 
   <br><br>
 
