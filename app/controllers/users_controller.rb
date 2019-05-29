@@ -8,7 +8,7 @@ before_action :require_login
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = "Welcome to your Meal Tracker!"
+      flash[:success] = "Welcome #{@user.name} to your Meal Tracker!"
       session[:user_id] = @user.id
       redirect_to user_path(@user)
       # redirect_to meal_plans_path(@meal_plan)
