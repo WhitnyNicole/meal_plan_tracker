@@ -3,4 +3,6 @@ class MealSchedule < ApplicationRecord
   belongs_to :meal_plan
 
   validates :eating_time, :meal_type, presence: true
+  default_scope -> { order(updated_at: :desc)}
+
 end

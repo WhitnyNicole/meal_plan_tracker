@@ -4,4 +4,5 @@ class MealPlan < ApplicationRecord
   has_many :meal_schedules, through: :meals
 
   validates :goal, :description, presence: true
+  default_scope -> { order(updated_at: :desc)}
 end

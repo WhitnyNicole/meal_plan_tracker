@@ -7,6 +7,8 @@ class Meal < ApplicationRecord
   validates_inclusion_of:favorite, in: [true, false]
 
   scope :favorite, -> { where(favorite: true) }
+  default_scope -> { order(updated_at: :desc)}
+
 
   # def find_favorite
   #   return Meal.favorite
