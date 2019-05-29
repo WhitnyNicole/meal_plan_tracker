@@ -8,9 +8,10 @@ class Meal < ApplicationRecord
 
   scope :favorite, -> { where(favorite: true) }
 
-  # def self.favorite
-  #   where(favorite: true)
+  # def find_favorite
+  #   return Meal.favorite
   # end
+
 
 
   # accepts_nested_attributes_for :meal_plan, reject_if: :all_blank

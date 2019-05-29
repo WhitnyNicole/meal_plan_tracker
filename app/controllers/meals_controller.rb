@@ -4,10 +4,14 @@ before_action :set_meal, only: [:show, :edit]
 def index
   if params[:meal_plan_id] && mealplan = MealPlan.find_by_id(params[:meal_plan_id])
     @meals = mealplan.meals
-    # @meals = Meal.all.favorite
   else
     @meals = current_user.meals
   end
+end
+
+def favorite_meals
+  @favorite_meals = Meal.favorite
+  # can also call on a collection
 end
 
 def new
