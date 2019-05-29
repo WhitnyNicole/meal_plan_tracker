@@ -1,6 +1,7 @@
 <%= render "shared/page_title", title: "All Your Meals" %>
 
 <p>Your Favorite Food: <%= @favorite_meals %></p>
+
 <% @meals.each do |meal| %>
   <div class="row">
     <div class="col-md-2">

@@ -2,7 +2,9 @@ class MealPlansController < ApplicationController
   before_action :set_meal_plan, only: [:edit, :update, :show, :destroy]
 
   def index
-    @meal_plans = current_user.meal_plans
+    # @meal_plans = current_user.meal_plans
+    @meal_plans = current_user.meal_plans.paginate(page: params[:page], per_page: 5)
+
   end
 
   def show
