@@ -5,3 +5,27 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+user = User.where(name: "Whitny").first_or_create do |user|
+    user.email = "wne4e2@gmail.com"
+    user.password = "password"
+    user.password_confirmation = "password"
+  end
+
+
+mealplan = MealPlan.where(goal: "Tone").first_or_create do |mealplan|
+          mealplan.description = "Regular"
+          mealplan.user_id = "1"
+        end
+
+meal = Meal.where(food: "burger").first_or_create do |meal|
+      meal.favorite = "true"
+      meal.day = Date.today
+      meal.meal_plan_id =  "1"
+    end
+
+mealschedule = MealSchedule.where(eating_time: "afternoon").first_or_create do |mealschedule|
+          mealschedule.meal_type = "lunch"
+          mealschedule.meal_plan_id = "1"
+          mealschedule.meal_id = "1"
+    end
