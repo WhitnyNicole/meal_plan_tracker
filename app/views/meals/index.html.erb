@@ -1,6 +1,10 @@
 <%= render "shared/page_title", title: "All Your Meals" %>
 
-<p>Your Favorite Food: <%= @favorite_meals %></p>
+<p>Your Favorite Food: </p>
+  <% Meal.favorite.map do |meal| %>
+        <h2><%= meal.food %></h2>
+    <% end %>
+
 
 
 <%= render 'meal', obj: @meals %>
