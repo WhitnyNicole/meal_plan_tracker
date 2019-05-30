@@ -8,6 +8,7 @@
     <div class="col-md-8 well">
       <h4><%= link_to "My Meal Plan", meal_plan_path(mealplan) %></h4>
       <ul>
+        <li><%= pluralize(mealplan.meals.count, "meals") if mealplan.meals %></li>
          <li><%= mealplan.goal %> (goal)</li>
          <li><%= mealplan.description %> (description)</li>
        </ul>
