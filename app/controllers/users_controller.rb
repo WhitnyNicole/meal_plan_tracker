@@ -22,7 +22,6 @@ before_action :require_login
     @user_mealplans = @user.meal_plans.paginate(page: params[:page], per_page: 5)
   end
 
-
 private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
