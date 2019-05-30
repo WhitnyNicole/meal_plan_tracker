@@ -1,27 +1,3 @@
 <%= render "shared/page_title", title: "All Your Meal Schedules" %>
 
-<% @meal_schedules.each do |mealschedule| %>
-  <div class="row">
-    <div class="col-md-2">
-      <section class ="center">
-
-      </section>
-    </div>
-    <div class="col-md-8 well">
-       <p>For this meal: </p>
-       <ul>
-         <li><%= mealschedule.meal.try(:food) %></li>
-         <li><%= mealschedule.meal.try(:day) %></li>
-         <li>Favorite? <%= mealschedule.meal.try(:favorite) %></li>
-       </ul>
-       <h5><%= link_to "Meal Details:", meal_schedule_path(mealschedule) %></h5>
-       <ul>
-         <li> Eating Time: <%= mealschedule.eating_time %></li>
-         <li> Meal Type: <%= mealschedule.meal_type %></li>
-       </ul>
-       <p>
-         <span class="quiet"></span><small>Created <%= time_ago_in_words(mealschedule.created_at) %> ago</small></span>
-       </p>
-    </div>
-  </div>
-<% end %>
+<%= render 'mealschedule', obj: @meal_schedules %>
