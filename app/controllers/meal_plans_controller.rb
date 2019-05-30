@@ -17,6 +17,7 @@ class MealPlansController < ApplicationController
   def create
     @meal_plan = current_user.meal_plans.build(meal_plan_params)
     # @meal_plan = MealPlan.new(meal_plan_params)
+    # @meal_plan.user = current_user
     if @meal_plan.save
       flash[:success] = "Your meal plan was created!"
       params[:id] = @meal_plan.id
