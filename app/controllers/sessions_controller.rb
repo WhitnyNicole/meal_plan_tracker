@@ -4,6 +4,7 @@ require 'securerandom'
 
 def destroy
   session.clear
+  flash[:success] = "You have logged out"
   redirect_to '/'
 end
 
@@ -16,6 +17,7 @@ def create
   @user = User.find_by(email: params[:user][:email])
   if @user && @user.authenticate(params[:user][:password]) && @user.authenticate(params[:user][:password_confirmation])
     session[:user_id] = @user.id
+    flash[:success] = "Welcome back #{@user.name}!"
     redirect_to user_path(@user)
   else
     flash[:error] = "Sorry, there was an error with your account!"
@@ -31,6 +33,7 @@ def fbcreate
     u.password = SecureRandom.hex(10)
   end
   session[:user_id] = @user.id
+  flash[:success] = "Welcome back #{@user.name}!"
   redirect_to user_path(@user)
 end
 
