@@ -41,7 +41,7 @@ class MealPlansController < ApplicationController
 
   def destroy
     @meal_plan.destroy
-    flash[:success] = "Your meal plan was deleted!"
+    flash[:success] = "Your meal plan and all associated meals were deleted!"
     redirect_to meal_plans_path
   end
 
