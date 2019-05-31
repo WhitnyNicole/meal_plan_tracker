@@ -1,9 +1,10 @@
 <%= render "shared/page_title", title: "All Your Meals" %>
 
-<div class="col-md-8 well">
-<h4>Your Favorite Food: </h4>
-  <% Meal.favorite.map do |meal| %>
-        <p><%= meal.food %></p>
+<div>
+<h4>Your Favorite Food is: </h4>
+    <% Meal.favorite.map do |meal| %>
+          <li><%= meal.food.capitalize %></li>
     <% end %>
 </div>
+
 <%= render 'meal', obj: @meals %>
