@@ -2,27 +2,28 @@
 
 <%= render partial: 'layouts/errors', locals: {object: @meal} %>
   <%= f.hidden_field :meal_plan_id %>
-  <div>
+  <div class="col-md-8 well">
+
     <%= f.label :food %>
     <%= f.text_field(:food) %>
-  </div>
 
-  <div>
+
     <%= f.label :day %>
     <%= f.date_field(:day) %>
-</div>
 
-<div>
+
   <%= f.label :favorite %>
   <%= f.select :favorite, [['No', 'false'],['Yes', 'true']] %>
-</div>
 
-<div>
+<br><br>
+
   <%= f.label :meal_plan_id, "Select a Meal Plan"%>
   <%= f.collection_select :meal_plan_id, MealPlan.all, :id, :goal, prompt: true %>
-</div>
+
 
   <br><br>
 
+<div class="center">
   <%= f.submit %>
+</div>
 <% end %>

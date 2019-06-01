@@ -1,6 +1,8 @@
 <%= render "shared/page_title", title: "Edit Your Meals" %>
 <%= render partial: 'layouts/errors', locals: {object: @meal} %>
 
+<div class="col-md-8 well">
+
 <%= form_for [@meal]  do |f| %>
   <%= f.label :food %>
   <%= f.text_field(:food) %>
