@@ -1,13 +1,5 @@
 <%= render "shared/page_title", title: "All Your Meals" %>
 
-<div>
-<h4>Your Favorite Food is: </h4>
-    <% Meal.favorite.map do |meal| %>
-          <li><%= meal.food.capitalize %></li>
-    <% end %>
-</div>
-
-
 <div align="center">
   <%= will_paginate %>
 </div>

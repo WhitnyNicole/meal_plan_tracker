@@ -5,6 +5,14 @@
 
       </section>
     </div>
+
+    <div>
+    <h4>Your Favorite Food is: </h4>
+        <% mealplan.meals.favorite.map do |meal| %>
+              <li><%= meal.food.capitalize %></li>
+        <% end %>
+    </div>
+
     <div class="col-md-8 well">
       <h4><%= link_to "My Meal Plan", meal_plan_path(mealplan) %></h4>
       <ul>
