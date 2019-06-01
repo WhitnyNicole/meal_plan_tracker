@@ -7,7 +7,7 @@
     <li><strong><%= @meal_plan.description%></strong> (Description)</li>
 
 </ul>
-<div class="recipe-actions">
+<div class="mealplan-actions">
   <% if logged_in? && current_user == @meal_plan.user %>
     <%= link_to "Add Meals", new_meal_plan_meal_path(@meal_plan), class:"btn btn-xs btn-xlarge" %>
     <%= link_to "Edit Meal Plan", edit_meal_plan_path(@meal_plan), class:"btn btn-xs btn-warning" %>
