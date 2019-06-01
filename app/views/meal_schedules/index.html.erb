@@ -1,3 +1,9 @@
 <%= render "shared/page_title", title: "All Your Meal Schedules" %>
 
+<div align="center">
+  <%= will_paginate %>
+</div>
 <%= render 'mealschedule', obj: @meal_schedules %>
+<div align="center">
+  <%= will_paginate %>
+</div>
