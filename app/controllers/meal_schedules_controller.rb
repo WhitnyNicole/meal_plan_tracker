@@ -1,5 +1,7 @@
 class MealSchedulesController < ApplicationController
 before_action :set_meal_schedules, only: [:show, :edit]
+before_action :redirect_if_not_logged_in, only: [:new, :create, :edit, :update]
+before_action :require_same_user, only: [:edit, :update, :delete]
 
   def index
     if params[:meal_id] && meal = Meal.find_by_id(params[:meal_id])
@@ -57,6 +59,13 @@ before_action :set_meal_schedules, only: [:show, :edit]
 
     def set_meal_schedules
       @meal_schedule = MealSchedule.find(params[:id])
+    end
+
+    def require_same_user
+      if current_user.id != @meal_schedule.meal_plan.user_id
+        flash[:danger] = "You can only edit or delete your own meal schedule"
+        redirect_to meal_schedules_path
+      end
     end
 
 end
