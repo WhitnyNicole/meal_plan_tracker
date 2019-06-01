@@ -7,4 +7,8 @@ module ApplicationHelper
     !!session[:user_id]
       # !!@current_user
   end
+
+  def current_meal
+    @current_meal ||= Meal.find_by_id(params[:meal_id]) if params[:meal_id]
+  end
 end
