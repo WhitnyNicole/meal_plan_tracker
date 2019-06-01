@@ -5,7 +5,7 @@ class MealPlansController < ApplicationController
 
   def index
     # @meal_plans = current_user.meal_plans
-    @meal_plans = current_user.meal_plans.paginate(page: params[:page], per_page: 5)
+    @meal_plans = current_user.meal_plans.paginate(page: params[:page], per_page: 2)
 
   end
 

@@ -5,9 +5,9 @@ before_action :require_same_user, only: [:edit, :update, :delete]
 
   def index
     if params[:meal_id] && meal = Meal.find_by_id(params[:meal_id])
-      @meal_schedules = meal.meal_schedules
+      @meal_schedules = meal.meal_schedules.paginate(page: params[:page], per_page: 2)
     else
-      @meal_schedules = MealSchedule.all.paginate(page: params[:page], per_page: 5)
+      @meal_schedules = MealSchedule.all.paginate(page: params[:page], per_page: 2)
       # redirect_to meal_schedules_path
     end
   end
