@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_id(params[:id])
-    @user_mealplans = @user.meal_plans.paginate(page: params[:page], per_page: 5)
+    @user_mealplans = @user.meal_plans.paginate(page: params[:page], per_page: 2)
   end
 
 private
