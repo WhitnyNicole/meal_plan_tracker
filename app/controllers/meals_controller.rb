@@ -10,11 +10,6 @@ def index
   end
 end
 
-def favorite_meals
-  @favorite_meals = Meal.favorite
-  # can also call on a collection
-end
-
 def new
   redirect_if_not_logged_in
   if current_user && params[:meal_plan_id] && mealplan = MealPlan.find_by_id(params[:meal_plan_id])
