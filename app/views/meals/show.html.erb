@@ -3,7 +3,7 @@
 <div class="col-md-8 well">
   <p>Meal Plan: <%= @meal.meal_plan.try(:goal)%></p>
 <ul>
-  <li>Food items: <%= @meal.food %></li>
+  <li>Food items: <%= @meal.food.capitalize %></li>
   <li>Eaten on: <%= @meal.day.strftime("%b %d, %Y")%></li>
   <li>Favorite? <%= @meal.favorite %></li>
 </ul>
