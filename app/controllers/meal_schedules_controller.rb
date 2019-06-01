@@ -8,6 +8,7 @@ before_action :require_same_user, only: [:edit, :update, :delete]
       @meal_schedules = meal.meal_schedules
     else
       @meal_schedules = MealSchedule.all
+      # redirect_to meal_schedules_path
     end
   end
 
