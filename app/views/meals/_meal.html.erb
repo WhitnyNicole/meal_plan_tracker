@@ -23,6 +23,7 @@
        <% if logged_in? && current_user == meal.meal_plan.user %>
         <div class="meal-actions">
          <%= link_to "Add Meal Schedule", new_meal_meal_schedule_path(meal), class:"btn btn-xs btn-xlarge" %>
+         <%= link_to "View Meal Schedules", meal_meal_schedules_path(meal), class:"btn btn-xs btn-warning" %>
          <%= link_to "Edit Meal", edit_meal_path(meal), class:"btn btn-xs btn-warning" %>
          <%= link_to "Delete Meal", meal_path(meal), method: :delete, data: { confirm: "Are you sure you want to delete this meal?"}, class:"btn btn-xs btn-danger" %>
        </div>
