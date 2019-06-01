@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 # before_action :require_same_user, only: [:show]
-before_action :redirect_if_not_logged_in, only: [:new, :create, :show]
+before_action :redirect_if_not_logged_in, only: [:show]
 
 # before_action :require_login
 
