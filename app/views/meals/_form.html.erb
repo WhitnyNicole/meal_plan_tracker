@@ -4,18 +4,23 @@
   <%= f.hidden_field :meal_plan_id %>
   <div class="col-md-8 well">
 
-    <%= f.label :food %>
-    <%= f.text_field(:food) %>
+
+  <%= f.label :food %>
+  <%= f.text_field(:food) %>
 
 
-    <%= f.label :day %>
-    <%= f.date_field(:day) %>
+
+  <%= f.label :day %>
+  <%= f.date_field(:day) %>
+
 
 
   <%= f.label :favorite %>
   <%= f.select :favorite, [['No', 'false'],['Yes', 'true']] %>
 
+
 <br><br>
+
 
   <%= f.label :meal_plan_id, "Select a Meal Plan"%>
   <%= f.collection_select :meal_plan_id, MealPlan.all, :id, :goal, prompt: true %>

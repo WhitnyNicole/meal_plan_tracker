@@ -2,26 +2,32 @@
   <%= render partial: 'layouts/errors', locals: {object: @meal_schedule} %>
   <%= f.hidden_field :meal_id %>
 
-<div>
+  <div class="col-md-8 well">
+
+<div class="center">
   <%= f.label :eating_time %>
   <%= f.select(:eating_time, ["Morning", "Afternoon", "Evening", "Night"]) %>
 </div>
 
-<div>
+<div class="center">
   <%= f.label :meal_type %>
   <%= f.select(:meal_type, ["Breakfast", "Lunch", "Dinner", "Snack", "Dessert"]) %>
 </div>
 
-<div>
+<div class="center">
   <%= f.label :meal_id, "Select a Meal"%>
   <%= f.collection_select :meal_id, Meal.all, :id, :food, prompt: true %>
 </div>
 
-<div>
+<div class="center">
   <%= f.label :meal_plan_id, "Select a Meal Plan"%>
   <%= f.collection_select :meal_plan_id, MealPlan.all, :id, :goal, prompt: true %>
 </div>
+
   <br><br>
+
+<div class="center">
   <%= f.submit %>
+</div>
 
   <% end %>

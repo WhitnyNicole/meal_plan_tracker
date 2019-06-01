@@ -1,5 +1,6 @@
 <%= render "shared/page_title", title: "Edit Meal Schedule" %>
 
+  <div class="col-md-8 well">
 <%= form_for [@meal_schedule]  do |f| %>
   <%= f.label :eating_time %>
   <%= f.select(:eating_time, ["Morning", "Afternoon", "Evening", "Night"]) %>
