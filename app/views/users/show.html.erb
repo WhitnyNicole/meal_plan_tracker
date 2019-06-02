@@ -6,19 +6,18 @@
 </div>
 
   <br><br>
-
+<% if @user.meal_plans.count != 0 %>
   <h4 align="center">Your Meal Plans</h4>
   <hr />
+  <div align="center">
+    <%= will_paginate @user_mealplans %>
+  </div>
+    <%= render 'meal_plans/mealplan', obj: @user_mealplans %>
+    <div align="center">
+      <%= will_paginate @user_mealplans %>
+    </div>
 
-<div align="center">
-  <%= will_paginate @user_mealplans %>
-</div>
-  <%= render 'meal_plans/mealplan', obj: @user_mealplans %>
-<div align="center">
-  <%= will_paginate @user_mealplans %>
-</div>
-
-<br><br>
+    <br><br>
 
 <div class="mealplan-actions">
 <% if logged_in? && current_user == @user %>
@@ -28,3 +27,10 @@
 <% end %>
 <%= link_to "Your Meal Plans", meal_plans_path(@meal_plan), class:"btn btn-xs btn-xlarge" %>
 </div>
+
+<% else %>
+  <h4 align="center"> No Meal Plans yet! </h4><br><br>
+  <div align="center">
+    <%= link_to "Create a Meal Plan", new_meal_plan_path, class:"btn btn-xs btn-xlarge"%>
+  </div>
+<% end %>
