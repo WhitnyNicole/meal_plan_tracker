@@ -4,18 +4,18 @@
 <div class="col-md-8 well">
 
 <%= form_for [@meal]  do |f| %>
+
   <%= f.label :food %>
   <%= f.text_field(:food) %>
 
-  <%= f.label :day %>
-  <%= f.date_field(:day) %>
-
   <%= f.label :beverage %>
   <%= f.text_field(:beverage) %>
-  
+
   <%= f.label :drink %>
   <%= f.number_field(:drink) %>
 
+  <%= f.label :day %>
+  <%= f.date_field(:day) %>
 
   <%= f.label :favorite %>
   <%= f.select :favorite, [['No', 'false'],['Yes', 'true']] %>
