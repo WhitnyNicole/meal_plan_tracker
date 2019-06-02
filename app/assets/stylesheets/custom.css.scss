@@ -46,8 +46,10 @@ $navbar-default-bg: #073b15;
 footer {
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px;
+  border-top: 1px solid #073b15;
   color: #777;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 footer a {
