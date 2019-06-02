@@ -73,6 +73,7 @@ private
   end
 
   def require_same_user
+    set_meal
     if current_user.id != @meal.meal_plan.user_id
       flash[:danger] = "You can only edit or delete your own meal"
       redirect_to meals_path
