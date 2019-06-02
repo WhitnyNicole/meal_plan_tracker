@@ -2,7 +2,7 @@ class Meal < ApplicationRecord
   belongs_to :meal_plan
   has_many :meal_schedules
 
-  validates :food, :day, presence: true
+  validates :food, :day, :drink, presence: true
   validates :meal_plan_id, presence: true
   validates_inclusion_of:favorite, in: [true, false]
 
