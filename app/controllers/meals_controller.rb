@@ -1,6 +1,6 @@
 class MealsController < ApplicationController
 before_action :set_meal, only: [:show, :edit]
-before_action :redirect_if_not_logged_in, only: [:new, :create, :edit, :update]
+before_action :redirect_if_not_logged_in, only: [:new, :create, :edit, :update, :show]
 before_action :require_same_user, only: [:edit, :update, :delete]
 
 def index
@@ -35,11 +35,9 @@ def create
 end
 
 def show
-redirect_if_not_logged_in
 end
 
 def edit
-redirect_if_not_logged_in
 end
 
 def update
