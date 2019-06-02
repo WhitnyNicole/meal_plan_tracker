@@ -9,8 +9,7 @@
        <p>For this meal: </p>
        <ul>
          <li><%= mealschedule.meal.try(:food).capitalize %></li>
-         <li><%= mealschedule.meal.try(:beverage) %></li>
-         <li><%= mealschedule.meal.try(:drink) %> ounces</li>
+         <li><%= mealschedule.meal.try(:drink) %> ounces of <%= mealschedule.meal.try(:beverage) %></li>
          <li><%= mealschedule.meal.try(:day).strftime("%b %d, %Y") %></li>
          <li>Favorite(T/F)? <%= mealschedule.meal.try(:favorite) %></li>
        </ul>

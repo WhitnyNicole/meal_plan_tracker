@@ -4,8 +4,7 @@
   <p>Meal Plan: <%= @meal.meal_plan.try(:goal)%></p>
 <ul>
   <li>Food items: <%= @meal.food.capitalize %></li>
-  <li>Beverage: <%= @meal.beverage %></li>
-  <li>Ounces: <%= @meal.drink %></li>
+  <li><%= @meal.try(:drink) %> ounces of <%= @meal.try(:beverage) %></li>
   <li>Eaten on: <%= @meal.day.strftime("%b %d, %Y")%></li>
   <li>Favorite? <%= @meal.favorite %></li>
 </ul>
