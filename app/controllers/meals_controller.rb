@@ -62,7 +62,7 @@ end
 
 private
   def meal_params
-    params.require(:meal).permit(:food, :day, :drink, :favorite, :meal_plan_id)
+    params.require(:meal).permit(:food, :day, :drink, :beverage, :favorite, :meal_plan_id)
   end
 
   def set_meal
