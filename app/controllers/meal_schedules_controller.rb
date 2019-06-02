@@ -61,14 +61,14 @@ before_action :require_same_user, only: [:edit, :update, :delete]
     end
 
     def set_meal_schedules
-      @meal_schedule = MealSchedule.find(params[:id])
+      @meal_schedule = MealSchedule.find_by(id: params[:id])
     end
 
     def require_same_user
-      if current_user.id != @meal_schedule.meal_plan.user_id
-        flash[:danger] = "You can only edit or delete your own meal schedule"
-        redirect_to meal_schedules_path
+        set_meal_schedules
+        if current_user.id != @meal_schedule.meal_plan.user_id
+          flash[:danger] = "You can only edit or delete your own meal schedule"
+          redirect_to meal_schedules_path
+        end
       end
-    end
-
 end
