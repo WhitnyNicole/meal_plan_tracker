@@ -10,6 +10,13 @@
   <%= f.label :day %>
   <%= f.date_field(:day) %>
 
+  <%= f.label :beverage %>
+  <%= f.text_field(:beverage) %>
+  
+  <%= f.label :drink %>
+  <%= f.number_field(:drink) %>
+
+
   <%= f.label :favorite %>
   <%= f.select :favorite, [['No', 'false'],['Yes', 'true']] %>
 

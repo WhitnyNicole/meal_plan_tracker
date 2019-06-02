@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190602025314) do
+ActiveRecord::Schema.define(version: 20190602030108) do
 
   create_table "meal_plans", force: :cascade do |t|
     t.string   "goal"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20190602025314) do
     t.datetime "updated_at",                   null: false
     t.boolean  "favorite",     default: false
     t.integer  "drink"
+    t.string   "beverage"
     t.index ["meal_plan_id"], name: "index_meals_on_meal_plan_id"
   end
 
