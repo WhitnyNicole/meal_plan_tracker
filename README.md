@@ -13,7 +13,7 @@ Users have the ability to:
 
 # How to get set up:
 
-To run this app, clone the repo and run bundle install and rake db:migrate and rake db:seed. Then run rails s to fire up a server. You should see the app running on localhost:9393.
+To run this app, clone the repo and run bundle install and rake db:migrate and rake db:seed. Then run rails s to fire up a server. You should see the app running on localhost:3000.
 
 ## Contributing
 
