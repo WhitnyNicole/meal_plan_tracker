@@ -8,8 +8,10 @@
     <div class="col-md-8 well">
        <p>For this meal: </p>
        <ul>
-         <li><%= mealschedule.meal.try(:food).capitalize %></li>
-         <li><%= mealschedule.meal.try(:drink) %> ounces of <%= mealschedule.meal.try(:beverage) %></li>
+         <li><%= mealschedule.meal.try(:protein).capitalize %></li>
+         <li><%= mealschedule.meal.try(:vegetable).capitalize %></li>
+         <li><%= mealschedule.meal.try(:side).capitalize %></li>
+         <li><%= mealschedule.meal.try(:beverage_ounces) %> ounces of <%= mealschedule.meal.try(:beverage) %></li>
          <li><%= mealschedule.meal.try(:day).strftime("%b %d, %Y") %></li>
          <li>Favorite(T/F)? <%= mealschedule.meal.try(:favorite) %></li>
        </ul>

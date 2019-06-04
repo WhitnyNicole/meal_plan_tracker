@@ -1,6 +1,6 @@
 <%= render "shared/page_title", title: "Add Meal Schedule" %>
 
-<h4> Adding to Meal: <%= @meal_schedule.meal.try(:food) %></h4>
+<h4> Adding to Meal: <%= @meal_schedule.meal.try(:protein) %></h4>
 <%= render 'form', {meal_schedule: @meal_schedule} %>
 
 <br><br>
