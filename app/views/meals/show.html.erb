@@ -3,8 +3,10 @@
 <div class="col-md-8 well">
   <p>Meal Plan: <%= @meal.meal_plan.try(:goal)%></p>
 <ul>
-  <li>Food items: <%= @meal.food.capitalize %></li>
-  <li><%= @meal.try(:drink) %> ounces of <%= @meal.try(:beverage) %></li>
+  <li>Protein: <%= @meal.protein.capitalize %></li>
+  <li>Veggies: <%= @meal.vegetable.capitalize %></li>
+  <li>Sides: <%= @meal.side.capitalize %></li>
+  <li><%= @meal.try(:beverage_ounces) %> ounces of <%= @meal.try(:beverage) %></li>
   <li>Eaten on: <%= @meal.day.strftime("%b %d, %Y")%></li>
   <li>Favorite? <%= @meal.favorite %></li>
 </ul>

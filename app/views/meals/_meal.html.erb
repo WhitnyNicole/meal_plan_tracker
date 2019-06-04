@@ -13,8 +13,10 @@
         </ul>
        <h5><%= link_to "Current meal", meal_path(meal) %></h5>
         <ul>
-          <li><%= meal.food.capitalize %></li>
-          <li><%= meal.try(:drink) %> ounces of <%= meal.try(:beverage) %></li>
+          <li><%= meal.protein.capitalize %></li>
+          <li><%= meal.vegetable.capitalize %></li>
+          <li><%= meal.side.capitalize %></li>
+          <li><%= meal.try(:beverage_ounces) %> ounces of <%= meal.try(:beverage) %></li>
           <li> Eaten on: <%= meal.day.strftime("%b %d, %Y") %></li>
           <li>Favorite(T/F)? <%= meal.favorite %></li>
         </ul>
