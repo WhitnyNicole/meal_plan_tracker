@@ -6,7 +6,7 @@
       </section>
     </div>
     <div class="col-md-8 well">
-       <p>For this meal: </p>
+      <h5><%= link_to "Meal Details:", meal_path(mealschedule) %></h5>
        <ul>
          <li><%= mealschedule.meal.try(:protein).capitalize %></li>
          <li><%= mealschedule.meal.try(:vegetable).capitalize %></li>
@@ -15,7 +15,7 @@
          <li><%= mealschedule.meal.try(:day).strftime("%b %d, %Y") %></li>
          <li>Favorite(T/F)? <%= mealschedule.meal.try(:favorite) %></li>
        </ul>
-       <h5><%= link_to "Meal Details:", meal_schedule_path(mealschedule) %></h5>
+       <h5><%= link_to "Meal Schedule:", meal_schedule_path(mealschedule) %></h5>
        <ul>
          <li> Eating Time: <%= mealschedule.eating_time %></li>
          <li> Meal Type: <%= mealschedule.meal_type %></li>

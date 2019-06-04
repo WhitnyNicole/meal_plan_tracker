@@ -6,12 +6,12 @@
       </section>
     </div>
     <div class="col-md-8 well">
-       <p> For meal plan: </p>
+       <h5> <%= link_to "Current Meal Plan", meal_plan_path(meal) %></h5>
         <ul>
          <li><%= meal.meal_plan.try(:goal) %></li>
          <li>Entered by: <strong><%= meal.meal_plan.try(:user).name %></strong></li>
         </ul>
-       <h5><%= link_to "Current meal", meal_path(meal) %></h5>
+       <h5><%= link_to "Current Meal", meal_path(meal) %></h5>
         <ul>
           <li><%= meal.protein.capitalize %></li>
           <li><%= meal.vegetable.capitalize %></li>
