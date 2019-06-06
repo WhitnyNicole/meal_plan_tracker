@@ -5,4 +5,6 @@ class MealPlan < ApplicationRecord
 
   validates :goal, :description, presence: true
   default_scope -> { order(updated_at: :desc)}
+
+  accepts_nested_attributes_for :meal_schedules, reject_if: :all_blank
 end
