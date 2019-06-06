@@ -13,7 +13,10 @@ class MealPlansController < ApplicationController
   end
 
   def new
-    @meal_plan = MealPlan.new
+    redirect_if_not_logged_in
+      @mealplan = MealPlan.new
+      @mealplan.meal_schedules.build
+      @meal = Meal.new
   end
 
   def create
@@ -51,7 +54,7 @@ class MealPlansController < ApplicationController
 private
 
   def meal_plan_params
-    params.require(:meal_plan).permit(:goal, :description)
+    params.require(:meal_plan).permit(:goal, :description, :meal_schedule_id, meal_schedule_attributes: [:eating_time, :meal_type])
   end
 
   def set_meal_plan
