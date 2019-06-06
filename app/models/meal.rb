@@ -3,7 +3,6 @@ class Meal < ApplicationRecord
   has_many :meal_plans, through: :meal_schedules, dependent: :destroy
 
   validates :protein, :vegetable, :side, :day, :beverage, :beverage_ounces, presence: true
-  validates :meal_plan_id, presence: true
   validates_inclusion_of:favorite, in: [true, false]
 
   scope :favorite, -> { where(favorite: true) }
