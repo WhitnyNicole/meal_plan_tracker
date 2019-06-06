@@ -21,7 +21,6 @@ mealplan = MealPlan.where(goal: "Tone").first_or_create do |mealplan|
 meal = Meal.where(food: "burger").first_or_create do |meal|
       meal.favorite = "true"
       meal.day = Date.today
-      meal.meal_plan_id =  "1"
     end
 
 mealschedule = MealSchedule.where(eating_time: "afternoon").first_or_create do |mealschedule|

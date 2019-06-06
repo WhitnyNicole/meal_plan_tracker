@@ -15,9 +15,9 @@ Rails.application.routes.draw do
   resources :meals
   resources :meal_schedules
 
-  resources :meal_plans do
-    resources :meals, only: [:new, :index, :create]
-  end
+  # resources :meal_plans do
+  #   resources :meal_schedules, only: [:new, :index, :create]
+  # end
 
   resources :meals do
     resources :meal_schedules, only: [:new, :index, :create]
