@@ -10,11 +10,11 @@ class Meal < ApplicationRecord
   # scope :favorite, -> { where(favorite: true) unless Meal.all.empty? }
   default_scope -> { order(updated_at: :desc)}
 
-
-  def self.favorite
-    binding.pry
-    return Meal.where(favorite: true) unless Meal.all.empty?
-  end
+  # 
+  # def self.favorite
+  #   binding.pry
+  #   return Meal.where(favorite: true) unless Meal.all.empty?
+  # end
 
 
 
