@@ -1,7 +1,7 @@
 class MealsController < ApplicationController
 before_action :set_meal, only: [:show, :edit]
-# before_action :redirect_if_not_logged_in, only: [:new, :create, :edit, :update, :show]
-# before_action :require_same_user, only: [:edit, :update, :delete]
+before_action :redirect_if_not_logged_in, only: [:new, :create, :edit, :update, :show]
+before_action :require_same_user, only: [:edit, :update, :delete]
 
 def index
   if params[:meal_plan_id] && mealplan = MealPlan.find_by_id(params[:meal_plan_id])
@@ -12,28 +12,28 @@ def index
   end
 end
 
-def new
-  redirect_if_not_logged_in
-  if current_user && params[:meal_plan_id] && mealplan = MealPlan.find_by_id(params[:meal_plan_id])
-    @meal = mealplan.meals.build
-  else
-    @meal = Meal.new
-    # @meal.build_meal_plan
-  end
-end
+# def new
+#   redirect_if_not_logged_in
+#   if current_user && params[:meal_plan_id] && mealplan = MealPlan.find_by_id(params[:meal_plan_id])
+#     @meal = mealplan.meals.build
+#   else
+#     @meal = Meal.new
+#     # @meal.build_meal_plan
+#   end
+# end
 
-def create
-  @meal = Meal.new(meal_params)
-  binding.pry
-  if @meal.save
-    flash[:success] = "Your meal was created!"
-    # redirect_to meal_plan_path(@meal.meal_plan)
-    redirect_to meal_path(@meal)
-  else
-    # @meal.build_meal_plan unless @meal.meal_plan
-    render :new
-  end
-end
+# def create
+#   @meal = Meal.new(meal_params)
+#   binding.pry
+#   if @meal.save
+#     flash[:success] = "Your meal was created!"
+#     # redirect_to meal_plan_path(@meal.meal_plan)
+#     redirect_to meal_path(@meal)
+#   else
+#     # @meal.build_meal_plan unless @meal.meal_plan
+#     render :new
+#   end
+# end
 
 def show
 end
@@ -41,24 +41,24 @@ end
 def edit
 end
 
-def update
-  set_meal
-  redirect_if_not_logged_in
-  if @meal.update(meal_params)
-    flash[:success] = "Your meal was updated!"
-    redirect_to meal_path(@meal)
-  else
-    render :edit
-  end
-end
+# def update
+#   set_meal
+#   redirect_if_not_logged_in
+#   if @meal.update(meal_params)
+#     flash[:success] = "Your meal was updated!"
+#     redirect_to meal_path(@meal)
+#   else
+#     render :edit
+#   end
+# end
 
-def destroy
-  set_meal
-  redirect_if_not_logged_in
-  @meal.destroy
-  flash[:success] = "Your meal was deleted!"
-  redirect_to meals_path
-end
+# def destroy
+#   set_meal
+#   redirect_if_not_logged_in
+#   @meal.destroy
+#   flash[:success] = "Your meal was deleted!"
+#   redirect_to meals_path
+# end
 
 
 private
@@ -75,7 +75,7 @@ private
 
   # def require_same_user
   #   set_meal
-  #   if current_user.id != @meal.meal_plans.user_id
+  #   if current_user != @meal.user
   #     flash[:danger] = "You can only edit or delete your own meal"
   #     redirect_to meals_path
   #   end
