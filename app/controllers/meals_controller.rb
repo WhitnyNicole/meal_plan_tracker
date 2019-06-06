@@ -15,7 +15,7 @@ end
 def new
   redirect_if_not_logged_in
   if current_user && params[:meal_plan_id] && mealplan = MealPlan.find_by_id(params[:meal_plan_id])
-    @meal = mealplan.meals.build
+    @meal = mealplans.meals.build
   else
     @meal = Meal.new
     # @meal.build_meal_plan
@@ -62,7 +62,7 @@ end
 
 private
   def meal_params
-    params.require(:meal).permit(:protein, :day, :vegetable, :side, :beverage_ounces, :beverage, :favorite, :meal_plan_id)
+    params.require(:meal).permit(:protein, :day, :vegetable, :side, :beverage_ounces, :beverage, :favorite)
   end
 
   def set_meal
