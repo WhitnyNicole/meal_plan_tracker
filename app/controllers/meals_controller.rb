@@ -1,7 +1,7 @@
 class MealsController < ApplicationController
-before_action :set_meal, only: [:show, :edit]
-before_action :redirect_if_not_logged_in, only: [:new, :create, :edit, :update, :show]
-before_action :require_same_user, only: [:edit, :update, :delete]
+before_action :set_meal, only: [:show]
+before_action :redirect_if_not_logged_in, only: [:show]
+# before_action :require_same_user, only: [:edit, :update, :delete]
 
 def index
   if params[:meal_plan_id] && mealplan = MealPlan.find_by_id(params[:meal_plan_id])
