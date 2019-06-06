@@ -5,4 +5,7 @@ class MealSchedule < ApplicationRecord
   validates :eating_time, :meal_type, presence: true
   default_scope -> { order(updated_at: :desc)}
 
+  accepts_nested_attributes_for :meal, reject_if: :all_blank
+
+
 end
