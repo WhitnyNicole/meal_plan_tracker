@@ -1,4 +1,4 @@
-<%= form_for [meal_schedule.meal, meal_schedule]  do |f| %>
+<%= form_for [@meal_schedule]  do |f| %>
   <%= render partial: 'layouts/errors', locals: {object: @meal_schedule} %>
   <%= f.hidden_field :meal_id %>
 
@@ -26,6 +26,36 @@
 
   <br><br>
 
+  <% if !params[:meal_id] %>
+      <h4>Or add a new meal:</h4>
+
+      <%= f.fields_for :meal do |v|%>
+
+        <%= v.label :protein %>
+        <%= v.text_field :protein, placeholder: "Chicken" %>
+
+        <%= v.label :vegetable %>
+        <%= v.text_field :vegetable, placeholder: "Spinach" %>
+
+        <%= v.label :side %>
+        <%= v.text_field :side, placeholder: "Fries" %>
+
+        <%= v.label :beverage %>
+        <%= v.text_field :beverage, placeholder: "Water" %>
+
+        <%= v.label :beverage_ounces %>
+        <%= v.number_field :beverage_ounces, placeholder: "16 ounces" %>
+
+        <%= v.label :day %>
+        <%= v.date_field :day %>
+
+        <%= v.label :favorite %>
+        <%= v.select :favorite, [['No', 'false'],['Yes', 'true']] %>
+
+      <% end %>
+      <% end %>
+
+<br><br>
 <div class="center">
   <%= f.submit %>
 </div>
