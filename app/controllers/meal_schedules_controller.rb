@@ -59,7 +59,7 @@ before_action :require_same_user, only: [:edit, :update, :delete]
   private
 
     def meal_schedule_params
-      params.require(:meal_schedule).permit(:eating_time, :meal_type, :meal_id, :meal_plan_id)
+      params.require(:meal_schedule).permit(:eating_time, :meal_type, :meal_id, :meal_plan_id, meal_attributes:[:protein, :vegetable, :side, :day, :beverage, :beverage_ounces])
     end
 
     def set_meal_schedules
