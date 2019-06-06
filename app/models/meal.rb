@@ -1,6 +1,6 @@
 class Meal < ApplicationRecord
   # belongs_to :meal_plan
-  has_many :meal_scheduels
+  has_many :meal_schedules
   has_many :meal_plans, through: :meal_schedules
 
   validates :protein, :vegetable, :side, :day, :beverage, :beverage_ounces, presence: true

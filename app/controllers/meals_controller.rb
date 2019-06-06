@@ -14,10 +14,11 @@ end
 
 def new
   redirect_if_not_logged_in
-  if current_user && params[:meal_plan_id] && mealplan = MealPlan.find_by_id(params[:meal_plan_id])
-    @meal = mealplans.meals.build
-  else
-    @meal = Meal.new
+  if current_user && params[:meal_plan_id] && @mealplan = MealPlan.find_by_id(params[:meal_plan_id])
+    binding.pry
+    @mealplan.meals.build
+  # else
+  #   @meal = Meal.new
     # @meal.build_meal_plan
   end
 end

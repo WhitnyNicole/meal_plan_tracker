@@ -1,7 +1,6 @@
-<%= form_for [meal.meal_plan, meal] do |f| %>
+<%= form_for [mealplan, mealplan.meals.last] do |f| %>
 
 <%= render partial: 'layouts/errors', locals: {object: @meal} %>
-  <%= f.hidden_field :meal_plan_id %>
   <div class="col-md-8 well">
 
 
