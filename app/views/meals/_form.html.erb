@@ -1,7 +1,7 @@
-<%= form_for [meal.meal_plan, meal] do |f| %>
+<%= form_for [@meal] do |f| %>
 
 <%= render partial: 'layouts/errors', locals: {object: @meal} %>
-  <%= f.hidden_field :meal_plan_id %>
+  <%= f.hidden_field :meal_plan_ids %>
   <div class="col-md-8 well">
 
 
@@ -33,7 +33,7 @@
 
 
   <%= f.label :meal_plan_id, "Select a Meal Plan"%>
-  <%= f.collection_select :meal_plan_id, MealPlan.all, :id, :goal, prompt: true %>
+  <%= f.collection_select :meal_plan_ids, MealPlan.all, :id, :goal, prompt: true %>
 
 
   <br><br>

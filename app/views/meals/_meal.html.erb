@@ -6,11 +6,6 @@
       </section>
     </div>
     <div class="col-md-8 well">
-       <h5> <%= link_to "Current Meal Plan", meal_plan_path(meal) %></h5>
-        <ul>
-         <li><%= meal.meal_plan.try(:goal) %></li>
-         <li>Entered by: <strong><%= meal.meal_plan.try(:user).name %></strong></li>
-        </ul>
        <h5><%= link_to "Current Meal", meal_path(meal) %></h5>
         <ul>
           <li><%= meal.protein.capitalize %></li>
@@ -23,7 +18,7 @@
        <p>
          <span class="quiet"></span><small>Created <%= time_ago_in_words(meal.created_at) %> ago</small></span>
        </p>
-       <% if logged_in? && current_user == meal.meal_plan.user %>
+       <% if logged_in?  %>
         <div class="mealplan-actions">
          <%= link_to "Add Meal Schedule", new_meal_meal_schedule_path(meal), class:"btn btn-xs btn-xlarge" %>
          <%= link_to "View Meal Schedules", meal_meal_schedules_path(meal), class:"btn btn-xs btn-primary" %>
