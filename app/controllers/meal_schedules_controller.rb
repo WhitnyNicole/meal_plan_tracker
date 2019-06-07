@@ -24,11 +24,12 @@ before_action :require_same_user, only: [:edit, :update, :delete]
         @meal_schedule.build_meal
       end
     end
-    
+
 
     def create
-      # @meal_schedule = MealSchedule.new(meal_schedule_params)
-      @meal_schedule = current_meal.meal_schedules.build(meal_schedule_params)
+      @meal_schedule = MealSchedule.new(meal_schedule_params)
+      # binding.pry
+      # @meal_schedule = current_meal_plan.meal_schedules.build(meal_schedule_params)
       if @meal_schedule.save
         flash[:success] = "Your meal schedule was created!"
         redirect_to meal_schedule_path(@meal_schedule)
@@ -65,6 +66,11 @@ before_action :require_same_user, only: [:edit, :update, :delete]
     def meal_schedule_params
       params.require(:meal_schedule).permit(:eating_time, :meal_type, :meal_id, :meal_plan_id, meal_attributes:[:protein, :vegetable, :side, :day, :beverage, :beverage_ounces])
     end
+
+    # def meal_schedule_params
+    #   params.require(:meal_plan).require(:meal_schedule).permit(:eating_time, :meal_type, :meal_id,
+    #     meal: [:protein, :vegetable, :side, :beverage, :beverage_ounces, :favorite, :day])
+    # end
 
     def set_meal_schedules
       @meal_schedule = MealSchedule.find_by(id: params[:id])
