@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :meal_plans
-  resources :meals, except: [:new, :create]
+  resources :meals
   resources :meal_schedules
 
   resources :meal_plans do
