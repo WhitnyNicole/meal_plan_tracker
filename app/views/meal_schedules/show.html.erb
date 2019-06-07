@@ -4,6 +4,12 @@
 <p> Today you ate: </p>
   <ul>
     <li><%= @meal_schedule.meal.try(:protein).capitalize %></li>
+    <li><%= @meal_schedule.meal.try(:vegetable).capitalize %></li>
+    <li><%= @meal_schedule.meal.try(:side).capitalize %></li>
+    <li><%= @meal_schedule.meal.try(:beverage_ounces) %> ounces of <%= @meal_schedule.meal.try(:beverage) %></li>
+    <li><%= @meal_schedule.meal.try(:day).strftime("%b %d, %Y") %></li>
+    <li>Favorite(T/F)? <%= @meal_schedule.meal.try(:favorite) %></li>
+  </ul>
   </ul>
 <p> Meal Details: </p>
   <ul>
