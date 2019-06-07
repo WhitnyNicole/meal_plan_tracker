@@ -15,8 +15,8 @@ class MealPlansController < ApplicationController
   def new
     redirect_if_not_logged_in
       @mealplan = MealPlan.new
-      @mealplan.meal_schedules.build
-      @meal = Meal.new
+      # @mealplan.meal_schedules.build
+      # @meal = Meal.new
   end
 
   def create
