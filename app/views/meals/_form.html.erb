@@ -1,4 +1,4 @@
-<%= form_for [mealplan, mealplan.meals.last] do |f| %>
+<%= form_for [@meal] do |f| %>
 
 <%= render partial: 'layouts/errors', locals: {object: @meal} %>
   <div class="col-md-8 well">
@@ -32,7 +32,7 @@
 
 
   <%= f.label :meal_plan_id, "Select a Meal Plan"%>
-  <%= f.collection_select :meal_plan_id, MealPlan.all, :id, :goal, prompt: true %>
+  <%= f.collection_select :meal_plan_ids, MealPlan.all, :id, :goal, prompt: true %>
 
 
   <br><br>
