@@ -1,6 +1,7 @@
 <div class="col-md-8 well">
   <%= form_for (mealplan)  do |f| %>
   <%= render partial: 'layouts/errors', locals: {object: mealplan} %>
+  <h4><center>Create a meal plan:</h4></center>
 
 <div class="center">
   <%= f.label :goal %>
@@ -12,55 +13,55 @@
   <%= f.select(:description, ["Regular", "Vegetarian", "Vegan", "Pescatarian", "Gluten Free", "Keto"]) %>
 </div>
   <br><br>
+</div>
 
-  <h4>And add a meal schedule:</h4>
 
-<div class="col-md-8 well">
+  <div class="col-md-8 well">
+    <h4><center>Add your meal schedule:</h4></center>
   <%= f.fields_for :meal_schedule do |ms|%>
 
-<div class="center">
-  <%= ms.label :eating_time %>
-  <%= ms.select(:eating_time, ["Morning", "Afternoon", "Evening", "Night"]) %>
+  <div class="center">
+    <%= ms.label :eating_time %>
+    <%= ms.select(:eating_time, ["Morning", "Afternoon", "Evening", "Night"]) %>
+  </div>
+
+  <div class="center">
+    <%= ms.label :meal_type %>
+    <%= ms.select(:meal_type, ["Breakfast", "Lunch", "Dinner", "Snack", "Dessert"]) %>
+  </div>
+
+  <div class="center">
+    <%= ms.label :meal_id, "Select a Meal"%>
+    <%= ms.collection_select :meal_id, Meal.all, :id, :protein, prompt: true %>
+  </div>
 </div>
 
-<div class="center">
-  <%= ms.label :meal_type %>
-  <%= ms.select(:meal_type, ["Breakfast", "Lunch", "Dinner", "Snack", "Dessert"]) %>
-</div>
+    <div class="col-md-8 well">
+      <h4><center>Add your meal:</h4></center>
 
-<div class="center">
-  <%= ms.label :meal_id, "Select a Meal"%>
-  <%= ms.collection_select :meal_id, Meal.all, :id, :protein, prompt: true %>
-</div>
+          <%= ms.fields_for meal do |m|%>
+            <%= m.label :protein %>
+            <%= m.text_field :protein, placeholder: "Chicken" %>
 
-  <br><br>
+            <%= m.label :vegetable %>
+            <%= m.text_field :vegetable, placeholder: "Spinach" %>
 
-      <h4>And add a new meal:</h4>
+            <%= m.label :side %>
+            <%= m.text_field :side, placeholder: "Fries" %>
 
-      <%= ms.fields_for meal do |m|%>
+            <%= m.label :beverage %>
+            <%= m.text_field :beverage, placeholder: "Water" %>
 
-        <%= m.label :protein %>
-        <%= m.text_field :protein, placeholder: "Chicken" %>
+            <%= m.label :beverage_ounces %>
+            <%= m.number_field :beverage_ounces, placeholder: "16 ounces" %>
 
-        <%= m.label :vegetable %>
-        <%= m.text_field :vegetable, placeholder: "Spinach" %>
+            <%= m.label :day %>
+            <%= m.date_field :day %>
 
-        <%= m.label :side %>
-        <%= m.text_field :side, placeholder: "Fries" %>
+            <%= m.label :favorite %>
+            <%= m.select :favorite, [['No', 'false'],['Yes', 'true']] %>
 
-        <%= m.label :beverage %>
-        <%= m.text_field :beverage, placeholder: "Water" %>
-
-        <%= m.label :beverage_ounces %>
-        <%= m.number_field :beverage_ounces, placeholder: "16 ounces" %>
-
-        <%= m.label :day %>
-        <%= m.date_field :day %>
-
-        <%= m.label :favorite %>
-        <%= m.select :favorite, [['No', 'false'],['Yes', 'true']] %>
-
-      <% end %>
+          <% end %>
       <% end %>
 
 <div class="center">
