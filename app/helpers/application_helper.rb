@@ -11,4 +11,8 @@ module ApplicationHelper
   def current_meal
     @current_meal ||= Meal.find_by_id(params[:meal_id]) if params[:meal_id]
   end
+
+  def current_meal_plan
+    @current_meal_plan ||= MealPlan.find_by_id(params[:meal_plan_id]) if params[:meal_plan_id]
+  end
 end
