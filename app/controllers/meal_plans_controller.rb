@@ -14,18 +14,22 @@ class MealPlansController < ApplicationController
 
   def new
     redirect_if_not_logged_in
-      @mealplan = MealPlan.new
-      # @mealplan.meal_schedules.build
-      # @meal = Meal.new
+      @meal_plan = MealPlan.new
+      @meal_plan.meal_schedules.build
+      @meal = Meal.new
   end
 
   def create
     @meal_plan = current_user.meal_plans.build(meal_plan_params)
     # @meal_plan = MealPlan.new(meal_plan_params)
     # @meal_plan.user = current_user
+
     if @meal_plan.save
+
       flash[:success] = "Your meal plan was created!"
-      params[:id] = @meal_plan.id
+      ms = MealSchedule.new(meal_schedule_params)
+      ms.meal_plan = @meal_plan
+      ms.save
       redirect_to meal_plan_path(@meal_plan)
     else
       render :new
@@ -54,7 +58,12 @@ class MealPlansController < ApplicationController
 private
 
   def meal_plan_params
-    params.require(:meal_plan).permit(:goal, :description, :meal_schedule_id, meal_schedule_attributes: [:eating_time, :meal_type])
+    params.require(:meal_plan).permit(:goal, :description)
+  end
+
+  def meal_schedule_params
+    params.require(:meal_plan).require(:meal_schedule).permit(:eating_time, :meal_type, :meal_id,
+      meal: [:protein, :vegetable, :side, :beverage, :beverage_ounces, :favorite, :day])
   end
 
   def set_meal_plan
