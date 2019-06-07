@@ -37,7 +37,7 @@
 
       <h4>And add a new meal:</h4>
 
-      <%= f.fields_for meal do |mm|%>
+      <%= f.fields_for :meal, Meal.new do |mm|%>
 
         <%= mm.label :protein %>
         <%= mm.text_field :protein, placeholder: "Chicken" %>
