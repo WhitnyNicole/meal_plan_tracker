@@ -18,7 +18,7 @@
   </ul>
 
 <div class="mealplan-actions">
-  <% if logged_in? && current_user == @meal_schedule.meal_plan.user_id %>
+  <% if logged_in? && current_user == @meal_schedule.meal_plan.user %>
     <%= link_to "Edit Meal Schedule", edit_meal_schedule_path(@meal_schedule),  class:"btn btn-xs btn-warning" %>
     <%= link_to "Delete Meal Schedule", meal_schedule_path(@meal_schedule), method: :delete, data: { confirm: "Are you sure you want to delete this meal schedule?"}, class:"btn btn-xs btn-danger" %>
   <% end %>
