@@ -16,49 +16,49 @@
   <h4>And add a meal schedule:</h4>
 
 <div class="col-md-8 well">
-  <%= f.fields_for :meal_schedule do |m|%>
+  <%= f.fields_for :meal_schedule do |ms|%>
 
 <div class="center">
-  <%= m.label :eating_time %>
-  <%= m.select(:eating_time, ["Morning", "Afternoon", "Evening", "Night"]) %>
+  <%= ms.label :eating_time %>
+  <%= ms.select(:eating_time, ["Morning", "Afternoon", "Evening", "Night"]) %>
 </div>
 
 <div class="center">
-  <%= m.label :meal_type %>
-  <%= m.select(:meal_type, ["Breakfast", "Lunch", "Dinner", "Snack", "Dessert"]) %>
+  <%= ms.label :meal_type %>
+  <%= ms.select(:meal_type, ["Breakfast", "Lunch", "Dinner", "Snack", "Dessert"]) %>
 </div>
 
 <div class="center">
-  <%= m.label :meal_id, "Select a Meal"%>
-  <%= m.collection_select :meal_id, Meal.all, :id, :protein, prompt: true %>
+  <%= ms.label :meal_id, "Select a Meal"%>
+  <%= ms.collection_select :meal_id, Meal.all, :id, :protein, prompt: true %>
 </div>
 
   <br><br>
 
       <h4>And add a new meal:</h4>
 
-      <%= f.fields_for :meal, Meal.new do |mm|%>
+      <%= ms.fields_for meal do |m|%>
 
-        <%= mm.label :protein %>
-        <%= mm.text_field :protein, placeholder: "Chicken" %>
+        <%= m.label :protein %>
+        <%= m.text_field :protein, placeholder: "Chicken" %>
 
-        <%= mm.label :vegetable %>
-        <%= mm.text_field :vegetable, placeholder: "Spinach" %>
+        <%= m.label :vegetable %>
+        <%= m.text_field :vegetable, placeholder: "Spinach" %>
 
-        <%= mm.label :side %>
-        <%= mm.text_field :side, placeholder: "Fries" %>
+        <%= m.label :side %>
+        <%= m.text_field :side, placeholder: "Fries" %>
 
-        <%= mm.label :beverage %>
-        <%= mm.text_field :beverage, placeholder: "Water" %>
+        <%= m.label :beverage %>
+        <%= m.text_field :beverage, placeholder: "Water" %>
 
-        <%= mm.label :beverage_ounces %>
-        <%= mm.number_field :beverage_ounces, placeholder: "16 ounces" %>
+        <%= m.label :beverage_ounces %>
+        <%= m.number_field :beverage_ounces, placeholder: "16 ounces" %>
 
-        <%= mm.label :day %>
-        <%= mm.date_field :day %>
+        <%= m.label :day %>
+        <%= m.date_field :day %>
 
-        <%= mm.label :favorite %>
-        <%= mm.select :favorite, [['No', 'false'],['Yes', 'true']] %>
+        <%= m.label :favorite %>
+        <%= m.select :favorite, [['No', 'false'],['Yes', 'true']] %>
 
       <% end %>
       <% end %>
