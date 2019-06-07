@@ -1,6 +1,6 @@
 class MealPlan < ApplicationRecord
   belongs_to :user
-  has_many :meals_schedules, dependent: :destroy
+  has_many :meal_schedules, dependent: :destroy
   has_many :meals, through: :meal_schedules, dependent: :destroy
   accepts_nested_attributes_for :meal_schedules, reject_if: :all_blank
 
