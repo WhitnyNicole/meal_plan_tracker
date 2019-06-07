@@ -4,8 +4,8 @@ before_action :redirect_if_not_logged_in, only: [:new, :create, :edit, :update, 
 before_action :require_same_user, only: [:edit, :update, :delete]
 
   def index
-    if params[:meal_id] && meal = Meal.find_by_id(params[:meal_id])
-      @meal_schedules = meal.meal_schedules.paginate(page: params[:page], per_page: 2)
+    if params[:meal_plan_id] && mealplan = MealPlan.find_by_id(params[:meal_plan_id])
+      @meal_schedules = mealplan.meal_schedules.paginate(page: params[:page], per_page: 2)
     else
       # @meal_schedules = MealSchedule.all.paginate(page: params[:page], per_page: 2)
       @meal_schedules = current_user.meal_schedules.paginate(page: params[:page], per_page: 2)
@@ -15,8 +15,10 @@ before_action :require_same_user, only: [:edit, :update, :delete]
   end
 
   def new
-    if params[:meal_id] && meal = Meal.find_by_id(params[:meal_id])
-      @meal_schedule = meal.meal_schedules.build
+    redirect_if_not_logged_in
+    if current_user && params[:meal_plan_id] && @mealplan = MealPlan.find_by_id(params[:meal_plan_id])
+      @meal_schedule = @mealplan.meal_schedules.build
+      @meal_schedule.build_meal
     else
       @meal_schedule = MealSchedule.new
       @meal_schedule.build_meal
@@ -24,7 +26,8 @@ before_action :require_same_user, only: [:edit, :update, :delete]
   end
 
     def create
-      @meal_schedule = MealSchedule.new(meal_schedule_params)
+      binding.pry
+      @meal_schedule = current_meal_plan.meal_schedules.build(meal_schedule_params)
       # binding.pry
       # @meal_schedule = current_meal.meal_schedules.build(meal_schedule_params)
       if @meal_schedule.save
