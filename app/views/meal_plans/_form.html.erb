@@ -13,8 +13,10 @@
 </div>
   <br><br>
 
+  <h4>And add a meal schedule:</h4>
+
 <div class="col-md-8 well">
-  <%= m.fields_for :meal_schedule do |m|%>
+  <%= f.fields_for :meal_schedule do |m|%>
 
 <div class="center">
   <%= m.label :eating_time %>
@@ -35,7 +37,7 @@
 
       <h4>And add a new meal:</h4>
 
-      <%= m.fields_for meal do |mm|%>
+      <%= f.fields_for meal do |mm|%>
 
         <%= mm.label :protein %>
         <%= mm.text_field :protein, placeholder: "Chicken" %>
