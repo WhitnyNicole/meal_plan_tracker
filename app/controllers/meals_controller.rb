@@ -1,12 +1,12 @@
 class MealsController < ApplicationController
 before_action :set_meal, only: [:show, :edit]
-before_action :redirect_if_not_logged_in, only: [:new, :create, :edit, :update, :show]
+before_action :redirect_if_not_logged_in, only: [:new, :create, :edit, :update]
 before_action :require_same_user, only: [:edit, :update, :delete]
 
 def index
   if params[:meal_plan_id] && mealplan = MealPlan.find_by_id(params[:meal_plan_id])
-    @meals = mealplan.meals.paginate(page: params[:page], per_page: 2)
-    # @meals = Meal.paginate(page: params[:page], per_page: 5)
+    # @meals = mealplan.meals
+    @meals = mealplan.meals.paginate(page: params[:page], per_page: 5)
   else
     @meals = current_user.meals.paginate(page: params[:page], per_page: 2)
   end
@@ -14,11 +14,10 @@ end
 
 def new
   redirect_if_not_logged_in
-  if current_user && params[:meal_plan_id] && @mealplan = MealPlan.find_by_id(params[:meal_plan_id])
-    binding.pry
-    @mealplan.meals.build
-  # else
-  #   @meal = Meal.new
+  if current_user && params[:meal_plan_id] && mealplan = MealPlan.find_by_id(params[:meal_plan_id])
+    @meal = mealplan.meals.build
+  else
+    @meal = Meal.new
     # @meal.build_meal_plan
   end
 end
@@ -36,9 +35,11 @@ def create
 end
 
 def show
+redirect_if_not_logged_in
 end
 
 def edit
+redirect_if_not_logged_in
 end
 
 def update
@@ -63,7 +64,7 @@ end
 
 private
   def meal_params
-    params.require(:meal).permit(:protein, :day, :vegetable, :side, :beverage_ounces, :beverage, :favorite)
+    params.require(:meal).permit(:protein, :vegetable, :side, :day, :beverage, :beverage_ounces, :meal_plan_id)
   end
 
   def set_meal
