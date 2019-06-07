@@ -15,12 +15,16 @@ before_action :require_same_user, only: [:edit, :update, :delete]
   end
 
   def new
-    if params[:meal_id] && meal = Meal.find_by_id(params[:meal_id])
-      @meal_schedule = meal.meal_schedules.build
-    else
-      @meal_schedule = MealSchedule.new
+      redirect_if_not_logged_in
+      if current_user && params[:meal_plan_id] && @mealplan = MealPlan.find_by_id(params[:meal_plan_id])
+        @meal_schedule = @mealplan.meal_schedules.build
+        @meal_schedule.build_meal
+      else
+        @meal_schedule = MealSchedule.new
+        @meal_schedule.build_meal
+      end
     end
-  end
+    
 
     def create
       # @meal_schedule = MealSchedule.new(meal_schedule_params)
