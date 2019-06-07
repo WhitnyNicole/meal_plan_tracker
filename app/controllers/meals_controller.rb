@@ -16,14 +16,14 @@ def new
   redirect_if_not_logged_in
   if current_user && params[:meal_plan_id] && @mealplan = MealPlan.find_by_id(params[:meal_plan_id])
     @mealplan.meals.build
-  # else
-  #   @meal = Meal.new
+  else
+    @meal = Meal.new
     # @meal.build_meal_plan
   end
 end
 
 def create
-  @meal = current_user.meals.build(meal_params)
+  @meal = Meal.create(meal_params)
   if @meal.save
     flash[:success] = "Your meal was created!"
     # redirect_to meal_plan_path(@meal.meal_plan)
