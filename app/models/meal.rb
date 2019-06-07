@@ -7,7 +7,7 @@ class Meal < ApplicationRecord
   validates :meal_plan_id, presence: true
   validates_inclusion_of:favorite, in: [true, false]
 
-  scope :favorite, -> { where(favorite: true) unless Meal.all.empty? }
+  scope :favorite, -> { where(favorite: true)}
   default_scope -> { order(updated_at: :desc)}
 
   #
