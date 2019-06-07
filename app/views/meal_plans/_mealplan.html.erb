@@ -5,12 +5,12 @@
 
       </section>
     </div>
-    <% if mealplan.meals.favorite.count != 0 %>
 
+    <% if mealplan.meals.favorite.count != 0 %>
       <div>
         <h4>Your Favorite Foods: </h4>
           <% mealplan.meals.favorite.map do |meal| %>
-              <li><%= meal.protein.capitalize %></li>
+              <li><%= meal.food.capitalize %></li>
           <% end %>
       </div>
     <% else %>
