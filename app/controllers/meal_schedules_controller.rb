@@ -26,7 +26,6 @@ before_action :require_same_user, only: [:edit, :update, :delete]
   end
 
     def create
-      binding.pry
       @meal_schedule = current_meal_plan.meal_schedules.build(meal_schedule_params)
       # binding.pry
       # @meal_schedule = current_meal.meal_schedules.build(meal_schedule_params)
