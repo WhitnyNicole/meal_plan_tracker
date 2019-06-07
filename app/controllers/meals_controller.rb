@@ -23,7 +23,7 @@ def new
 end
 
 def create
-  @meal = current_user.meals.build(meal_params)
+  @meal = Meal.new(meal_params)
   if @meal.save
     flash[:success] = "Your meal was created!"
     # redirect_to meal_plan_path(@meal.meal_plan)
@@ -64,7 +64,7 @@ end
 
 private
   def meal_params
-    params.require(:meal).permit(:protein, :vegetable, :side, :day, :beverage, :beverage_ounces, :meal_plan_id)
+    params.require(:meal).permit(:protein, :vegetable, :side, :day, :beverage, :beverage_ounces, :favorite, :meal_plan_id)
   end
 
   def set_meal
