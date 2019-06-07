@@ -17,6 +17,14 @@
        <p>
          <span class="quiet"></span><small>Created <%= time_ago_in_words(meal.created_at) %> ago</small></span>
        </p>
+       <div class="mealplan-actions">
+         <% if logged_in? &&  %>
+           <%= link_to "Edit Meal", edit_meal_path(meal), class:"btn btn-xs btn-warning" %>
+           <%= link_to "Delete Meal", meal_path(meal), method: :delete, data: { confirm: "Are you sure you want to delete this meal?"}, class:"btn btn-xs btn-danger" %>
+         <% end %>
+           <%= link_to "View Meal Schedules", meal_meal_schedules_path(meal), class:"btn btn-xs btn-primary" %>
+       </div>
+
     </div>
   </div>
 <% end %>
