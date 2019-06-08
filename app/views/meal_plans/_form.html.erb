@@ -1,6 +1,6 @@
 <div class="col-md-8 well">
-  <%= form_for (mealplan)  do |f| %>
-  <%= render partial: 'layouts/errors', locals: {object: mealplan} %>
+  <%= form_for (@meal_plan)  do |f| %>
+  <%= render partial: 'layouts/errors', locals: {object: @meal_plan} %>
   <h4><center>Create a meal plan:</h4></center>
 
 <div class="center">
@@ -36,7 +36,7 @@
     <div class="col-md-8 well">
       <h4><center>Add your meal:</h4></center>
 
-          <%= ms.fields_for meal do |m|%>
+          <%= ms.fields_for :meal do |m|%>
             <%= m.label :protein %>
             <%= m.text_field :protein, placeholder: "Chicken", required: true %>
 
