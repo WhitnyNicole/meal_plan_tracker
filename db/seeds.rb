@@ -18,10 +18,13 @@ mealplan = MealPlan.where(goal: "Tone").first_or_create do |mealplan|
           mealplan.user_id = "1"
         end
 
-meal = Meal.where(food: "burger").first_or_create do |meal|
+meal = Meal.where(protein: "burger").first_or_create do |meal|
       meal.favorite = "true"
       meal.day = Date.today
-      
+      meal.beverage = "diet coke"
+      meal.beverage_ounces = "20"
+      meal.vegetable = "spinach"
+      meal.side = "french fries"
     end
 
 mealschedule = MealSchedule.where(eating_time: "afternoon").first_or_create do |mealschedule|
