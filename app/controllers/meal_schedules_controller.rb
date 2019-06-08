@@ -1,6 +1,6 @@
 class MealSchedulesController < ApplicationController
-before_action :set_meal_schedules, only: [:show, :edit]
-before_action :redirect_if_not_logged_in, only: [:new, :create, :edit, :update, :show]
+before_action :set_meal_schedules, only: [:edit, :update, :show, :delete]
+before_action :redirect_if_not_logged_in, only: [:new, :create, :edit, :update]
 before_action :require_same_user, only: [:edit, :update, :delete]
 
   def index
@@ -15,15 +15,14 @@ before_action :require_same_user, only: [:edit, :update, :delete]
   end
 
   def new
-      redirect_if_not_logged_in
-      if current_user && params[:meal_plan_id] && @mealplan = MealPlan.find_by_id(params[:meal_plan_id])
-        @meal_schedule = @mealplan.meal_schedules.build
-        @meal_schedule.build_meal
-      else
-        @meal_schedule = MealSchedule.new
-        @meal_schedule.build_meal
-      end
+    if current_user && params[:meal_plan_id] && @mealplan = MealPlan.find_by_id(params[:meal_plan_id])
+      @meal_schedule = @mealplan.meal_schedules.build
+      @meal_schedule.build_meal
+    else
+      @meal_schedule = MealSchedule.new
+      @meal_schedule.build_meal
     end
+  end
 
 
     def create
@@ -45,7 +44,6 @@ before_action :require_same_user, only: [:edit, :update, :delete]
   end
 
   def update
-    set_meal_schedules
     if @meal_schedule.update(meal_schedule_params)
       flash[:success] = "Your meal schedule was updated!"
       redirect_to meal_schedule_path(@meal_schedule)
@@ -55,7 +53,6 @@ before_action :require_same_user, only: [:edit, :update, :delete]
   end
 
   def destroy
-    set_meal_schedules
     @meal_schedule.destroy
     flash[:success] = "Your meal schedule was deleted!"
     redirect_to meal_schedules_path
@@ -64,7 +61,7 @@ before_action :require_same_user, only: [:edit, :update, :delete]
   private
 
     def meal_schedule_params
-      params.require(:meal_schedule).permit(:eating_time, :meal_type, :meal_id, :meal_plan_id, meal_attributes:[:protein, :vegetable, :side, :day, :beverage, :beverage_ounces])
+      params.require(:meal_schedule).permit(:eating_time, :meal_type, :meal_id, :meal_plan_id, meal_attributes: [:protein, :vegetable, :side, :day, :beverage, :favorite, :beverage_ounces])
     end
 
     # def meal_schedule_params
@@ -77,10 +74,10 @@ before_action :require_same_user, only: [:edit, :update, :delete]
     end
 
     def require_same_user
-        set_meal_schedules
-        if current_user.id != @meal_schedule.meal_plan.user_id
-          flash[:danger] = "You can only edit or delete your own meal schedule"
-          redirect_to meal_schedules_path
-        end
-      end
+      set_meal_schedules
+      if current_user.id != @meal_schedule.meal_plan.user_id
+        flash[:danger] = "You can only edit or delete your own meal schedule"
+        redirect_to meal_schedules_path
+    end
+  end
 end
