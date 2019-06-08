@@ -41,25 +41,25 @@
 
           <%= ms.fields_for meal do |m|%>
             <%= m.label :protein %>
-            <%= m.text_field :protein, placeholder: "Chicken" %>
+            <%= m.text_field :protein, placeholder: "Chicken", required: true %>
 
             <%= m.label :vegetable %>
-            <%= m.text_field :vegetable, placeholder: "Spinach" %>
+            <%= m.text_field :vegetable, placeholder: "Spinach", required: true  %>
 
             <%= m.label :side %>
-            <%= m.text_field :side, placeholder: "Fries" %>
+            <%= m.text_field :side, placeholder: "Fries", required: true  %>
 
             <%= m.label :beverage %>
-            <%= m.text_field :beverage, placeholder: "Water" %>
+            <%= m.text_field :beverage, placeholder: "Water", required: true  %>
 
             <%= m.label :beverage_ounces %>
-            <%= m.number_field :beverage_ounces, placeholder: "16 ounces" %>
+            <%= m.number_field :beverage_ounces, placeholder: "16 ounces", required: true  %>
 
             <%= m.label :day %>
-            <%= m.date_field :day %>
+            <%= m.date_field :day, required: true  %>
 
             <%= m.label :favorite %>
-            <%= m.select :favorite, [['No', 'false'],['Yes', 'true']] %>
+            <%= m.select :favorite, [['No', 'false'],['Yes', 'true']], required: true  %>
 
           <% end %>
       <% end %>
