@@ -8,7 +8,7 @@ class MealSchedule < ApplicationRecord
   accepts_nested_attributes_for :meal, reject_if: :all_blank
 
 
-    def meal=(attributes)
-      self.build_meal(attributes) unless self.meal_id
-    end
-  end 
+  def meal=(attributes)
+    self.build_meal(attributes) unless self.meal_id
+  end
+end 
