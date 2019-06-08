@@ -1,5 +1,5 @@
 class MealPlansController < ApplicationController
-  before_action :set_meal_plan, only: [:edit, :update, :show, :destroy]
+  before_action :set_meal_plan, only: [:edit, :update, :show, :delete]
   before_action :redirect_if_not_logged_in, only: [:new, :create, :edit, :update]
   before_action :require_same_user, only: [:edit, :update, :delete]
 
@@ -13,10 +13,9 @@ class MealPlansController < ApplicationController
   end
 
   def new
-    redirect_if_not_logged_in
-      @meal_plan = MealPlan.new
-      @meal_plan.meal_schedules.build
-      @meal = Meal.new
+    @meal_plan = MealPlan.new
+    @meal_plan.meal_schedules.build
+    @meal = Meal.new
   end
 
   def create
@@ -25,7 +24,6 @@ class MealPlansController < ApplicationController
     # @meal_plan.user = current_user
 
     if @meal_plan.save
-
       flash[:success] = "Your meal plan was created!"
       ms = MealSchedule.new(meal_schedule_params)
       ms.meal_plan = @meal_plan
@@ -76,5 +74,4 @@ private
       redirect_to meal_plans_path
     end
   end
-
 end
