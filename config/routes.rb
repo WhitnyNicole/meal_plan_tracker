@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :meal_plans
-  resources :meals
+  resources :meals, only: [:index, :show ]
   resources :meal_schedules
 
   resources :meal_plans do
