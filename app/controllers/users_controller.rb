@@ -25,10 +25,10 @@ before_action :redirect_if_not_logged_in, only: [:show]
     @user_mealplans = @user.meal_plans.paginate(page: params[:page], per_page: 2)
   end
 
-private
-  def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
-  end
+  private
+    def user_params
+      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    end
 
   # def set_user
   #   @user = User.find(params[:id])
