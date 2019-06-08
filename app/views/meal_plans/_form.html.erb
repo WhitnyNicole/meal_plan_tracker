@@ -30,10 +30,7 @@
     <%= ms.select(:meal_type, ["Breakfast", "Lunch", "Dinner", "Snack", "Dessert"]) %>
   </div>
 
-  <div class="center">
-    <%= ms.label :meal_id, "Select a Meal"%>
-    <%= ms.collection_select :meal_id, Meal.all, :id, :protein, prompt: true %>
-  </div>
+
 </div>
 
     <div class="col-md-8 well">
