@@ -74,7 +74,7 @@ before_action :require_same_user, only: [:edit, :update, :delete]
       if @meal_schedule.nil?
         flash[:danger] = "Meal Schedule not Found!"
         redirect_to meal_schedules_path
-      end 
+      end
     end
 
     def require_same_user

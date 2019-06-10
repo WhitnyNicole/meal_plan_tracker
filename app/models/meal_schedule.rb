@@ -11,4 +11,3 @@ class MealSchedule < ApplicationRecord
   def meal=(attributes)
     self.build_meal(attributes) unless self.meal_id
   end
-end 
