@@ -1,5 +1,5 @@
 class MealsController < ApplicationController
-before_action :set_meal, only: [:show]
+before_action :set_meal, only: [:show, :edit, :update]
 # before_action :redirect_if_not_logged_in, only: [:new, :create, :edit, :update, :show]
 # before_action :require_same_user, only: [:edit, :update, :delete]
 
@@ -37,19 +37,19 @@ before_action :set_meal, only: [:show]
   def show
   end
 
-# def edit
-# end
+def edit
+end
 
-# def update
-#  set_meal
-#  redirect_if_not_logged_in
-#  if @meal.update(meal_params)
-#    flash[:success] = "Your meal was updated!"
-#    redirect_to meal_path(@meal)
-#  else
-#    render :edit
-#  end
-# end
+def update
+ set_meal
+ redirect_if_not_logged_in
+ if @meal.update(meal_params)
+   flash[:success] = "Your meal was updated!"
+   redirect_to meal_path(@meal)
+ else
+   render :edit
+ end
+end
 
 # def destroy
 #  set_meal
@@ -67,9 +67,10 @@ private
 
   def set_meal
     @meal = Meal.find_by(id: params[:id])
-    # if !@meal
-    #   redirect_to meals_path
-    # end
+    if !@meal
+      flash[:danger] = "Meal not Found!"
+      redirect_to meals_path
+    end
   end
 
   # def require_same_user

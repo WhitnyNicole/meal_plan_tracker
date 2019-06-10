@@ -71,6 +71,10 @@ before_action :require_same_user, only: [:edit, :update, :delete]
 
     def set_meal_schedules
       @meal_schedule = MealSchedule.find_by(id: params[:id])
+      if @meal_schedule.nil?
+        flash[:danger] = "Meal Schedule not Found!"
+        redirect_to meal_schedules_path
+      end 
     end
 
     def require_same_user

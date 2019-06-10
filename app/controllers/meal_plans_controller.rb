@@ -66,6 +66,10 @@ private
 
   def set_meal_plan
     @meal_plan = MealPlan.find(params[:id])
+    if @meal_plan.nil?
+      flash[:danger] = "Meal Plan not Found!"
+      redirect_to meal_plans_path
+    end
   end
 
   def require_same_user
