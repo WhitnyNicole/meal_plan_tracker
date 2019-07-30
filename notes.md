@@ -6,8 +6,15 @@ Requirements
 4. Your Rails app must dynamically render on the page at least one serialized has_many relationship through JSON using JS
 5. Must use your Rails app to render a form for creating a resource submitted dynamically and displayed through JS and a JSON without page refresh
 
+Notes from video:
+1. Turbolinks can cause JS headaches. It will limit page refreshes and re-render the entire page. Instead, Rails will figure out what part of the page is changing and just render that part. This helps to speed things up. Rails 5 has added turbolinks load event ---> $(document).on('turbolinks:load', function()) {
+  alert("Yo!");
+});
+*** can get rid of gem altogether if causing too many issues
 
 
+
+Notes with Z:
 //this is project requirement 1
 // 1. hijack form submit. Go through process of submitting request to Rails API to create the object
 // 2. with the API response. Use class syntax to create a dog class in JS . Review this section: Constructor - OOJS
@@ -32,4 +39,4 @@ Requirements
 
 //This is project requirement 5
 //tied in with number 1
-// you can use Rails to render the form. We are hijacking the submission 
+// you can use Rails to render the form. We are hijacking the submission
