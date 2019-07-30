@@ -33,14 +33,21 @@ before_action :set_meal, only: [:show, :edit, :update]
 #    render :new
 #  end
 # end
+#need to return a json object
+#set_meal
+#respond_to block
+#AMS
 
   def show
-    #need to return a json object
-    #set_meal
-    #respond_to block
-    #AMS
-  
+  set_meal
+  respond_to do |format|
+      format.html { render :show }
+      format.json { render json:
+    @meal.to_json()}
   end
+end
+
+
 
 def edit
 end
