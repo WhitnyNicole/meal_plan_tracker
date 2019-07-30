@@ -7,7 +7,7 @@ $(document).ready(function() {
 })
 
 function addMealEventListener() {
-$('#myMeal').on('click', function(event) {
+$('.myMeal').on('click', function(event) {
   const mealId = $(this).data("mealId");
   event.preventDefault();
   fetch(`/meals/${mealId}.json`)
@@ -20,11 +20,25 @@ $('#myMeal').on('click', function(event) {
 }
 
 
-
-
-
-
+// `<li>${meal.protein}</li>
+// <li>${meal.vegetable}%></li>
+// <li>${meal.side}</li>
+// <li>${meal.beverage_ounces}</li>
+// <li>${meal.beverage}</li>
+// <li>${meal.day}</li>
+// <li>${meal.favorite}</li>`
 //
+// function capitalize(string) {
+//   let newString = string.split("")
+//   newString[0] = newString[0].toUpperCase();
+//   return newString.join("")
+// }
+//
+// capitalize()
+//
+
+
+
 // $(document).on('turbolinks:load', function() {
 //   $('.my_meal').on('click', function(event) {
 //     const mealdata = $(this).data(".my_meal");
