@@ -5,8 +5,8 @@
       </section>
     </div>
     <div class="col-md-8 well">
-       <h5><%= link_to "Current Meal", meal_path(meal), {id: "myMeal", data: {meal_id: meal.id}} %></h5>
-        <ul>
+       <h5><%= link_to "Current Meal", meal_path(meal), {class: "myMeal", data: {meal_id: meal.id}} %></h5>
+        <ul id="meal-<%= meal.id %>">
           <li><%= meal.try(:protein).capitalize %></li>
           <li><%= meal.try(:vegetable).capitalize %></li>
           <li><%= meal.try(:side).capitalize %></li>
