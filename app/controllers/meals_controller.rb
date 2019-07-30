@@ -35,6 +35,11 @@ before_action :set_meal, only: [:show, :edit, :update]
 # end
 
   def show
+    #need to return a json object
+    #set_meal
+    #respond_to block
+    #AMS
+  
   end
 
 def edit
