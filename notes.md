@@ -12,7 +12,8 @@ Notes from video:
 });
 *** can get rid of gem altogether if causing too many issues
 
-
+1. document.querySelector(‘ul#meal-1’)
+   document.querySelector(`ul#meal-${meal.id}`)
 
 Notes with Z:
 //this is project requirement 1
