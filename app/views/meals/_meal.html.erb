@@ -5,7 +5,7 @@
       </section>
     </div>
     <div class="col-md-8 well">
-       <h5><%= link_to "Current Meal", meal_path(meal) %></h5>
+       <h5 class="my_meal"><%= link_to "Current Meal", meal_path(meal) %></h5>
         <ul>
           <li><%= meal.try(:protein).capitalize %></li>
           <li><%= meal.try(:vegetable).capitalize %></li>
