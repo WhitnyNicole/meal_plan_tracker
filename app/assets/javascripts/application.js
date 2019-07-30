@@ -15,3 +15,12 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+//= require custom
+
+$(document).on('turbolinks:load', function() {
+  alert("Hello!");
+});
+
+$(document).ready(function() {
+  alert("Hello again");
+});
