@@ -12,11 +12,9 @@ $('#myMeal').on('click', function(event) {
   event.preventDefault();
   fetch(`/meals/${mealId}.json`)
     .then(function(response) {
-      debugger
       return response.json();
     })
     .then(function(data) {
-      debugger
     })
 });
 }
