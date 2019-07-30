@@ -10,7 +10,7 @@ function addMealEventListener() {
 $('#myMeal').on('click', function(event) {
   const mealId = $(this).data("mealId");
   event.preventDefault();
-  fetch(`/meals/${mealId}`)
+  fetch(`/meals/${mealId}.json`)
     .then(function(response) {
       debugger
       return response.json();
