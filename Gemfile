@@ -38,6 +38,8 @@ gem 'thin'
 gem 'dotenv-rails'
 gem 'will_paginate', '3.1.0'
 gem 'bootstrap-will_paginate', '0.0.10'
+gem 'active_model_serializers'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
