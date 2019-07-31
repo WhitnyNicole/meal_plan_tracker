@@ -43,7 +43,7 @@ before_action :set_meal, only: [:show, :edit, :update]
   respond_to do |format|
       format.html { render :show }
       format.json { render json:
-      @meal }
+      @meal, include: [meal_schedules: { only: [:eating_time, :meal_type]}]}
   end
 end
 
