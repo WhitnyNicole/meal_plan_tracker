@@ -24,10 +24,13 @@ $('.myMeal').on('click', function(event) {
 }
 
 class Meal {
-  constructor(id, protein, meal_schedules) {
-    this.id = id
-    this.protein = protein
-    this.meal_schedules = meal_schedules
+  constructor(data) {
+    this.id = data.id
+    this.protein = data.protein
+    this.vegetable = data.vegetable
+    this.side = data.side
+    this.beverage = data.beverage
+    this.meal_schedules = data.meal_schedules
   }
 }
 
