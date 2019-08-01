@@ -10,6 +10,10 @@ class Meal < ApplicationRecord
   scope :favorite, -> { where(favorite: true) unless Meal.all.empty? }
   default_scope -> { order(updated_at: :desc)}
 
+
+  def pretty_created_date
+    created_at.strftime("%b %d, %Y")
+  end
   #
   # def self.favorite
   #   binding.pry
