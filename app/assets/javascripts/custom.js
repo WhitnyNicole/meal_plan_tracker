@@ -19,7 +19,8 @@ $('.myMeal').on('click', function(event) {
     debugger
     let myMealHTML = mymeal.mealHTML()
     // document.getElementsByClassName('myMeal').innerHTML += myMealHTML
-    $(`ul#meal-33`).html(data) 
+    // $(`ul#meal-33`).html(data)
+    document.getElementById(`meal-33`).innerHTML = myMealHTML
     })
 });
 }
@@ -50,10 +51,12 @@ class Meal {
 
   Meal.prototype.mealHTML = function () {
     return (`
-      <div>
-        <h3>${this.protein}</h3>
-        <h3>${this.vegetable}</h3>
-      </div>
+      <ul>
+        <li>${this.protein}</li>
+        <li>${this.vegetable}</li>
+        <li>${this.side}</li>
+        <li>${this.beverage}</li>
+      </ul>
       `)
   }
 
