@@ -18,7 +18,7 @@ $('.myMeal').on('click', function(event) {
     let mymeal = new Meal(data)
     debugger
     let myMealHTML = mymeal.mealHTML()
-    document.getElementById('ul meal').innerHTML === myMealHTML
+    document.getElementById('ul #meal').innerHTML === myMealHTML
     })
 });
 }
@@ -48,16 +48,10 @@ class Meal {
 
 
   Meal.prototype.mealHTML = function () {
-    let mealSchedules = this.meal_schedules.map(meal_schedules => {
-      return (`
-        <p>$(meal_schedules.eating_time)</p>
-        `)
-    })
-
     return (`
       <div>
-        <h3>$(this.protein)</h3>
-        <h3>$(mealSchedules)</h3>
+        <h3>${this.protein}</h3>
+        <h3>${this.vegetable}</h3>
       </div>
       `)
   }
