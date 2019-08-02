@@ -66,10 +66,10 @@ class Meal {
   Meal.prototype.mealHTML = function () {
     return (`
       <ul>
-        <li>${this.protein}</li>
-        <li>${this.vegetable}</li>
-        <li>${this.side}</li>
-        <li>${this.beverage}</li>
+        <li>Protein: ${this.protein}</li>
+        <li>Vegetable: ${this.vegetable}</li>
+        <li>Side: ${this.side}</li>
+        <li>Beverage: ${this.beverage}</li>
       </ul>
       `)
   }
