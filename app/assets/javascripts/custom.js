@@ -4,6 +4,7 @@
 // })
 $(document).ready(function() {
   addMealEventListener();
+  listenForNewMealFormClick();
 })
 
 function addMealEventListener() {
@@ -25,6 +26,16 @@ $('.myMeal').on('click', function(event) {
 });
 }
 
+function listenForNewMealFormClick(){
+  $('button#meal-data').on('click', function (event) {
+    event.preventDefault()
+    let newMealForm = Meal.newMealForm()
+    document.querySelector('div#new-meal-form-div').innerHTML = newMealForm
+    debugger
+  })
+}
+
+
 class Meal {
   constructor(data) {
     this.id = data.id
@@ -37,9 +48,12 @@ class Meal {
 
   static newMealForm(){
     return (`
-    <strong>Add New Meal</strong>
+    <strong>New Meal</strong>
       <form>
-        <input type="text" name="protein"></input><br>
+        Protein: <input type="text" name="protein"></input><br>
+        Vegetable: <input type="text" name="vegetable"></input><br>
+        Side: <input type="text" name="side"></input><br>
+        Beverage: <input type="text" name="beverage"></input><br>
         <input type="submit" />
       </form>
       `)
