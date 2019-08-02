@@ -15,4 +15,5 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
-//= require custom
+//= require meal
+//= require meal_plan
