@@ -32,7 +32,20 @@ class Meal {
     this.beverage = data.beverage
     this.meal_schedules = data.meal_schedules
   }
+
+  static newMealForm(){
+    return (`
+    <strong>Add New Meal</strong>
+      <form>
+        <input type="text" name="protein"></input><br>
+        <input type="submit" />
+      </form>
+      `)
+  }
 }
+
+
+
 
   Meal.prototype.mealHTML = function () {
     let mealSchedules = this.meal_schedules.map(meal_schedules => {
