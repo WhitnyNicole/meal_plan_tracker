@@ -18,7 +18,8 @@ $('.myMeal').on('click', function(event) {
     let mymeal = new Meal(data)
     debugger
     let myMealHTML = mymeal.mealHTML()
-    document.getElementsByClassName('myMeal').innerHTML += myMealHTML
+    // document.getElementsByClassName('myMeal').innerHTML += myMealHTML
+    $(`ul#meal-33`).html(data) 
     })
 });
 }

@@ -13,7 +13,10 @@ Notes from video:
 *** can get rid of gem altogether if causing too many issues
 
 1. document.querySelector(‘ul#meal-1’)
-   document.querySelector(`ul#meal-${meal.id}`)
+ document.querySelector(`ul#meal-${meal.id}`)
+
+  //(‘ul#meal-1’).html("hi") works to put hi under current meal and remove the rest of the information
+  
 
 Notes with Z:
 //this is project requirement 1
