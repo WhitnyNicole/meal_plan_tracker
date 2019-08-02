@@ -18,6 +18,7 @@
          <span class="quiet"></span><small>Created <%= time_ago_in_words(meal.created_at) %> ago</small></span>
        </p>
        <div class="mealplan-actions">
+         <button id="meal-data"> Add Meal Schedule</button>
         <%= link_to "View Meal Schedules", meal_meal_schedules_path(meal), class:"btn btn-xs btn-primary" %>
        </div>
 
