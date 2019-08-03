@@ -64,12 +64,21 @@ class Meal {
 
 
   Meal.prototype.mealHTML = function () {
+
+    let mealMealSchedule = this.meal_schedules.map(meal_schedule => {
+      return(`
+        <ul>
+          <li>Eating Time: ${meal_schedule.eating_time}</li>
+          <li>Meal Type: ${meal_schedule.meal_type}</li>
+      `)
+    })
     return (`
-      <ul>
+      <ul> <h5>Meal Info: </h5>
         <li>Protein: ${this.protein}</li>
         <li>Vegetable: ${this.vegetable}</li>
         <li>Side: ${this.side}</li>
         <li>Beverage: ${this.beverage}</li>
+        <li>Meal Schedule: ${mealMealSchedule}</li>
       </ul>
       `)
   }
