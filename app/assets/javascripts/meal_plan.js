@@ -3,10 +3,10 @@ $(document).ready(function() {
 })
 
 function addMealPlanEventListener() {
-$('button#meals-data').on('click', function(event) {
+$('.myMealPlan').on('click', function(event) {
   const mealPlanId = $(this).data("mealPlanId");
   event.preventDefault();
-  fetch(`/meal_plans/${this.id}.json`)
+  fetch(`/meal_plans/${mealPlanId}/meal_schedules.json`)
     .then(function(response) {
       return response.json();
     })
