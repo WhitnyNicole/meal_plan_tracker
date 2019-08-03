@@ -48,7 +48,8 @@ class Meal {
 
   static newMealForm(){
     return (`
-    <strong>New Meal</strong>
+    <div class="col-md-8 well">
+    <strong>New Meal: </strong>
       <form>
         Protein: <input type="text" name="protein"></input><br>
         Vegetable: <input type="text" name="vegetable"></input><br>
@@ -56,6 +57,7 @@ class Meal {
         Beverage: <input type="text" name="beverage"></input><br>
         <input type="submit" />
       </form>
+      </div>
       `)
   }
 }
@@ -73,6 +75,7 @@ class Meal {
       `)
     })
     return (`
+      <div class="col-md-8 well">
       <ul> <h5>Meal Info: </h5>
         <li>Protein: ${this.protein}</li>
         <li>Vegetable: ${this.vegetable}</li>
@@ -80,6 +83,7 @@ class Meal {
         <li>Beverage: ${this.beverage}</li>
         <li>Meal Schedule: ${mealMealSchedule}</li>
       </ul>
+      </div>
       `)
   }
 
