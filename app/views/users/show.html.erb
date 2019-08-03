@@ -22,7 +22,7 @@
 <div class="mealplan-actions">
 <% if logged_in? && current_user == @user %>
   <%= link_to "Create a Meal Plan", new_meal_plan_path, class:"btn btn-xs btn-xlarge"%>
-  <%= link_to "See Meal Plans", meal_plans_path, class:"btn btn-xs btn-xlarge"%>
+  <%= link_to "See Meal Plans", meal_plans_path, {class: "mealPlans"}%>
   <%= link_to "Log Out", logout_path, method: :delete, class:"btn btn-xs btn-xlarge"%>
 <% end %>
 <%= link_to "Your Meal Plans", meal_plans_path(@meal_plan), class:"btn btn-xs btn-xlarge" %>
@@ -34,3 +34,5 @@
     <%= link_to "Create a Meal Plan", new_meal_plan_path, class:"btn btn-xs btn-xlarge"%>
   </div>
 <% end %>
+
+<div id="all-meals-div"></div>
