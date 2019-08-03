@@ -3,10 +3,10 @@ $(document).ready(function() {
 })
 
 function addMealPlanEventListener() {
-$('.myMealPlan').on('click', function(event) {
+$('button#meals-data').on('click', function(event) {
   const mealPlanId = $(this).data("mealPlanId");
   event.preventDefault();
-  fetch(`/meal_plans/${mealId}.json`)
+  fetch(`/meal_plans/${this.id}.json`)
     .then(function(response) {
       return response.json();
     })
@@ -28,8 +28,7 @@ class MealPlan {
     this.goal = data.goal
     this.description = data.description
   }
-
-
+}
 
 
   MealPlan.prototype.mealHTML = function () {
