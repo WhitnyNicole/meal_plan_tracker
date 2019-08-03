@@ -6,7 +6,11 @@ class MealPlansController < ApplicationController
   def index
     # @meal_plans = current_user.meal_plans
     @meal_plans = current_user.meal_plans.paginate(page: params[:page], per_page: 2)
-
+    respond_to do |format|
+        format.html { render :show }
+        format.json { render json:
+        @meal_plans, include: [meals: { only: [:protein, :vegetable]}]}
+    end
   end
 
   def show
