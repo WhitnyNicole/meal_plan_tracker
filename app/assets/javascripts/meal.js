@@ -17,11 +17,12 @@ $('.myMeal').on('click', function(event) {
     })
     .then(function(data) {
     let mymeal = new Meal(data)
-    debugger
+    // debugger
     let myMealHTML = mymeal.mealHTML()
     // document.getElementsByClassName('myMeal').innerHTML += myMealHTML
     // $(`ul#meal-33`).html(data)
-    document.getElementById(`meal-33`).innerHTML = myMealHTML
+    // document.getElementById(`meal-33`).innerHTML = myMealHTML
+    document.getElementById(`meal-${mealId}`).innerHTML = myMealHTML
     })
 });
 }
@@ -31,7 +32,7 @@ function listenForNewMealFormClick(){
     event.preventDefault()
     let newMealForm = Meal.newMealForm()
     document.querySelector('div#new-meal-form-div').innerHTML = newMealForm
-    debugger
+    // debugger
   })
 }
 
