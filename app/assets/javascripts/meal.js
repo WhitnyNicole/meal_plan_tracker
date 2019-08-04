@@ -17,7 +17,7 @@ $('.myMeal').on('click', function(event) {
     })
     .then(function(data) {
     let mymeal = new Meal(data)
-    // debugger
+    debugger
     let myMealHTML = mymeal.mealHTML()
     // document.getElementsByClassName('myMeal').innerHTML += myMealHTML
     // $(`ul#meal-33`).html(data)
@@ -62,6 +62,16 @@ class Meal {
       `)
   }
 }
+
+//new form submit
+
+// $(function() {
+//   $('form').submit(function(event) {
+//     event.preventDefault();
+//     alert("new meal created")
+//   })
+// })
+////
 
 
 
