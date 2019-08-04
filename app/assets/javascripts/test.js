@@ -43,3 +43,27 @@
 //     document.getElementById(`all-meals-div`).innerHTML = myMealPlanHTML
 //   }
 // }
+
+
+
+///test code for meals index
+
+// function getMealsEventListener() {
+// $('.dropdown-toggle').on('click', function(event) {
+//   // const mealId = $(this).data("mealId");
+//   event.preventDefault();
+//   fetch('/meals')
+//     .then(function(response) {
+//       return response.json();
+//     })
+//     .then(function(data) {
+//     let allmeals = new Meals(data)
+//     debugger
+//     let myMealsHTML = allmeals.mealHTML()
+//     // document.getElementsByClassName('myMeal').innerHTML += myMealHTML
+//     // $(`ul#meal-33`).html(data)
+//     // document.getElementById(`meal-33`).innerHTML = myMealHTML
+//     document.getElementById(`meal-${mealId}`).innerHTML = myMealsHTML
+//     })
+// });
+// }
