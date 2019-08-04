@@ -13,6 +13,10 @@ $('.mealPlans').on('click', function(event) {
     })
     .then(function(data) {
     let mymealplan = new MealPlan(data[0])
+    // let mymealplan = new MealPlan(data[0], data[1], data[2])
+    // console.log(data[0])
+    // console.log(data[1])
+    // console.log(data[2])
     debugger
     let myMealPlanHTML = mymealplan.mealPlanHTML()
     // document.getElementsByClassName('myMeal').innerHTML += myMealHTML
