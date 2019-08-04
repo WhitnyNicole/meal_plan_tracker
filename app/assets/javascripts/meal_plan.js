@@ -2,6 +2,12 @@ $(document).ready(function() {
   addMealPlanEventListener();
 })
 
+class MealPlans {
+constructor() {
+  this.meal_plans = []
+  }
+}
+
 function addMealPlanEventListener() {
 $('.mealPlans').on('click', function(event) {
   // const mealPlanId = $(this).data("mealPlanId");
@@ -11,8 +17,10 @@ $('.mealPlans').on('click', function(event) {
     .then(function(response) {
       return response.json();
     })
-    .then(function(data) {
-    let mymealplan = new MealPlan(data[0])
+    .then(function(meal_plans) {
+      console.log(meal_plans)
+      // meal_plans.forEach(meal_plan => this.meal_plans.push(meal_plan))
+    let mymealplan = new MealPlan(meal_plans[0])
 
     //testing out this code
     // data.map(mealPlan => {
@@ -32,12 +40,15 @@ $('.mealPlans').on('click', function(event) {
 });
 }
 
+
+
+
 class MealPlan {
-  constructor(data) {
-    this.id = data.id
-    this.goal = data.goal
-    this.description = data.description
-    this.meals = data.meals
+  constructor(meal_plans) {
+    this.id = meal_plans.id
+    this.goal = meal_plans.goal
+    this.description = meal_plans.description
+    this.meals = meal_plans.meals
   }
 }
 
