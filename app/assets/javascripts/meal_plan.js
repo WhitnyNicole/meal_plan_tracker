@@ -13,6 +13,12 @@ $('.mealPlans').on('click', function(event) {
     })
     .then(function(data) {
     let mymealplan = new MealPlan(data[0])
+
+    //testing out this code
+    // data.map(mealPlan => {
+    //   const newMealPlan = new MealPlan(mealPlan)
+    //   const newMealPlanHTML = newMealPlan.mealPlanHTML()
+
     // let mymealplan = new MealPlan(data[0], data[1], data[2])
     // console.log(data[0])
     // console.log(data[1])
@@ -22,10 +28,9 @@ $('.mealPlans').on('click', function(event) {
     // document.getElementsByClassName('myMeal').innerHTML += myMealHTML
     // $(`ul#meal-33`).html(data)
     document.getElementById(`all-meals-div`).innerHTML = myMealPlanHTML
-    })
+  })
 });
 }
-
 
 class MealPlan {
   constructor(data) {
