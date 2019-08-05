@@ -13,16 +13,18 @@
     <%= will_paginate @user_mealplans %>
   </div>
     <%= render 'meal_plans/mealplan', obj: @user_mealplans %>
+
     <div align="center">
       <%= will_paginate @user_mealplans %>
     </div>
+    <button><%= link_to "See Meal Plans", meal_plans_path, {class: "mealPlans"}%></button>
 
     <br><br>
 
 <div class="mealplan-actions">
 <% if logged_in? && current_user == @user %>
   <%= link_to "Create a Meal Plan", new_meal_plan_path, class:"btn btn-xs btn-xlarge"%>
-  <button><%= link_to "See Meal Plans", meal_plans_path, {class: "mealPlans"}%></button>
+  <%= link_to "See Meal Plans", meal_plans_path, class:"btn btn-xs btn-xlarge"%>
   <%= link_to "Log Out", logout_path, method: :delete, class:"btn btn-xs btn-xlarge"%>
 <% end %>
 <%= link_to "Your Meal Plans", meal_plans_path(@meal_plan), class:"btn btn-xs btn-xlarge" %>
