@@ -18,27 +18,26 @@ $('.mealPlans').on('click', function(event) {
     .then(function(response) {
       return response.json();
     })
-    .then(function(meal_plans) {
-      debugger
-      console.log(meal_plans)
-      meal_plans.forEach(function(data) {
-    let mymealplan = new MealPlan(data)
-    let myMealPlanHTML = mymealplan.showHTML()
-    debugger
-    document.getElementById(`all-meals-div`).innerHTML = myMealPlanHTML
-    })
-  });
-})
+      .then(function(meal_plans) {
+        debugger
+        console.log(meal_plans)
+        meal_plans.forEach(function(data) {
+        let mymealplan = new MealPlan(data)
+        let myMealPlanHTML = mymealplan.showHTML()
+        debugger
+        document.getElementById(`all-meals-div`).innerHTML = myMealPlanHTML
+      })
+    });
+  })
 }
 
-  MealPlan.prototype.showHTML = function () {
-
-    return this.meals.map(meal => {  return (`
-      <div>
-        <li> Protein: ${meal.protein} </li>
-        <li> Vegetable: ${meal.vegetable} </li>
-        <li> Side: ${meal.side} </li>
-        <li> Beverage: ${meal.beverage} </li>
-      </div>`
-    ) })
-  }
+MealPlan.prototype.showHTML = function () {
+  return this.meals.map(meal => {  return (`
+    <div>
+      <li> Protein: ${meal.protein} </li>
+      <li> Vegetable: ${meal.vegetable} </li>
+      <li> Side: ${meal.side} </li>
+      <li> Beverage: ${meal.beverage} </li>
+    </div>`
+  )})
+}
