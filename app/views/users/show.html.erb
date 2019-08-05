@@ -5,7 +5,7 @@
   <h4> Email: <%= @user.email %></h4>
 </div>
 
-  <br><br>
+<br><br>
 <% if @user.meal_plans.count != 0 %>
   <h4 align="center">Your Meal Plans</h4>
   <hr />
@@ -13,14 +13,16 @@
     <%= will_paginate @user_mealplans %>
   </div>
     <%= render 'meal_plans/mealplan', obj: @user_mealplans %>
+  <div align="center">
+    <%= will_paginate @user_mealplans %>
+  </div>
+<button><%= link_to "See Meal Plans", meal_plans_path, {class: "mealPlans"}%></button>
 
-    <div align="center">
-      <%= will_paginate @user_mealplans %>
-    </div>
-    <button><%= link_to "See Meal Plans", meal_plans_path, {class: "mealPlans"}%></button>
+<br><br>
 
-    <br><br>
+<div id="all-meals-div"></div>
 
+<br><br>
 <div class="mealplan-actions">
 <% if logged_in? && current_user == @user %>
   <%= link_to "Create a Meal Plan", new_meal_plan_path, class:"btn btn-xs btn-xlarge"%>
@@ -36,5 +38,3 @@
     <%= link_to "Create a Meal Plan", new_meal_plan_path, class:"btn btn-xs btn-xlarge"%>
   </div>
 <% end %>
-
-<div id="all-meals-div"></div>
