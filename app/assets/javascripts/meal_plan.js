@@ -2,9 +2,12 @@ $(document).ready(function() {
   addMealPlanEventListener();
 })
 
-class MealPlans {
-constructor() {
-  this.meal_plans = []
+class MealPlan {
+  constructor(data) {
+    this.id = data.id
+    this.goal = data.goal
+    this.description = data.description
+    this.meals = data.meals
   }
 }
 
@@ -19,8 +22,10 @@ $('.mealPlans').on('click', function(event) {
     })
     .then(function(meal_plans) {
       console.log(meal_plans)
+      meal_plans.forEach(function(data) {
       // meal_plans.forEach(meal_plan => this.meal_plans.push(meal_plan))
-    let mymealplan = new MealPlan(meal_plans[0])
+    // let mymealplan = new MealPlan(meal_plans[0])
+    let mymealplan = new MealPlan(data)
 
     //testing out this code
     // data.map(mealPlan => {
@@ -36,42 +41,59 @@ $('.mealPlans').on('click', function(event) {
     // document.getElementsByClassName('myMeal').innerHTML += myMealHTML
     // $(`ul#meal-33`).html(data)
     document.getElementById(`all-meals-div`).innerHTML = myMealPlanHTML
-  })
-});
+    })
+  });
+})
 }
 
 
 
-
-class MealPlan {
-  constructor(meal_plans) {
-    this.id = meal_plans.id
-    this.goal = meal_plans.goal
-    this.description = meal_plans.description
-    this.meals = meal_plans.meals
-  }
-}
 
 
   MealPlan.prototype.mealPlanHTML = function () {
-    let mealPlanMeals = this.meals.map(meal => {
 
-      return(`
+      return (`
         <div class="col-md-8 well">
-          <p> Protein: ${meal.protein}<p>
-          <p> Vegetable: ${meal.vegetable}<p>
-          <p> Side: ${meal.side}<p>
-          <p> Beverage: ${meal.beverage}<p>
-        </div>
+        <ul>
+          <li>Goal: ${this.goal}</li>
+          <li>Description: ${this.description}</li>
+        </ul>
         `)
-      })
+    }
 
-    return (`
-      <div class="col-md-8 well">
-      <ul>
-        <li>Goal: ${this.goal}</li>
-        <li>Description: ${this.description}</li>
-        <li> All Meals: ${mealPlanMeals}</li>
-      </ul>
-      `)
-  }
+    //this works to show meal plans and meals 59-79
+  //   let mealPlanMeals = this.meals.map(meal => {
+  //
+  //     return(`
+  //       <div class="col-md-8 well">
+  //         <p> Protein: ${meal.protein}<p>
+  //         <p> Vegetable: ${meal.vegetable}<p>
+  //         <p> Side: ${meal.side}<p>
+  //         <p> Beverage: ${meal.beverage}<p>
+  //       </div>
+  //       `)
+  //     })
+  //
+  //   return (`
+  //     <div class="col-md-8 well">
+  //     <ul>
+  //       <li>Goal: ${this.goal}</li>
+  //       <li>Description: ${this.description}</li>
+  //       <li> All Meals: ${mealPlanMeals}</li>
+  //     </ul>
+  //     `)
+  // }
+
+
+//sample code
+// $(function() {
+//   $('.mealPlans').on('click', function(event) {
+//     $.ajax({
+//       method: "GET",
+//       url: this.href
+//     }).done(function(data){
+//       console.log(data)
+//     });
+//     event.preventDefault
+//   })
+// })
