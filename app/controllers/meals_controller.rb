@@ -44,6 +44,7 @@ before_action :set_meal, only: [:show, :edit, :update]
       format.html { render :show }
       format.json { render json:
       @meal, include: [meal_schedules: { only: [:eating_time, :meal_type]}]}
+      #AMS refactor 
   end
 end
 

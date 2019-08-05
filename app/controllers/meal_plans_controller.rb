@@ -10,6 +10,7 @@ class MealPlansController < ApplicationController
         format.html { render :index }
         format.json { render json:
         @meal_plans, include: [meals: { only: [:protein, :vegetable]}]}
+        #AMS need to refactor 
     end
   end
 
