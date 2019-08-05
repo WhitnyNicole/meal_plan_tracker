@@ -41,10 +41,8 @@ before_action :set_meal, only: [:show, :edit, :update]
   def show
   set_meal
   respond_to do |format|
-      format.html { render :show }
-      format.json { render json:
-      @meal, include: [meal_schedules: { only: [:eating_time, :meal_type]}]}
-      #AMS refactor 
+    format.html { render :show }
+    format.json { render json: @meal, status: 200 }
   end
 end
 

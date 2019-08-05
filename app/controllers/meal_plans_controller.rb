@@ -7,10 +7,8 @@ class MealPlansController < ApplicationController
     # @meal_plans = current_user.meal_plans
     @meal_plans = current_user.meal_plans.paginate(page: params[:page], per_page: 2)
     respond_to do |format|
-        format.html { render :index }
-        format.json { render json:
-        @meal_plans, include: [meals: { only: [:protein, :vegetable]}]}
-        #AMS need to refactor 
+      format.html { render :index }
+      format.json { render json: @meal_plans, status: 200 }
     end
   end
 
