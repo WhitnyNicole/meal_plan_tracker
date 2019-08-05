@@ -13,7 +13,7 @@ $('.myMeal').on('click', function(event) {
     })
       .then(function(data) {
         let mymeal = new Meal(data)
-        debugger
+        // debugger
         let myMealHTML = mymeal.mealHTML()
         document.getElementById(`meal-${mealId}`).innerHTML = myMealHTML
       })
@@ -38,7 +38,7 @@ class Meal {
     this.beverage = data.beverage
     this.meal_schedules = data.meal_schedules
   }
-
+}
 Meal.prototype.mealHTML = function () {
 
   let mealMealSchedule = this.meal_schedules.map(meal_schedule => {
