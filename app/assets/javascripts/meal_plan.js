@@ -44,3 +44,8 @@ MealPlan.prototype.showHTML = function () {
     </div>`
   )})
 }
+
+
+//plan.forEach(function(element) {
+  // console.log(element);
+// });
