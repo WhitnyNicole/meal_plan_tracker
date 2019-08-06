@@ -46,6 +46,7 @@ Meal.prototype.mealHTML = function () {
       <ul>
         <li>Eating Time: ${meal_schedule.eating_time}</li>
         <li>Meal Type: ${meal_schedule.meal_type}</li>
+      </ul>
     `)
   })
   return (`

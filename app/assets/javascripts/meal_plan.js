@@ -25,7 +25,8 @@ $('.mealPlans').on('click', function(event) {
         let mymealplan = new MealPlan(data)
         let myMealPlanHTML = mymealplan.showHTML()
         debugger
-        document.getElementById(`all-meals-div`).innerHTML = myMealPlanHTML
+        let mealElement = document.getElementById(`all-meals-div`)
+        mealElement.innerHTML = myMealPlanHTML
       })
     });
   })
