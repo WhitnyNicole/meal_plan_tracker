@@ -1,6 +1,7 @@
 $(document).ready(function() {
   addMealEventListener();
   listenForNewMealFormClick();
+  listenForFormSubmit();
 })
 
 function addMealEventListener() {
@@ -62,6 +63,15 @@ Meal.prototype.mealHTML = function () {
     `)
   }
 
+//step 1 hijack
+
+function listenForFormSubmit() {
+  $( "form" ).submit(function( event ) {
+    console.log("clicked")
+    debugger
+  })
+}
+//step 2
 
   //  can render the form with rails and hijack the submission or do a listener to a click request on the button
   //   static newMealForm(){
