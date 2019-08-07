@@ -77,9 +77,15 @@ function listenForFormSubmit() {
     posting.done(function(data) {
       console.log(data)
       debugger
-      // var mealData = data;
-      // $(#mealProtein).text(mealData[meal_attributes]["protein"]);
-      // $(#mealVegetable).text(mealData["vegetable"]);
+      var mealData = data;
+      console.log(["meal"]["protein"]);
+      document.querySelector("div#mealResult").innerHTML +=
+      $("#mealProtein").text(mealData["meal"]["protein"]);
+      $("#mealVegetable").text(mealData["meal"]["vegetable"]);
+      $("#mealSide").text(mealData["meal"]["side"]);
+      $("#mealBeverage").text(mealData["meal"]["beverage"]);
+      $("#mealEatingTime").text(mealData["eating_time"]);
+      $("#mealMealType").text(mealData["meal_type"]);
     })
   })
 }
