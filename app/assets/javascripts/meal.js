@@ -67,11 +67,37 @@ Meal.prototype.mealHTML = function () {
 
 function listenForFormSubmit() {
   $( "form" ).submit(function( event ) {
-    console.log("clicked")
+    event.preventDefault();
+    // console.log("clicked")
     debugger
+
+    var values = $(this).serializeArray();
+    //submit to meal_schedules/id -> show page
+    var posting = $.post('/meal_schedules.json', values);
+    posting.done(function(data) {
+      console.log(data)
+      debugger
+      // var mealData = data;
+      // $(#mealProtein).text(mealData[meal_attributes]["protein"]);
+      // $(#mealVegetable).text(mealData["vegetable"]);
+    })
   })
 }
-//step 2
+//step 2 get the information
+
+// jquery serialize
+// $( this ).serializeArray()
+
+
+//step 3 send the information to Rails API / fetch
+
+
+//step 4 handle the response
+// <div id="mealResult">
+//   <h2 id="mealProtein"></h2>
+//   <p id="mealVegetable"></p>
+// </div>
+
 
   //  can render the form with rails and hijack the submission or do a listener to a click request on the button
   //   static newMealForm(){
