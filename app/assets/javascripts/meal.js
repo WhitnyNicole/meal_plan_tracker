@@ -1,6 +1,6 @@
 $(document).ready(function() {
   addMealEventListener();
-  listenForNewMealFormClick();
+  // listenForNewMealFormClick();
   listenForFormSubmit();
 })
 
@@ -21,15 +21,16 @@ $('.myMeal').on('click', function(event) {
   });
 }
 
-function listenForNewMealFormClick(){
-  $('button#meal-data').on('click', function (event) {
-    event.preventDefault()
-    let newMealForm = Meal.newMealForm()
-    document.querySelector('div#new-meal-form-div').innerHTML = newMealForm
-    // debugger
-  })
-}
+// function listenForNewMealFormClick(){
+//   $('button#meal-data').on('click', function (event) {
+//     event.preventDefault()
+//     let newMealForm = Meal.newMealForm()
+//     document.querySelector('div#new-meal-form-div').innerHTML = newMealForm
+//     // debugger
+//   })
+// }
 
+//refactor to be more dynamic, iteration 
 class Meal {
   constructor(data) {
     this.id = data.id
@@ -74,60 +75,14 @@ function listenForFormSubmit() {
     var values = $(this).serializeArray();
     //submit to meal_schedules/id -> show page
     var posting = $.post('/meal_schedules.json', values);
-    posting.done(function(data) {
-      console.log(data)
-      debugger
-      var mealData = data;
-      console.log(["meal"]["protein"]);
-      document.querySelector("div#mealResult").innerHTML +=
-      $("#mealProtein").text(mealData["meal"]["protein"]);
-      $("#mealVegetable").text(mealData["meal"]["vegetable"]);
-      $("#mealSide").text(mealData["meal"]["side"]);
-      $("#mealBeverage").text(mealData["meal"]["beverage"]);
-      $("#mealEatingTime").text(mealData["eating_time"]);
-      $("#mealMealType").text(mealData["meal_type"]);
+    posting.done(function(mealData) {
+      document.querySelector("div#mealResult").innerHTML = `Meal Created!: ${mealData.meal.protein}`
+      // $("#mealProtein").text(mealData["meal"]["protein"]);
+      // $("#mealVegetable").text(mealData["meal"]["vegetable"]);
+      // $("#mealSide").text(mealData["meal"]["side"]);
+      // $("#mealBeverage").text(mealData["meal"]["beverage"]);
+      // $("#mealEatingTime").text(mealData["eating_time"]);
+      // $("#mealMealType").text(mealData["meal_type"]);
     })
   })
 }
-//step 2 get the information
-
-// jquery serialize
-// $( this ).serializeArray()
-
-
-//step 3 send the information to Rails API / fetch
-
-
-//step 4 handle the response
-// <div id="mealResult">
-//   <h2 id="mealProtein"></h2>
-//   <p id="mealVegetable"></p>
-// </div>
-
-
-  //  can render the form with rails and hijack the submission or do a listener to a click request on the button
-  //   static newMealForm(){
-  //     return (`
-  //     <div class="col-md-8 well">
-  //     <strong>New Meal: </strong>
-  //       <form>
-  //         Protein: <input type="text" name="protein"></input><br>
-  //         Vegetable: <input type="text" name="vegetable"></input><br>
-  //         Side: <input type="text" name="side"></input><br>
-  //         Beverage: <input type="text" name="beverage"></input><br>
-  //         <input type="submit" />
-  //       </form>
-  //       </div>
-  //       `)
-  //   }
-  // }
-
-  //new form submit
-
-  // $(function() {
-  //   $('form').submit(function(event) {
-  //     event.preventDefault();
-  //     alert("new meal created")
-  //   })
-  // })
-  ////
