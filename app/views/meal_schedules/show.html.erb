@@ -17,6 +17,11 @@
     <li><strong><%= @meal_schedule.meal_type %></strong> (type)</li>
   </ul>
 
+<div id="mealResult">
+  <h2 id="mealProtein"></h2>
+  <p id="mealVegetable"></p>
+</div>
+
 <div class="mealplan-actions">
   <% if logged_in? && current_user == @meal_schedule.meal_plan.user %>
     <%= link_to "Edit Meal Schedule", edit_meal_schedule_path(@meal_schedule),  class:"btn btn-xs btn-warning" %>
