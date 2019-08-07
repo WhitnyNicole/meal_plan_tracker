@@ -14,8 +14,13 @@ class MealPlan {
 function addMealPlanEventListener() {
 $('.mealPlans').on('click', function(event) {
   event.preventDefault();
+  // const mealPlanId = $(this).data("mealPlanId")
+  // debugger
   fetch(`/meal_plans.json`)
+  // fetch(`/meal_plans/${mealPlanId}/meal_schedules.json`)
+
     .then(function(response) {
+      debugger
       return response.json();
     })
       .then(function(meal_plans) {
@@ -24,7 +29,7 @@ $('.mealPlans').on('click', function(event) {
         meal_plans.forEach(function(data) {
         let mymealplan = new MealPlan(data)
         let myMealPlanHTML = mymealplan.showHTML()
-        debugger
+        // debugger
         let mealElement = document.getElementById(`all-meals-div`)
         mealElement.innerHTML = myMealPlanHTML
       })
