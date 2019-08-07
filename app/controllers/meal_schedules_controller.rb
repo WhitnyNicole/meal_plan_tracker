@@ -30,8 +30,11 @@ before_action :require_same_user, only: [:edit, :update, :delete]
       # binding.pry
       # @meal_schedule = current_meal_plan.meal_schedules.build(meal_schedule_params)
       if @meal_schedule.save
-        flash[:success] = "Your meal schedule was created!"
-        redirect_to meal_schedule_path(@meal_schedule)
+        respond_to do |format|
+          format.html { redirect_to meal_schedule_path(@meal_schedule)}
+          format.json { render json: @meal_schedule, status: 200 }
+        # flash[:success] = "Your meal schedule was created!"
+        end
       else
         render :new
       end
