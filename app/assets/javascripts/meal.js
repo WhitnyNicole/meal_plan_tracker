@@ -1,6 +1,5 @@
 $(document).ready(function() {
   addMealEventListener();
-  // listenForNewMealFormClick();
   listenForFormSubmit();
 })
 
@@ -21,16 +20,7 @@ $('.myMeal').on('click', function(event) {
   });
 }
 
-// function listenForNewMealFormClick(){
-//   $('button#meal-data').on('click', function (event) {
-//     event.preventDefault()
-//     let newMealForm = Meal.newMealForm()
-//     document.querySelector('div#new-meal-form-div').innerHTML = newMealForm
-//     // debugger
-//   })
-// }
-
-//refactor to be more dynamic, iteration 
+//refactor to be more dynamic, iteration
 class Meal {
   constructor(data) {
     this.id = data.id
@@ -69,20 +59,20 @@ Meal.prototype.mealHTML = function () {
 function listenForFormSubmit() {
   $( "form" ).submit(function( event ) {
     event.preventDefault();
-    // console.log("clicked")
     debugger
-
     var values = $(this).serializeArray();
     //submit to meal_schedules/id -> show page
     var posting = $.post('/meal_schedules.json', values);
     posting.done(function(mealData) {
-      document.querySelector("div#mealResult").innerHTML = `Meal Created!: ${mealData.meal.protein}`
-      // $("#mealProtein").text(mealData["meal"]["protein"]);
-      // $("#mealVegetable").text(mealData["meal"]["vegetable"]);
-      // $("#mealSide").text(mealData["meal"]["side"]);
-      // $("#mealBeverage").text(mealData["meal"]["beverage"]);
-      // $("#mealEatingTime").text(mealData["eating_time"]);
-      // $("#mealMealType").text(mealData["meal_type"]);
+      document.querySelector("div#mealResult").innerHTML =
+      `Meal Created!:
+      <h4>Meal: ${mealData.meal_type}</h4>
+      <P>Time: ${mealData.eating_time}</p>
+      <p>Protein: ${mealData.meal.protein}</p>
+      <p> Veggies: ${mealData.meal.vegetable}</p>
+      <p>Side: ${mealData.meal.side}</p>
+      <p>Beverage: ${mealData.meal.beverage}</p>
+      `
     })
   })
 }
