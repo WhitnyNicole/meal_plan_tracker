@@ -5,10 +5,10 @@ before_action :set_meal, only: [:show, :edit, :update]
 
   def index
     if params[:meal_plan_id] && mealplan = MealPlan.find_by_id(params[:meal_plan_id])
-      @meals = mealplan.meals.paginate(page: params[:page], per_page: 2)
+      @meals = mealplan.meals.paginate(page: params[:page], per_page: 5)
     # @meals = Meal.paginate(page: params[:page], per_page: 5)
     else
-      @meals = current_user.meals.paginate(page: params[:page], per_page: 2)
+      @meals = current_user.meals.paginate(page: params[:page], per_page: 5)
     end
   end
 
