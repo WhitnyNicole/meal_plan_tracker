@@ -58,9 +58,9 @@ function listenForFormSubmit() {
   $( "form" ).submit(function( event ) {
     event.preventDefault();
     debugger
-    var values = $(this).serializeArray();
+    let values = $(this).serializeArray();
     //submit to meal_schedules/id -> show page
-    var posting = $.post('/meal_schedules.json', values);
+    let posting = $.post('/meal_schedules.json', values);
     posting.done(function(mealData) {
       document.querySelector("div#mealResult").innerHTML =
       `Meal Created!:
