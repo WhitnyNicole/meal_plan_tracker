@@ -5,7 +5,7 @@
       </section>
     </div>
     <div class="col-md-8 well">
-       <h5><%= link_to "See Details For Meal!", meal_path(meal), {class: "myMeal", data: {meal_id: meal.id}} %></h5>
+       <h5><%= link_to "#{meal.protein.capitalize}", meal_path(meal), {class: "myMeal", data: {meal_id: meal.id}} %></h5>
         <ul id="meal-<%= meal.id %>">
           <li> Eaten on: <%= meal.try(:day).strftime("%b %d, %Y") %></li>
           <li>Favorite(T/F)? <%= meal.try(:favorite) %></li>
@@ -14,7 +14,7 @@
          <span class="quiet"></span><small>Created <%= time_ago_in_words(meal.created_at) %> ago</small></span>
        </p>
        <div class="mealplan-actions">
-        <%= link_to "View Meal Schedules", meal_meal_schedules_path(meal), class:"btn btn-xs btn-primary" %>
+        <%= link_to "View Meal Schedule", meal_meal_schedules_path(meal), class:"btn btn-xs btn-primary" %>
        </div>
 
     </div>
