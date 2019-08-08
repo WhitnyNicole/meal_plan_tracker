@@ -54,8 +54,6 @@ Meal.prototype.mealHTML = function () {
     `)
   }
 
-//step 1 hijack
-
 function listenForFormSubmit() {
   $( "form" ).submit(function( event ) {
     event.preventDefault();
