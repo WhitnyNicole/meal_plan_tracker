@@ -77,9 +77,12 @@ function listenForFormSubmit() {
   $( "form" ).submit(function( event ) {
     event.preventDefault();
     debugger
+    // serializeArray creates a JS array of objects ready to be encoded as a JSON string
     let values = $(this).serializeArray();
     //submit to meal_schedules/id -> show page
+    //.post() is jQuery, we pass it a URL and our values and it returns an object 
     let posting = $.post('/meal_schedules.json', values);
+    // using the posting object to specify what should happen when our request is done and how we will handle the response
     posting.done(function(mealData) {
       debugger
       // document.querySelector("div#mealResult").innerHTML =
