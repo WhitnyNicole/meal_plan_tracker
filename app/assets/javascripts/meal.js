@@ -2,25 +2,37 @@ $(document).ready(function() {
   addMealEventListener();
   listenForFormSubmit();
 })
+//^ document.ready (jquery browser event) refers to once the whole page loads
+//then calls on the function
 
+//listening on the DOM for events (click) to happen
 function addMealEventListener() {
+  //jquery selector (.class) and event handler (.on) and mouse event (.click), event object (prevent default)
+  //once click occurs, fires the function and pass the event of that click to the function
 $('.myMeal').on('click', function(event) {
   const mealId = $(this).data("mealId");
   event.preventDefault();
+  //prevent default, prevent page refresh
   fetch(`/meals/${mealId}.json`)
     .then(function(response) {
       return response.json();
     })
       .then(function(data) {
         let mymeal = new Meal(data)
-        // debugger
+        //data = json data
+        debugger
+        //turn json data into string oof HTML to put on webpage/DOM
+        //.innerHTML -> I am adding/appending to whatever HTML is there using +=
         let myMealHTML = mymeal.mealHTML()
-        document.getElementById(`meal-${mealId}`).innerHTML = myMealHTML
+        document.getElementById(`meal-${mealId}`).innerHTML += myMealHTML
       })
   });
 }
 
-//refactor to be more dynamic, iteration
+// instance method, takes in an object,
+// creating an instance of the post,
+// turns it into JS model object
+// has array of meal schedules
 class Meal {
   constructor(data) {
     this.id = data.id
@@ -31,6 +43,11 @@ class Meal {
     this.meal_schedules = data.meal_schedules
   }
 }
+
+//custom function that allows you to put HTML onto the page/DOM
+//calling the Meal class
+// this = instance of the post
+// .map method creates a new array with the results
 Meal.prototype.mealHTML = function () {
 
   let mealMealSchedule = this.meal_schedules.map(meal_schedule => {
