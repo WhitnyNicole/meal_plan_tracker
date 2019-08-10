@@ -22,7 +22,8 @@ $('.myMeal').on('click', function(event) {
         //data = json data
         debugger
         //turn json data into string oof HTML to put on webpage/DOM
-        //.innerHTML -> I am adding/appending to whatever HTML is there using +=
+        //javascript .innerHTML -> I am adding/appending to whatever HTML is there using +=
+        //to use jquery could use append() method
         let myMealHTML = mymeal.mealHTML()
         document.getElementById(`meal-${mealId}`).innerHTML += myMealHTML
       })
