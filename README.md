@@ -1,6 +1,6 @@
 # Meal Tracker:
 
-This is a simple CRUD/MVC app built with Ruby and the Rails framework that will allow a user to keep track of all of their meals
+This is a simple CRUD/MVC app built with Ruby and the Rails framework and JS frontend that will allow a user to keep track of all of their meals
 
 Users have the ability to:
 <br><br>
