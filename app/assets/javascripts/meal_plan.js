@@ -18,13 +18,12 @@ $('.mealPlans').on('click', function(event) {
   // debugger
   fetch(`/meal_plans.json`)
   // fetch(`/meal_plans/${mealPlanId}/meal_schedules.json`)
-
     .then(function(response) {
-      debugger
+      // debugger
       return response.json();
     })
       .then(function(meal_plans) {
-        debugger
+        // debugger
         console.log(meal_plans)
         meal_plans.forEach(function(data) {
         let mymealplan = new MealPlan(data)
@@ -51,8 +50,3 @@ MealPlan.prototype.showHTML = function () {
     </div>`
   )})
 }
-
-
-//plan.forEach(function(element) {
-  // console.log(element);
-// });
