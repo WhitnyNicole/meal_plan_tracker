@@ -25,7 +25,8 @@ $('.myMeal').on('click', function(event) {
         //javascript .innerHTML -> I am adding/appending to whatever HTML is there using +=
         //to use jquery could use append() method
         let myMealHTML = mymeal.mealHTML()
-        document.getElementById(`meal-${mealId}`).innerHTML += myMealHTML
+        // document.getElementById(`meal-${mealId}`).innerHTML += myMealHTML
+        $(`ul#meal-${mealId}`).append(myMealHTML)
       })
   });
 }
@@ -80,7 +81,9 @@ function listenForFormSubmit() {
     //submit to meal_schedules/id -> show page
     let posting = $.post('/meal_schedules.json', values);
     posting.done(function(mealData) {
-      document.querySelector("div#mealResult").innerHTML =
+      debugger
+      // document.querySelector("div#mealResult").innerHTML =
+      $("div#mealResult").html(
       `Meal Created!:
       <h4>Meal: ${mealData.meal_type}</h4>
       <P>Time: ${mealData.eating_time}</p>
@@ -88,7 +91,7 @@ function listenForFormSubmit() {
       <p> Veggies: ${mealData.meal.vegetable}</p>
       <p>Side: ${mealData.meal.side}</p>
       <p>Beverage: ${mealData.meal.beverage}</p>
-      `
+      `)
     })
   })
 }
