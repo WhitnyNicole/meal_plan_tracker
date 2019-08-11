@@ -38,7 +38,7 @@ before_action :set_meal, only: [:show, :edit, :update]
 #respond_to block
 #AMS
 
-  def show
+def show
   set_meal
   respond_to do |format|
     format.html { render :show }
