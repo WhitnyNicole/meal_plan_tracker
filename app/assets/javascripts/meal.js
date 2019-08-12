@@ -55,7 +55,7 @@ Meal.prototype.mealHTML = function () {
   }
 
 function listenForFormSubmit() {
-  $( "form" ).submit(function( event ) {
+  $( ".meal-form" ).submit(function( event ) {
     event.preventDefault();
     debugger
     let values = $(this).serializeArray();
