@@ -1,6 +1,6 @@
 # Meal Tracker:
 
-This is a simple CRUD/MVC app built with Ruby and the Rails framework and JS frontend that will allow a user to keep track of all of their meals
+This is a simple CRUD/MVC app built with Ruby and the Rails framework and JS frontend that will allow a user to keep track of all of their meals.
 
 Users have the ability to:
 <br><br>
@@ -10,10 +10,11 @@ Users have the ability to:
   -Create and save multiple meal schedules <br><br>
   -View and keep track of all of their meal plans/meals/meal schedules <br><br>
   -Edit or delete meal plans/meals/meal schedules as needed<br><br>
+  -Using JavaScript, users are able to view their meal information, meals in their meal plan and create a meal/meal schedule without a page refresh
 
 # How to get set up:
 
-To run this app, clone the repo and run bundle install and rake db:migrate and rake db:seed. Then run rails s to fire up a server. You should see the app running on localhost:3000.
+To run this app, clone the repo (rails_with_js branch) and run bundle install and rake db:migrate and rake db:seed. Then run rails s to fire up a server. You should see the app running on localhost:3000.
 
 ## Contributing
 
