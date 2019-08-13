@@ -16,3 +16,4 @@
 //= require_tree .
 //= require meal
 //= require meal_plan
+//= require meal_schedule
