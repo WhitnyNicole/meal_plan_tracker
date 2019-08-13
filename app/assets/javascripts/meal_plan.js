@@ -38,10 +38,21 @@ $('.mealPlans').on('click', function(event) {
   })
 }
 
+// MealPlan.prototype.showHTML = function () {
+//   return this.meals.map(meal => {  return (`
+//     <div class="col-md-8 well">
+//       <li> Protein: ${meal.protein} </li>
+//       <li> Vegetable: ${meal.vegetable} </li>
+//       <li> Side: ${meal.side} </li>
+//       <li> Beverage: ${meal.beverage} </li>
+//       </ul>
+//     </div>`
+//   )})
+// }
+
 MealPlan.prototype.showHTML = function () {
-  return this.meals.map(meal => {  return (`
+  let mealInfo = this.meals.map(meal => {  return (`
     <div class="col-md-8 well">
-      <ul> <h4> Meals in Mealplan ${this.goal} - ${this.description} </h4>
       <li> Protein: ${meal.protein} </li>
       <li> Vegetable: ${meal.vegetable} </li>
       <li> Side: ${meal.side} </li>
@@ -49,4 +60,5 @@ MealPlan.prototype.showHTML = function () {
       </ul>
     </div>`
   )})
+  return `<h3>${this.goal} - ${this.description}</h3>` + mealInfo 
 }
