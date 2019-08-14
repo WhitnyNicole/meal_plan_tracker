@@ -59,7 +59,7 @@ class MealPlansController < ApplicationController
 private
 
   def meal_plan_params
-    params.require(:meal_plan).permit(:goal, :description)
+    params.require(:meal_plan).permit(:goal, :description, :rating)
   end
 
   def meal_schedule_params
