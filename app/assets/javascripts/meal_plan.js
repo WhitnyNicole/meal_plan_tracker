@@ -59,20 +59,25 @@ $('.mealPlans').on('click', function(event) {
 //how to get access to other objects in JS
 
 function addUpVoteEventListener() {
+  var counter = 0;
   $("button#up").on('click', function(event) {
     event.preventDefault();
-    console.log('clicked')
-    debugger
+    counter++;
+    // // console.log('clicked')
+    // debugger
+    $("#plus").text(counter);
 
   })
 }
 
 function addDownVoteEventListener() {
+  var counter = 0;
   $("button#down").on('click', function(event) {
     event.preventDefault();
+    counter --;
     console.log('clicked')
-    debugger
-
+    // debugger
+    $("#minus").text(counter);
   })
 }
 
