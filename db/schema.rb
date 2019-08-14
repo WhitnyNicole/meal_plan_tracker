@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190606185033) do
+ActiveRecord::Schema.define(version: 20190814172351) do
 
   create_table "meal_plans", force: :cascade do |t|
     t.string   "goal"
     t.string   "description"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "rating",      default: 0
     t.index ["user_id"], name: "index_meal_plans_on_user_id"
   end
 
