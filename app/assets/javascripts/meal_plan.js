@@ -29,10 +29,10 @@ $('.mealPlans').on('click', function(event) {
         let mymealplan = new MealPlan(data)
         let myMealPlanHTML = mymealplan.showHTML()
         // debugger
-        let mealElement = document.getElementById(`all-meals-div`)
-        // let mealElement = $(`div#all-meals-div`)
-        mealElement.innerHTML += myMealPlanHTML
-        // mealElement.html(myMealPlanHTML)
+        // let mealElement = document.getElementById(`all-meals-div`)
+        let mealElement = $(`div#all-meals-div`)
+        // mealElement.innerHTML += myMealPlanHTML
+        mealElement.append(myMealPlanHTML)
       })
     });
   })

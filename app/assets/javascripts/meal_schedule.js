@@ -29,10 +29,10 @@ $('.mealSchedule').on('click', function(event) {
         let mymealschedule = new MealSchedule(meal_schedules)
         let myMealScheduleHTML = mymealschedule.showHTML()
         // debugger
-        let mealScheduleElement = document.getElementById(`all-meal-schedules-div`)
-        // let mealScheduleElement = $(`div#all-meal-schedules-div`)
-        mealScheduleElement.innerHTML += myMealScheduleHTML
-        // mealScheduleElement.html(myMealScheduleHTML)
+        // let mealScheduleElement = document.getElementById(`all-meal-schedules-div`)
+        let mealScheduleElement = $(`div#all-meal-schedules-div`)
+        // mealScheduleElement.innerHTML += myMealScheduleHTML
+        mealScheduleElement.append(myMealScheduleHTML)
       })
   });
 })
