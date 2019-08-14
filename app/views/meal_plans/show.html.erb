@@ -5,6 +5,9 @@
   <ul>
     <li><strong><%= @meal_plan.goal %></strong> (Goal)</li>
     <li><strong><%= @meal_plan.description%></strong> (Description)</li>
+    <li id="here">Rate this meal plan below: <%= @meal_plan.rating%><li>
+    <button id="up">Up vote</button>
+    <button id="down">Down vote</button>
 
 </ul>
 <div class="mealplan-actions">
