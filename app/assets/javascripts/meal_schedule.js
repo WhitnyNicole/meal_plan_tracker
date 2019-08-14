@@ -19,12 +19,12 @@ $('.mealSchedule').on('click', function(event) {
   fetch(`/meal_schedules.json`)
   // fetch(`/meal_plans/${mealPlanId}/meal_schedules.json`)
     .then(function(response) {
-      // debugger
+      debugger
       return response.json();
     })
       .then(function(meal_schedules) {
-        // debugger
-        // console.log(meal_schedules)
+        debugger
+        console.log(meal_schedules)
         meal_schedules.forEach(function(meal_schedules) {
         let mymealschedule = new MealSchedule(meal_schedules)
         let myMealScheduleHTML = mymealschedule.showHTML()
