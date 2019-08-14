@@ -44,6 +44,7 @@ Meal.prototype.mealHTML = function () {
   return (`
     <div class="col-md-8 well">
       <ul> <h5>Meal Info: </h5>
+        <li>Meal Id: ${this.id}</li>
         <li>Protein: ${this.protein}</li>
         <li>Vegetable: ${this.vegetable}</li>
         <li>Side: ${this.side}</li>

@@ -53,6 +53,7 @@ $('.mealPlans').on('click', function(event) {
 MealPlan.prototype.showHTML = function () {
   let mealInfo = this.meals.map(meal => {  return (`
     <div class="col-md-8 well">
+      <li> Meal Plan Id: ${this.id} </li>
       <li> Protein: ${meal.protein} </li>
       <li> Vegetable: ${meal.vegetable} </li>
       <li> Side: ${meal.side} </li>
