@@ -29,10 +29,10 @@ $('.mealPlans').on('click', function(event) {
         let mymealplan = new MealPlan(data)
         let myMealPlanHTML = mymealplan.showHTML()
         // debugger
-        // let mealElement = document.getElementById(`all-meals-div`)
-        let mealElement = $(`div#all-meals-div`)
-        // mealElement.innerHTML = myMealPlanHTML
-        mealElement.html(myMealPlanHTML)
+        let mealElement = document.getElementById(`all-meals-div`)
+        // let mealElement = $(`div#all-meals-div`)
+        mealElement.innerHTML += myMealPlanHTML
+        // mealElement.html(myMealPlanHTML)
       })
     });
   })
@@ -60,5 +60,5 @@ MealPlan.prototype.showHTML = function () {
       </ul>
     </div>`
   )})
-  return `<h3>${this.goal} - ${this.description}</h3>` + mealInfo 
+  return `<h3>${this.goal} - ${this.description}</h3>` + mealInfo
 }
