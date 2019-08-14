@@ -1,5 +1,7 @@
 $(document).ready(function() {
   addMealPlanEventListener();
+  addUpVoteEventListener();
+  addDownVoteEventListener();
 })
 
 class MealPlan {
@@ -49,6 +51,30 @@ $('.mealPlans').on('click', function(event) {
 //     </div>`
 //   )})
 // }
+
+//when user clicks up vote it adds 1 to this meal plan
+//when user clicks down vote it takes away 1
+
+//need to access Meal Plan rating attribute
+//how to get access to other objects in JS
+
+function addUpVoteEventListener() {
+  $("button#up").on('click', function(event) {
+    event.preventDefault();
+    console.log('clicked')
+    debugger
+
+  })
+}
+
+function addDownVoteEventListener() {
+  $("button#down").on('click', function(event) {
+    event.preventDefault();
+    console.log('clicked')
+    debugger
+
+  })
+}
 
 MealPlan.prototype.showHTML = function () {
   let mealInfo = this.meals.map(meal => {  return (`
