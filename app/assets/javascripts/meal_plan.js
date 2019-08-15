@@ -52,34 +52,6 @@ $('.mealPlans').on('click', function(event) {
 //   )})
 // }
 
-//when user clicks up vote it adds 1 to this meal plan
-//when user clicks down vote it takes away 1
-
-//need to access Meal Plan rating attribute
-//how to get access to other objects in JS
-
-function addUpVoteEventListener() {
-  var counter = 0;
-  $("button#up").on('click', function(event) {
-    event.preventDefault();
-    counter++;
-    // // console.log('clicked')
-    // debugger
-    $("#plus").text(counter);
-
-  })
-}
-
-function addDownVoteEventListener() {
-  var counter = 0;
-  $("button#down").on('click', function(event) {
-    event.preventDefault();
-    counter --;
-    console.log('clicked')
-    // debugger
-    $("#minus").text(counter);
-  })
-}
 
 MealPlan.prototype.showHTML = function () {
   let mealInfo = this.meals.map(meal => {  return (`
@@ -93,4 +65,65 @@ MealPlan.prototype.showHTML = function () {
     </div>`
   )})
   return `<h3>${this.goal} - ${this.description}</h3>` + mealInfo
+}
+
+
+//when user clicks up vote it adds 1 to this meal plan
+//when user clicks down vote it takes away 1
+
+//need to access Meal Plan rating attribute
+//how to get access to other objects in JS
+
+// function addUpVoteEventListener() {
+//   var counter = 0;
+//   $("button#up").on('click', function(event) {
+//     event.preventDefault();
+//     counter++;
+//     // // console.log('clicked')
+//     debugger
+//     $("#plus").text(counter);
+// debugger
+//   })
+// }
+
+//$("#minus").val(); = 1
+
+function addUpVoteEventListener() {
+$("button.up").on('click', function(event) {
+  debugger
+let upVoteButtonPressed = event.target.className === "up"
+
+if (upVoteButtonPressed) {
+  // let id = event.target.parentElement.dataset.id
+  let like = event.target.previousElementSibling
+  let likeCount = parseInt(event.target.previousElementSibling.innerText)
+      like.innerText = `${++likeCount} likes`
+debugger
+
+  fetch('/meal_plans' + '/' + 15, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      "likes": likeCount
+      })
+
+    })
+    .then(response => response.json())
+    .then(console.log)
+  }
+})}
+
+
+function addDownVoteEventListener() {
+  var counter = 0;
+  $("button#down").on('click', function(event) {
+    event.preventDefault();
+    counter --;
+    console.log('clicked')
+    // debugger
+    $("#minus").text(counter);
+    debugger
+  })
 }
