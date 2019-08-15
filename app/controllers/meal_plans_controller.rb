@@ -43,8 +43,12 @@ class MealPlansController < ApplicationController
 
   def update
     if @meal_plan.update(meal_plan_params)
-      flash[:success] = "Your changes were saved!"
-      redirect_to meal_plan_path(@meal_plan)
+      respond_to do |format|
+        format.html { redirect_to meal_plan_path(@meal_plan)}
+        format.json { render json: @meal_plan, status: 200 }
+      end
+      # flash[:success] = "Your changes were saved!"
+      # redirect_to meal_plan_path(@meal_plan)
     else
       render :edit
     end
