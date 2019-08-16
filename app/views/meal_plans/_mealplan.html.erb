@@ -38,4 +38,15 @@
        <% end %>
     </div>
   </div>
+
+  <div class="row">
+  <div class="pull-right liking">
+    <%= link_to like_meal_plan_path(mealplan, like: true), method: :post do %>
+      <i class="glyphicon glyphicon-thumbs-up"></i>
+    <% end %> <%= mealplan.thumbs_up_total %> ||
+    <%= link_to like_meal_plan_path(mealplan, like: false), method: :post do %>
+      <i class="glyphicon glyphicon-thumbs-down"></i>
+    <% end %> <%= mealplan.thumbs_down_total %>
+  </div>
+</div>
 <% end %>

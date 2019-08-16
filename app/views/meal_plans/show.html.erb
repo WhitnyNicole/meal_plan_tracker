@@ -5,13 +5,19 @@
   <ul>
     <li><strong><%= @meal_plan.goal %></strong> (Goal)</li>
     <li><strong><%= @meal_plan.description%></strong> (Description)</li>
-    <li id="currentRating">Rate this meal plan below: <%= @meal_plan.rating%></li>
-    <li>Down Votes: </li>
-    <p id="minus">0 dislikes</p>
-    <li> Up Votes: </li>
-    <p id="plus"> 0 likes</p>
-    <button class="up">Up vote</button>
-    <button id="down">Down vote</button>
+
+    <br><br>
+    
+    <div class="row">
+      <div class="row col-md-8 col-md-offset-2">
+        <%= link_to like_meal_plan_path(@meal_plan, like: true), method: :post do %>
+          <i class="glyphicon glyphicon-thumbs-up"></i>
+        <% end %> <%= @meal_plan.thumbs_up_total %> ||
+        <%= link_to like_meal_plan_path(@meal_plan, like: false), method: :post do %>
+          <i class="glyphicon glyphicon-thumbs-down"></i>
+        <% end %> <%= @meal_plan.thumbs_down_total %>
+      </div>
+    </div>
 
 </ul>
 <div class="mealplan-actions">
