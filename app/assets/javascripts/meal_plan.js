@@ -1,7 +1,7 @@
 $(document).ready(function() {
   addMealPlanEventListener();
-  addThumbsUpEventListener();
-  addThumbsDownEventListener();
+  // addThumbsUpEventListener();
+  // addThumbsDownEventListener();
 })
 
 class MealPlan {
@@ -68,6 +68,22 @@ MealPlan.prototype.showHTML = function () {
   return `<h3>${this.goal} - ${this.description}</h3>` + mealInfo
 }
 
+var like = document.getElementsByClassName("glyphicon.glyphicon-thumbs-up"),
+count = 0
+like.onclick = function(){
+  count += 1;
+  // button.innerHTML = " + likes + count"
+};
+
+
+var dislike = document.getElementsByClassName("glyphicon.glyphicon-thumbs-down"),
+count = 0
+dislike.onclick = function(){
+  count += 1;
+  // button.innerHTML = " + likes + count"
+};
+
+
 
 //when user clicks up vote it adds 1 to this meal plan
 //when user clicks down vote it takes away 1
@@ -89,21 +105,21 @@ MealPlan.prototype.showHTML = function () {
 
 //$("#minus").val(); = 1
 
-function addThumbsUpEventListener() {
+// function addThumbsUpEventListener() {
   // var counter = 0;
 // $('.glyphicon.glyphicon-thumbs-up').on('click', function(event) {
 // event.preventDefault();
 
-debugger
+// debugger
 // counter++;
 // $("div.pull-left.liking").html(`${this.likes}`);
-  }
+  // }
 // }
 
-function addThumbsDownEventListener() {
+// function addThumbsDownEventListener() {
 // $("i.glyphicon.glyphicon-thumbs-down").on('click', function(event) {
 // event.preventDefault
-debugger
+// debugger
 // let votes = event.target.nextSibling.nodeType
 // let x = document.getElementsByClassName("glyphicon.glyphicon-thumbs-up").text.innerHTML
-  }
+  // }
