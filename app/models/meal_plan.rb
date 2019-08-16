@@ -9,4 +9,12 @@ class MealPlan < ApplicationRecord
   validates :goal, :description, presence: true
   default_scope -> { order(updated_at: :desc)}
 
+  def thumbs_up_total
+    self.likes.where(like: true).size
+  end
+
+  def thumbs_down_total
+    self.likes.where(like: false).size    
+  end
+
 end
