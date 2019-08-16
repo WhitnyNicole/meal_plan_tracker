@@ -23,7 +23,8 @@ class MealPlansController < ApplicationController
       # redirect_to :back
     else
       # flash[:danger] = "You can only like/dislike a meal plan once"
-      redirect_to :back
+      # redirect_to :back
+      redirect_to meal_plans_path
     end
   end
 
