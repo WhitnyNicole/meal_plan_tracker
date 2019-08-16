@@ -22,4 +22,11 @@ Rails.application.routes.draw do
   resources :meals do
     resources :meal_schedules, only: [:new, :index, :create]
   end
+
+  resources :meal_plans do
+  resources :likes, only: [:create]
+  member do
+    post 'like'
+  end
+end
 end
