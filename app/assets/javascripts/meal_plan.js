@@ -1,7 +1,7 @@
 $(document).ready(function() {
   addMealPlanEventListener();
-  addUpVoteEventListener();
-  addDownVoteEventListener();
+  addThumbsUpEventListener();
+  addThumbsDownEventListener();
 })
 
 class MealPlan {
@@ -10,6 +10,7 @@ class MealPlan {
     this.goal = data.goal
     this.description = data.description
     this.meals = data.meals
+    this.likes = data.likes
   }
 }
 
@@ -88,42 +89,21 @@ MealPlan.prototype.showHTML = function () {
 
 //$("#minus").val(); = 1
 
-function addUpVoteEventListener() {
-$("button.up").on('click', function(event) {
-  debugger
-let upVoteButtonPressed = event.target.className === "up"
+function addThumbsUpEventListener() {
+  // var counter = 0;
+// $('.glyphicon.glyphicon-thumbs-up').on('click', function(event) {
+// event.preventDefault();
 
-if (upVoteButtonPressed) {
-  // let id = event.target.parentElement.dataset.id
-  let like = event.target.previousElementSibling
-  let likeCount = parseInt(event.target.previousElementSibling.innerText)
-      like.innerText = `${++likeCount} likes`
 debugger
-
-  fetch('/meal_plans' + '/' + 15, {
-    method: 'PATCH',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      "likes": likeCount
-      })
-
-    })
-    .then(response => response.json())
-    .then(console.log)
+// counter++;
+// $("div.pull-left.liking").html(`${this.likes}`);
   }
-})}
+// }
 
-
-function addDownVoteEventListener() {
-  var counter = 0;
-  $("button#down").on('click', function(event) {
-    event.preventDefault();
-    counter --;
-    console.log('clicked')
-    // debugger
-    $("#minus").text(counter);
-    debugger
-  })
-}
+function addThumbsDownEventListener() {
+// $("i.glyphicon.glyphicon-thumbs-down").on('click', function(event) {
+// event.preventDefault
+debugger
+// let votes = event.target.nextSibling.nodeType
+// let x = document.getElementsByClassName("glyphicon.glyphicon-thumbs-up").text.innerHTML
+  }

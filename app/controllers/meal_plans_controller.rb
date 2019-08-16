@@ -15,10 +15,14 @@ class MealPlansController < ApplicationController
   def like
     like = Like.create(like: params[:like], user: current_user, meal_plan: @meal_plan)
     if like.valid?
-      flash[:success] = "Your selection was succesful"
-      redirect_to :back
+      respond_to do |format|
+        format.html { render :show }
+        format.json { render json: @meal_plan, status: 200 }
+      end
+      # flash[:success] = "Your selection was succesful"
+      # redirect_to :back
     else
-      flash[:danger] = "You can only like/dislike a meal plan once"
+      # flash[:danger] = "You can only like/dislike a meal plan once"
       redirect_to :back
     end
   end
