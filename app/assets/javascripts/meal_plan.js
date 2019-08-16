@@ -1,7 +1,7 @@
 $(document).ready(function() {
   addMealPlanEventListener();
-  // addThumbsUpEventListener();
-  // addThumbsDownEventListener();
+  addThumbsUpEventListener();
+  addThumbsDownEventListener();
 })
 
 class MealPlan {
@@ -68,58 +68,19 @@ MealPlan.prototype.showHTML = function () {
   return `<h3>${this.goal} - ${this.description}</h3>` + mealInfo
 }
 
-var like = document.getElementsByClassName("glyphicon.glyphicon-thumbs-up"),
-count = 0
-like.onclick = function(){
-  count += 1;
-  // button.innerHTML = " + likes + count"
-};
 
+function addThumbsUpEventListener() {
+let counter = 0;
+$('.glyphicon.glyphicon-thumbs-up').on('click', function(event) {
+    event.preventDefault();
+    counter++;
+  })
+}
 
-var dislike = document.getElementsByClassName("glyphicon.glyphicon-thumbs-down"),
-count = 0
-dislike.onclick = function(){
-  count += 1;
-  // button.innerHTML = " + likes + count"
-};
-
-
-
-//when user clicks up vote it adds 1 to this meal plan
-//when user clicks down vote it takes away 1
-
-//need to access Meal Plan rating attribute
-//how to get access to other objects in JS
-
-// function addUpVoteEventListener() {
-//   var counter = 0;
-//   $("button#up").on('click', function(event) {
-//     event.preventDefault();
-//     counter++;
-//     // // console.log('clicked')
-//     debugger
-//     $("#plus").text(counter);
-// debugger
-//   })
-// }
-
-//$("#minus").val(); = 1
-
-// function addThumbsUpEventListener() {
-  // var counter = 0;
-// $('.glyphicon.glyphicon-thumbs-up').on('click', function(event) {
-// event.preventDefault();
-
-// debugger
-// counter++;
-// $("div.pull-left.liking").html(`${this.likes}`);
-  // }
-// }
-
-// function addThumbsDownEventListener() {
-// $("i.glyphicon.glyphicon-thumbs-down").on('click', function(event) {
-// event.preventDefault
-// debugger
-// let votes = event.target.nextSibling.nodeType
-// let x = document.getElementsByClassName("glyphicon.glyphicon-thumbs-up").text.innerHTML
-  // }
+function addThumbsDownEventListener() {
+let counter = 0;
+$("i.glyphicon.glyphicon-thumbs-down").on('click', function(event) {
+  event.preventDefault
+  counter++;
+  })
+}
