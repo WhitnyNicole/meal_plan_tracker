@@ -68,20 +68,41 @@ MealPlan.prototype.showHTML = function () {
   return `<h3>${this.goal} - ${this.description}</h3>` + mealInfo
 }
 
-let counter = 0;
-function addThumbsUpEventListener() {
 
-$('i.glyphicon.glyphicon-thumbs-up').on('click', function() {
-    // event.preventDefault();
-    counter++;
-    $("div#likes").html("you liked this meal");
+
+function addThumbsUpEventListener(){
+  $('#yes').on('click', function(event){
+    counter = 0;
+    event.preventDefault();
+    $("div#likes").append("you liked this meal");
+     counter++;
   })
 }
 
-function addThumbsDownEventListener() {
-let counter = 0;
-$("i.glyphicon.glyphicon-thumbs-down").on('click', function(event) {
-  // event.preventDefault();
-  counter++;
+function addThumbsDownEventListener(){
+  $('#no').on('click', function(event){
+    counter = 0;
+    event.preventDefault();
+    $("div#dislikes").html("you disliked this meal");
+     counter++;
   })
 }
+
+// function addThumbsUpEventListener() {
+//   let counter = 0;
+//   $('i.glyphicon.glyphicon-thumbs-up').on('click', function() {
+//     // event.preventDefault();
+//   $("div#likes").html("you liked this meal");
+//   counter++;
+//
+//   })
+// }
+//
+// function addThumbsDownEventListener() {
+//   let counter = 0;
+//   $("i.glyphicon.glyphicon-thumbs-down").on('click', function() {
+//   // event.preventDefault();
+//   $("div#dislikes").html("you disiked this meal");
+//   counter++;
+//   })
+// }
