@@ -68,25 +68,39 @@ MealPlan.prototype.showHTML = function () {
   return `<h3>${this.goal} - ${this.description}</h3>` + mealInfo
 }
 
+function addThumbsUpEventListener() {
+  var likeButton = document.getElementById("yes");
 
-
-function addThumbsUpEventListener(){
-  $('#yes').on('click', function(event){
-    counter = 0;
-    event.preventDefault();
-    $("div#likes").append("you liked this meal");
-     counter++;
-  })
+  likeButton.onclick = function() {
+    likeButton.style.backgroundColor = "green";
+  }
 }
 
-function addThumbsDownEventListener(){
-  $('#no').on('click', function(event){
-    counter = 0;
-    event.preventDefault();
-    $("div#dislikes").html("you disliked this meal");
-     counter++;
-  })
+function addThumbsDownEventListener() {
+  var dislikeButton = document.getElementById("no");
+
+  dislikeButton.onclick = function() {
+    dislikeButton.style.backgroundColor = "red";
+  }
 }
+
+// function addThumbsUpEventListener(){
+//   $('#yes').on('click', function(event){
+//     counter = 0;
+//     event.preventDefault();
+//     $("div#likes").append("you liked this meal");
+//      counter++;
+//   })
+// }
+
+// function addThumbsDownEventListener(){
+//   $('#no').on('click', function(event){
+//     counter = 0;
+//     event.preventDefault();
+//     $("div#dislikes").html("you disliked this meal");
+//      counter++;
+//   })
+// }
 
 // function addThumbsUpEventListener() {
 //   let counter = 0;
