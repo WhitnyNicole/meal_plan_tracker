@@ -22,7 +22,7 @@ class MealPlansController < ApplicationController
       # flash[:success] = "Your selection was succesful"
       # redirect_to :back
     else
-      # flash[:danger] = "You can only like/dislike a meal plan once"
+      flash[:danger] = "You can only like/dislike a meal plan once"
       # redirect_to :back
       redirect_to meal_plans_path
     end

@@ -14,7 +14,7 @@ class MealPlan < ApplicationRecord
   end
 
   def thumbs_down_total
-    self.likes.where(like: false).size    
+    self.likes.where(like: false).size
   end
 
 end
