@@ -16,7 +16,7 @@ class MealPlansController < ApplicationController
     like = Like.create(like: params[:like], user: current_user, meal_plan: @meal_plan)
     if like.valid?
       respond_to do |format|
-        format.html { render :show }
+        format.html { redirect_to meal_plan_path(@meal_plan)  }
         format.json { render json: @meal_plan, status: 200 }
       end
       # flash[:success] = "Your selection was succesful"
