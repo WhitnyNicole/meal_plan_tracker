@@ -68,19 +68,20 @@ MealPlan.prototype.showHTML = function () {
   return `<h3>${this.goal} - ${this.description}</h3>` + mealInfo
 }
 
-
-function addThumbsUpEventListener() {
 let counter = 0;
-$('.glyphicon.glyphicon-thumbs-up').on('click', function(event) {
-    event.preventDefault();
+function addThumbsUpEventListener() {
+
+$('i.glyphicon.glyphicon-thumbs-up').on('click', function() {
+    // event.preventDefault();
     counter++;
+    $("div#likes").html("you liked this meal");
   })
 }
 
 function addThumbsDownEventListener() {
 let counter = 0;
 $("i.glyphicon.glyphicon-thumbs-down").on('click', function(event) {
-  event.preventDefault
+  // event.preventDefault();
   counter++;
   })
 }
