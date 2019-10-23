@@ -1,8 +1,5 @@
 class UsersController < ApplicationController
-# before_action :require_same_user, only: [:show]
-before_action :redirect_if_not_logged_in, only: [:show]
-
-# before_action :require_login
+  before_action :redirect_if_not_logged_in, only: [:show]
 
   def new
     @user = User.new
@@ -14,7 +11,6 @@ before_action :redirect_if_not_logged_in, only: [:show]
       flash[:success] = "Welcome #{@user.name} to your Meal Tracker!"
       session[:user_id] = @user.id
       redirect_to user_path(@user)
-      # redirect_to meal_plans_path(@meal_plan)
     else
       render :new
     end
@@ -25,23 +21,8 @@ before_action :redirect_if_not_logged_in, only: [:show]
     @user_mealplans = @user.meal_plans.paginate(page: params[:page], per_page: 2)
   end
 
-  private
-    def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
-    end
-
-  # def set_user
-  #   @user = User.find(params[:id])
-  # end
-
-  # def require_login
-  #   return head(:forbidden) unless session.include? :user_id
-  # end
-
-  # def require_same_user
-  #   if current_user != @user
-  #     flash[:danger] = "You can only view your own account!"
-  #     redirect_to meals_path
-  #   end
-  # end
+private
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
 end

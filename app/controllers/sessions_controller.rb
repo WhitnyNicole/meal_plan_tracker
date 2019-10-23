@@ -21,7 +21,6 @@ class SessionsController < ApplicationController
     else
       flash[:error] = "Sorry, there was an error with your account!"
       redirect_to '/login'
-      # render :login
     end
   end
 
@@ -36,24 +35,9 @@ class SessionsController < ApplicationController
       redirect_to user_path(@user)
   end
 
-# def create
-#   @user = User.find_by(email: params[:user][:email])
-#    return head(:forbidden) unless @user.authenticate(params[:password])
-#    session[:user_id] = @user.id
-#    redirect_to user_path(@user)
-#   else
-#    flash[:error] = "Sorry, there was an error creating your account!"
-#    redirect_to '/login'
-#   end
-# end
-
-
-
   def home
     redirect_to meal_plans_path if logged_in?
   end
-
-
 
   private
     def auth
